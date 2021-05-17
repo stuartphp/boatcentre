@@ -1,60 +1,60 @@
 @extends('layouts.site')
 @section('content')
-
-<div class="page-heading-wapper banner">
-    <div class="container">
-        <h1 class="page-heading">GET IN TOUCH</h1>
-    </div>
-</div>
-<div class="page-content main-container no-sidebar">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 main-content">
-                <div class="contact-form">
-                    <div id="message-box-conact"></div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p><input id="name" class="input-text" type="text" placeholder="YOUR NAME*"></p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p><input id="email" class="input-text" type="text" placeholder="YOUR EMAIL*"></p>
-                        </div>
-
-                    </div>
-                    <p>
-                        <textarea id="content" class="input-text" rows="8" placeholder="YOUR MESSAGE*"></textarea>
-                    </p>
-                    <button id="btn-send-contact" class="button">SEND</button>
-                </div>
-                <div class="margin-top-80">
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <h4 class="margin-top-30">ADDRESS</h4>
-                            <p>200 West Broadway New York, NY, United States   </p>
-                        </div>
-                        <div class="col-sm-3">
-                            <h4 class="margin-top-30">EMAIL</h4>
-                            <p>info@store.com</p>
-                        </div>
-                        <div class="col-sm-3">
-                            <h4 class="margin-top-30">STORE HOURS</h4>
-                            <p>Monday-Saturday / 10 am to 8 pm <br> Sunday /  CLOSED</p>
-                        </div>
-                        <div class="col-sm-3">
-                            <h4 class="margin-top-30">SOCIAL</h4>
-                            <div class="block-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-pinterest"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+   
+<div class="section-title-page area-bg area-bg_dark area-bg_op_60">
+        <div class="area-bg__inner">
+          <div class="container text-center">
+            <h1 class="b-title-page">CONTACT US</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="blog.html">Pages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contact</li>
+              </ol>
+            </nav>
+            <!-- end .breadcrumb-->
+            
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+      <!-- end .b-title-page-->
+   <div class="l-main-content">
+        <div class="container">
+    
+            
+            
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="map" id="map"></div>
+              </div>
+              <div class="col-md-6">
+                <section class="section-form-contacts">
+                  <h2 class="ui-title-inner">Send a Message</h2>
+                  <p>Nulla pariatur excepteur sint occaecat cupidatat no proident culpa qui officia des mollit anim id est lab orum ut perspiciatis unde omnis iste natuser sit volupta tem accusantium sed ipsum laudantium.</p>
+                  <div id="success"></div>
+                  <form class="b-form-contacts ui-form" id="contactForm" action="#" method="post">
+                    <div class="form-group">
+                      <input class="form-control" id="user-name" type="text" name="user-name" placeholder="Your Name" required="required">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" id="user-email" type="email" name="user-email" placeholder="email">
+                    </div>
+                    <div class="form-group">
+                      <textarea class="form-control" id="user-message" rows="5" placeholder="Message" required="required"></textarea>
+                    </div>
+                    <button class="btn btn-primary">Send Message</button>
+                  </form>
+                </section>
+                <!-- end .b-form-contact-->
+              </div>
+            </div>
+            
+            
+            
+        </div>
+      </div>
+        
+        
 
 @endsection
