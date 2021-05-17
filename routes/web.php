@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\Site\MainController::class, 'index']);
+Route::get('/contact-us', [App\Http\Controllers\Site\ContactController::class, 'index']);
 
 Auth::routes();
 
