@@ -7,9 +7,7 @@
                         <div class="b-main-filter__label">Select Boat Type</div>
                         <div class="b-main-filter__selector">
                             <select class="selectpicker" data-width="100%" data-style="ui-select">
-                                <option>Celebrations</option>
-                                <option>Fishing</option>
-                                <option>Journey</option>
+                                {!! $categories !!}
                             </select>
                         </div>
                     </div>
