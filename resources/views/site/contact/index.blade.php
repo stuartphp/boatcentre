@@ -1,6 +1,7 @@
 @extends('layouts.site')
+@section('title', 'Contact Us')
 @section('content')
-   
+
 <div class="section-title-page area-bg area-bg_dark area-bg_op_60">
         <div class="area-bg__inner">
           <div class="container text-center">
@@ -13,17 +14,17 @@
               </ol>
             </nav>
             <!-- end .breadcrumb-->
-            
+
           </div>
         </div>
       </div>
       <!-- end .b-title-page-->
    <div class="l-main-content">
         <div class="container">
-    
-            
-            
-            
+
+
+
+
             <div class="row">
               <div class="col-md-6">
                 <div class="map" id="map"></div>
@@ -49,12 +50,12 @@
                 <!-- end .b-form-contact-->
               </div>
             </div>
-            
-            
-            
+
+
+
         </div>
       </div>
-        
-        
+
+
 
 @endsection

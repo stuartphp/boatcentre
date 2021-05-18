@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Nevica / Home</title>
+	<title>BoatCentre / @yield('title', 'Home')</title>
 	<meta content="" name="description">
 	<meta content="" name="keywords">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,20 +73,21 @@
 						<div class="col-xl d-none d-xl-block">
 							<nav class="navbar navbar-expand-lg justify-content-end" id="nav">
 								<ul class="yamm main-menu navbar-nav">
-									<li class="nav-item active"><a class="nav-link" href="/">Home</a> </li>
-                                    <li class="nav-item "><a class="nav-link" href="about.html">About Us</a> </li>
-                                    
+									<li class="nav-item"><a class="nav-link {{ request()->is('/') ? 'open' : '' }}" href="/">Home</a> </li>
+                                    <li class="nav-item "><a class="nav-link" href="/showroom">Showroom</a> </li>
+                                    <li class="nav-item "><a class="nav-link" href="/accesories">Accesories</a> </li>
+
 									<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#">Our Fleet</a>
-										<div class="dropdown-menu"> 
-                                            <a class="dropdown-item" href="listing.html">Boats Listing 1</a> 
-                                            <a class="dropdown-item" href="listing-sidebar.html">Boats Listing 2</a> 
-                                            <a class="dropdown-item" href="details.html">Boats Details</a> 
+										<div class="dropdown-menu">
+                                            <a class="dropdown-item" href="listing.html">Boats Listing 1</a>
+                                            <a class="dropdown-item" href="listing-sidebar.html">Boats Listing 2</a>
+                                            <a class="dropdown-item" href="details.html">Boats Details</a>
                                         </div>
 									</li>
-                                    <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="tours.html">Our Tours</a>
-										<div class="dropdown-menu"> 
-                                            <a class="dropdown-item" href="tours.html">Tours Listing</a> 
-                                            <a class="dropdown-item" href="tour.html">Tour Details</a>  
+                                    {{-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="tours.html">Our Tours</a>
+										<div class="dropdown-menu">
+                                            <a class="dropdown-item" href="tours.html">Tours Listing</a>
+                                            <a class="dropdown-item" href="tour.html">Tour Details</a>
                                         </div>
 									</li>
 									<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#">News</a>
@@ -95,10 +96,11 @@
                                         <a class="dropdown-item" href="blog-grid.html">Blog grid</a>
                                         <a class="dropdown-item" href="post.html">Blog post</a>
                                         </div>
-									</li>
-									<li class="nav-item"><a class="nav-link" href="/contact-us">Contact</a></li>
-									<li class="nav-item"><a class="nav-link" href="/login">Login / Register</a></li>
-								</ul> 
+									</li> --}}
+									<li class="nav-item"><a class="nav-link {{ request()->is('contact-us') ? 'open' : '' }}" href="/contact-us">Contact</a></li>
+									<li class="nav-item"><a class="nav-link {{ request()->is('login') ? 'open' : '' }}" href="/login">Login</a></li>
+									<li class="nav-item"><a class="nav-link {{ request()->is('register') ? 'open' : '' }}" href="/register">Register</a></li>
+								</ul>
 								<span class="header-main__link btn_header_search"><i class="ic icon-magnifier"></i></span>
 						</div>
 					</div>
@@ -113,7 +115,9 @@
 					<div class="col-lg-3 col-md-6">
 						<div class="footer-section">
 							<a class="footer__logo" href="/"><img class="img-fluid" src="/images/logo-light.png" alt="Logo"></a>
-							<div class="footer-info">Ceipisicing elit sed do eiusmod tempor laboe dolore magna aliqa Ut enim ad minim veniam quis nostrud exercitation ullam co laboris nis aliquip comsecd.</div>
+							<div class="footer-info">
+                                Established in 1998 , was borne with the passion of boating and fishing by the owner and CEO Shandon Hawman.
+                            </div>
 						</div>
 						<section class="footer-section">
 							<h3 class="footer-section__title footer-section__title_sm">Subscribe Newsletter</h3>
@@ -132,9 +136,9 @@
 								<li><a href="#">Yacht Party Event</a></li>
 								<li><a href="#">Corporate Event</a></li>
 								<li><a href="#">Fishing Cruiser</a></li>
-								<li><a href="#">Overnight Stay</a></li>
+								{{-- <li><a href="#">Overnight Stay</a></li>
 								<li><a href="#">Birthday Party Yacht</a></li>
-								<li><a href="#">Boar Rentals</a></li>
+								<li><a href="#">Boar Rentals</a></li> --}}
 							</ul>
 						</section>
 					</div>
@@ -147,9 +151,9 @@
 								<li><a href="#">About us</a></li>
 								<li><a href="#">Boat Fleet</a></li>
 								<li><a href="#">Parts Shop </a></li>
-								<li><a href="#">Contact us</a></li>
+								{{-- <li><a href="#">Contact us</a></li>
 								<li><a href="#">Buy or Sell Boats</a></li>
-								<li><a href="#">Featured Vehicles</a></li>
+								<li><a href="#">Featured Vehicles</a></li> --}}
 							</ul>
 						</section>
 					</div>
@@ -157,21 +161,22 @@
 						<section class="footer-section">
 							<h3 class="footer-section__title">Get In Touch</h3>
 							<div class="footer-contacts">
-								<div class="footer-contacts__item"><i class="ic icon-location-pin"></i>Fairview Ave, El Monte, CA 91732</div>
+								<div class="footer-contacts__item"><i class="ic icon-location-pin"></i>16 Smith St, Rynfield, Benoni, Gauteng, South Africa 1501</div>
 								<div class="footer-contacts__item"><i class="ic icon-envelope"></i><a href="mailto:info@boatcentre.co.za">info@boatcentre.co.za</a></div>
-								<div class="footer-contacts__item"><i class="ic icon-earphones-alt"></i> Phone: <a class="footer-contacts__phone" href="tel:+27832303935">+27 83 230 39359</a> </div>
+								<div class="footer-contacts__item"><i class="ic icon-earphones-alt"></i> Phone: <a class="footer-contacts__phone" href="tel:+27832303935">+27 83 230 3935</a> </div>
 							</div>
 							<ul class="footer-soc list-unstyled">
 								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li>
 								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
 								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li>
 								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
-							</ul><a class="btn btn-white" href="#">confirm booking</a> </section>
+							</ul>
+                            {{-- <a class="btn btn-white" href="#">confirm booking</a> </section> --}}
 					</div>
 				</div>
 			</div>
 			<div class="footer-copyright">
-				<div class="container">(c) 2020 Nevica - Boat Rentals . All rights reserved.</div>
+				<div class="container">&copy; 2020 BoatCentre. All rights reserved. Designed and hosted by <a href="https://itecassist.co.za" target="_blank">iTec Assist</a></div>
 			</div>
 		</footer>
 		<!-- .footer-->

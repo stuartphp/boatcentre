@@ -6114,3 +6114,6 @@ span.sign {
 .title-comments-block {
     padding-bottom: 40px;
 }
+.nav-link.open {
+    color: #ffa600;
+}

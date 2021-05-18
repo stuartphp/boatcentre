@@ -62,7 +62,7 @@
   padding-left: 12px;
   padding-right: 12px;
   font-size: 15px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
     font-weight: 700;
   transition: all 0.3s ease-out;
   -webkit-transition: all 0.3s ease-out;

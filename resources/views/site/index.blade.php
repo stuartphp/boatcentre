@@ -1,6 +1,7 @@
 @extends('layouts.site')
+@section('title', 'Home')
 @section('content')
-       
+
 <div class="b-main-slider slider-pro" id="main-slider" data-slider-width="100%" data-slider-height="920px" data-slider-arrows="false" data-slider-buttons="false">
 			<div class="sp-slides">
 				<!-- Slide 1-->
@@ -143,7 +144,7 @@
 											<div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -171,7 +172,7 @@
 											<div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -199,7 +200,7 @@
 											<div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -227,7 +228,7 @@
 											<div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -255,7 +256,7 @@
 											<div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -283,7 +284,7 @@
 											<div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -311,7 +312,7 @@
 											<div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -339,7 +340,7 @@
 											<div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -410,12 +411,12 @@
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="text-left offers-left">
 						<h2 class="ui-title">Premium Boat<br>
-                            Rental Services</h2> <img src="{{ asset('images/decore02.png')}}" alt="photo">
+                            Rental Services</h2> <img src="/images/decore02.png" alt="photo">
 						<div class="offers-left-text">
 							<p>Eorem ipsum dolor amet consectetur sed adipisicing elit sed eiusmod tempor et dolore magna aliqua minim veniam, quis nostrud exercitation aliquip ex ea consequat duis aute irure dolorin.</p>  </div>
-                        
+
                         <a class="btn btn-primary" href="#">view more</a>
-                        
+
 					</div>
 				</div>
 				<div class="col-12 col-md-6 col-lg-8">
@@ -453,15 +454,15 @@
 			</div>
 		</section>
 		<section class="section-video section-default section-goods__inner bg-dark ">
-            
+
             <div class="ui-decor ui-decor_mirror ui-decor_center"></div>
-            
-            
+
+
 			<div class="container">
 				<div class="row">
 					<div class="col-12 col-md-10 col-lg-10">
 						<div class="video-info">
-							<p><img src="{{ asset('images/decore02.png" alt="decore">Give us a call or drop an email, We endeavor to answer within 24 hours</p>
+							<p><img src="/images/decore02.png" alt="decore">Give us a call or drop an email, We endeavor to answer within 24 hours</p>
 							<h4>We’ve Exclusive Boats With Charter Offers</h4>
 							<h5>LET’S PLAN YOUR NEXT TOUR!</h5>
 							<ul>
@@ -470,13 +471,13 @@
 							</ul>
 						</div>
 					</div>
-					<div class="col-12 col-md-2 col-lg-2"> 
+					<div class="col-12 col-md-2 col-lg-2">
                         <a class="video-btn venobox ternary-video-btn-style vbox-item popup-youtube" data-vbtype="video" data-autoplay="true" href="../../watch.html?v=JAIvWg4iQHo"><i class="fa fa-play"></i>
                             <div class="pulsing-bg"></div>
-                               <span>Watch A Tour</span> 
-                        </a> 
-                
-                    
+                               <span>Watch A Tour</span>
+                        </a>
+
+
                     </div>
 				</div>
 			</div>
@@ -487,7 +488,7 @@
 					<h2 class="ui-title">Picture Gallery</h2>
 					<div class="row">
 						<div class="col-md-8 offset-md-2">
-							<p>Dolore magna aliqua enim ad minim veniam, quis nostrud exercitation aliquip duis aute irure dolorin <br> reprehenderits vol dolore fugiat nulla pariatur excepteur sint occaecat cupidatat.</p> 
+							<p>Dolore magna aliqua enim ad minim veniam, quis nostrud exercitation aliquip duis aute irure dolorin <br> reprehenderits vol dolore fugiat nulla pariatur excepteur sint occaecat cupidatat.</p>
               <img src="/images/decore03.png" alt="photo"> </div>
 					</div>
 				</div>
@@ -532,9 +533,9 @@
 							<p>Dolore magna aliqua enim ad minim veniam, quis nostrudreprehenderits
 								<br> dolore fugiat nulla pariatur lorem ipsum dolor sit amet. </p> <img src="/images/decore03.png" alt="photo">
 							<form action="#">
-                                
+
                                 <div class="row row-form-b">
-                                
+
 								<div class="col-md-6">
 									<div class="form-group">
 										<input class="form-control" type="text" placeholder="First Name"> </div>
@@ -572,7 +573,7 @@
 							<h2 class="ui-title">Boat Rental FAQ’s</h2>
 							<p>Dolore magna aliqua enim ad minim veniam, quis nostrudreprehenderits
 								<br> dolore fugiat nulla pariatur lorem ipsum dolor sit amet. </p> <img src="/images/decore03.png" alt="photo"> </div>
-                        
+
                            <div class="ui-accordion accordion" id="accordion-1">
                   <div class="card">
                     <div class="card-header" id="heading1">
@@ -614,11 +615,11 @@
                       <div class="card-body">Nliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson</div>
                     </div>
                   </div>
-                               
+
                 </div>
                 <!-- end .accordion-->
 
-                        
+
 					</div>
 				</div>
 			</div>

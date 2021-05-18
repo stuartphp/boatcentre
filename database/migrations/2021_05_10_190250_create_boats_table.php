@@ -37,12 +37,11 @@ class CreateBoatsTable extends Migration
             $table->double('special_price')->nullable();
             $table->date('special_start')->nullable();
             $table->date('special_end')->nullable();
-            $table->string('bar_code')->nullable();
             $table->boolean('viewed')->default(0);
             $table->string('weight')->nullable();
-            $table->string('length')->nullable();
-            $table->string('breath')->nullable();
-            $table->string('draught')->nullable();
+            $table->string('loa')->nullable();
+            $table->string('beam')->nullable();
+            $table->string('draft')->nullable();
             $table->tinyInteger('crew')->nullable();
             $table->tinyInteger('passengers')->nullable();
             $table->tinyInteger('fuel_type')->nullable();
