@@ -4,11 +4,11 @@
 <div class="section-title-page area-bg area-bg_dark area-bg_op_60">
     <div class="area-bg__inner">
       <div class="container text-center">
-        <h1 class="b-title-page">Our News</h1>
+        <h1 class="b-title-page">Register</h1>
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Login</li>
+            <li class="breadcrumb-item active" aria-current="page">Register</li>
           </ol>
         </nav>
         <!-- end .breadcrumb-->

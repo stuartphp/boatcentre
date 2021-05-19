@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2021 at 06:48 AM
+-- Generation Time: May 19, 2021 at 03:49 PM
 -- Server version: 10.4.18-MariaDB
--- PHP Version: 7.4.16
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -17132,6 +17132,31 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `pr
 (2, 'Dealer User', 'dealer@demo.com', '2021-05-17 15:20:39', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 2, NULL, NULL, NULL),
 (3, 'Private User', 'private@demo.com', '2021-05-17 15:20:39', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 3, NULL, NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `website_banners`
+--
+
+CREATE TABLE `website_banners` (
+  `id` int(11) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `slogan` varchar(100) DEFAULT NULL,
+  `title` varchar(200) DEFAULT NULL,
+  `link` varchar(200) DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `website_banners`
+--
+
+INSERT INTO `website_banners` (`id`, `image`, `slogan`, `title`, `link`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'b01.jpg', 'Your No.1 Online', 'Boating Solution', NULL, 1, '2021-05-19 09:59:43', '2021-05-19 09:59:43'),
+(2, 'b02.jpg', 'Your No.1 Online', 'Boating Solution', NULL, 1, '2021-05-19 09:59:43', '2021-05-19 09:59:43');
+
 --
 -- Indexes for dumped tables
 --
@@ -17214,6 +17239,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `website_banners`
+--
+ALTER TABLE `website_banners`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -17282,6 +17313,12 @@ ALTER TABLE `sa_postal_codes`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `website_banners`
+--
+ALTER TABLE `website_banners`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

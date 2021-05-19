@@ -4,7 +4,7 @@
 <div class="section-title-page area-bg area-bg_dark area-bg_op_60">
         <div class="area-bg__inner">
           <div class="container text-center">
-            <h1 class="b-title-page">Our News</h1>
+            <h1 class="b-title-page">Login</h1>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -74,9 +74,12 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <div class="mt-3">
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
+                                </div>
+                                    
                                 @endif
                             </div>
                         </div>
