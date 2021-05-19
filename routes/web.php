@@ -21,4 +21,10 @@ Route::get('/showroom/detail', [App\Http\Controllers\Site\ShowroomController::cl
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
+    Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('website/banners', \App\Http\Controllers\Admin\Website\BannersController::class);
+
+});
+
+Route::any('/{any}', [App\Http\Controllers\Site\MainController::class, 'index']);
