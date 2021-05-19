@@ -272,17 +272,17 @@ $(document).ready(function() {
         var inputs = [input0, input1];
 
         noUiSlider.create(keypressSlider, {
-            start: [5000, 35000],
+            start: [50000, 100000],
             connect: true,
             step: 100,
             format: wNumb({
                 decimals: 0,
-                prefix: '$',
+                prefix: 'R',
                 thousand: ','
             }),
             range: {
-                'min': 1000,
-                'max': 50000
+                'min': 5000,
+                'max': 1500000
             }
         });
 

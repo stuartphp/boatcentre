@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ShowroomController extends Controller
 {
@@ -15,11 +16,17 @@ class ShowroomController extends Controller
     {
         return view('site.showroom.detail');
     }
+    public function search()
+    {
+        dd(request()->all());
+    }
+
+
     public function getCategories()
     {
         $html = '';
         $cat = DB::table('boat_categories')->orderBy('parent_id', 'asc')->orderBy('name')->get();
-        
+
         foreach($cat as $k)
         {
             if($k->parent_id==0)

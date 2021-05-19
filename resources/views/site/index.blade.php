@@ -11,9 +11,9 @@
 							<div class="col-lg-7">
 								<div class="sp-layer" data-width="100%" data-show-transition="left" data-hide-transition="left" data-show-duration="800" data-show-delay="400" data-hide-delay="400">
 									<div class="b-main-slider__title-wrap">
-										<div class="b-main-slider__slogan">Your Dream Boats</div>
-										<div class="b-main-slider__title">Most Realiable Luxury Boat Rental</div>
-										<div class="b-main-slider__label text-secondary">Explore Now</div>
+										<div class="b-main-slider__slogan">Your No.1 Online</div>
+										<div class="b-main-slider__title">Boating Solution</div>
+										{{-- <div class="b-main-slider__label text-secondary">Explore Now</div> --}}
 									</div>
 								</div>
 							</div>
@@ -28,7 +28,7 @@
 								<div class="sp-layer" data-width="100%" data-show-transition="left" data-hide-transition="left" data-show-duration="800" data-show-delay="400" data-hide-delay="400">
 									<div class="b-main-slider__title-wrap">
 										<div class="b-main-slider__slogan">Your Dream Boats</div>
-										<div class="b-main-slider__title">Most Realiable Luxury Boat Rental</div>
+										<div class="b-main-slider__title">Most Realiable Luxury Boats</div>
 										<div class="b-main-slider__label text-secondary">Explore Now</div>
 									</div>
 								</div>
@@ -43,127 +43,55 @@
 			<div class="ui-decor ui-decor_down"></div>
 			<div class="container">
 			<div class="b-main-filter-content tab-content" id="findTabContent">
+                <form action="/showroom" method="POST">
+@csrf
     <div class="tab-pane fade show active" id="content-allCar">
         <div class="row align-items-end no-gutters">
-            <div class="b-main-filter__main col-lg">                              
+            <div class="b-main-filter__main col-lg">
                 <div class="b-main-filter__inner row no-gutters">
                     <div class="b-main-filter__item col-md-4">
                         <div class="b-main-filter__label">Select Boat Type</div>
                         <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select">
+                            <select class="selectpicker" data-width="100%" data-style="ui-select" name="category">
                                 {!! $categories !!}
                             </select>
                         </div>
                     </div>
                     <div class="b-main-filter__item col-md-4">
-                        <div class="b-main-filter__label">Select a Model</div>
+                        <div class="b-main-filter__label">Conditionl</div>
                         <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select">
-                                <option>Model 1</option>
-                                <option>Model 2</option>
-                                <option>Model 3</option>
+                            <select class="selectpicker" data-width="100%" data-style="ui-select" name="condition">
+                                <option value="">Any</option>
+                                <option value="1">New</option>
+                                <option value="0">Used</option>
                             </select>
                         </div>
                     </div>
                     <div class="b-main-filter__item col-md-4">
                         <div class="b-main-filter__label">Price Range</div>
                         <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select">
-                                <option>Max $50 per day</option>
-                                <option>Max $100 per day</option>
-                                <option>Max $150 per day</option>
+                            <select class="selectpicker" data-width="100%" data-style="ui-select" name="price_range">
+                                <option value="">Any</option>
+                                <option value="-10">< 10K</option>
+                                <option value="-20">>10K < 25K</option>
+                                <option value="-50">>25K < 50K</option>
+                                <option value="50-100">> 50K < 100K</option>
+                                <option value="100-200">> 100k < 200K</option>
+                                <option value="200-550">> 200k < 500K</option>
+                                <option value="500-1m">> 500k < 1M</option>
+                                <option value="1m+">1M+</option>
                             </select>
                         </div>
+
                     </div>
                 </div>
             </div>
             <div class="col-lg-auto">
-                <button class="b-main-filter__btn btn btn-secondary">Search</button>
+                <button class="b-main-filter__btn btn btn-secondary" type="submit">Search</button>
             </div>
         </div>
-    </div>
-    <div class="tab-pane fade" id="content-newCars">
-        <div class="row align-items-end no-gutters">
-            <div class="b-main-filter__main col-lg">
-                <div class="b-main-filter__inner row no-gutters">
-                    <div class="b-main-filter__item col-md-4">
-                        <div class="b-main-filter__label">Select Make</div>
-                        <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select">
-                                <option>Audi</option>
-                                <option>BMV</option>
-                                <option>Opel</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="b-main-filter__item col-md-4">
-                        <div class="b-main-filter__label">Select a Model</div>
-                        <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select">
-                                <option>Model 1</option>
-                                <option>Model 2</option>
-                                <option>Model 3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="b-main-filter__item col-md-4">
-                        <div class="b-main-filter__label">Price Range</div>
-                        <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select">
-                                <option>Max $5000</option>
-                                <option>Max $15000</option>
-                                <option>Max $25000</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-auto">
-                <button class="b-main-filter__btn btn btn-secondary">Search</button>
-            </div>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="content-usedCars">
-        <div class="row align-items-end no-gutters">
-            <div class="b-main-filter__main col-lg">
-                <div class="b-main-filter__inner row no-gutters">
-                    <div class="b-main-filter__item col-md-4">
-                        <div class="b-main-filter__label">Select Make</div>
-                        <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select">
-                                <option>Audi</option>
-                                <option>BMV</option>
-                                <option>Opel</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="b-main-filter__item col-md-4">
-                        <div class="b-main-filter__label">Select a Model</div>
-                        <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select">
-                                <option>Model 1</option>
-                                <option>Model 2</option>
-                                <option>Model 3</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="b-main-filter__item col-md-4">
-                        <div class="b-main-filter__label">Price Range</div>
-                        <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select">
-                                <option>Max $5000</option>
-                                <option>Max $15000</option>
-                                <option>Max $25000</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-auto">
-                <button class="b-main-filter__btn btn btn-secondary">Search</button>
-            </div>
-        </div>
-    </div>
+    </div></form>
+
 </div>
 				<div class="row">
 					<div class="col-lg-6 ">
@@ -231,7 +159,7 @@
 				<div class="ui-decor ui-decor_mirror ui-decor_center"></div>
 				<div class="container">
 					<div class="text-center">
-						<h2 class="ui-title ui-title_light">Fleet of Luxury Boats</h2>
+						<h2 class="ui-title ui-title_light">Features and Specials</h2>
 						<div class="row">
 							<div class="col-md-8 offset-md-2">
 								<p>Dolore magna aliqua enim ad minim veniam, quis nostrud exercitation aliquip duis aute irure dolorin  <br>  reprehenderits vol dolore fugiat nulla pariatur excepteur sint occaecat cupidatat.</p> <img src="images/decore03.png" alt="photo"> </div>
@@ -467,7 +395,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="text-center mt-3"><a class="btn btn-border view-all-boats" href="listing.html">view all boats</a></div>
+					<div class="text-center mt-3"><a class="btn btn-border view-all-boats" href="/showroom">view all boats</a></div>
 				</div>
 			</div>
 		</section>
@@ -490,7 +418,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- Counters -->
+				{{-- <!-- Counters -->
 				<div class="row bg-counters">
 					<!-- Counter #1 -->
 					<div class="col-12 col-md-6 col-lg-3">
@@ -525,7 +453,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- End of Counters -->
+				<!-- End of Counters --> --}}
 			</div>
 		</section>
 		<section class="section-goods-offers">
@@ -646,106 +574,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="section-form">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 col-lg-6">
-						<div class="text-left">
-							<h2 class="ui-title">Booking Form</h2>
-							<p>Dolore magna aliqua enim ad minim veniam, quis nostrudreprehenderits
-								<br> dolore fugiat nulla pariatur lorem ipsum dolor sit amet. </p> <img src="/images/decore03.png" alt="photo">
-							<form action="#">
 
-                                <div class="row row-form-b">
-
-								<div class="col-md-6">
-									<div class="form-group">
-										<input class="form-control" type="text" placeholder="First Name"> </div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<input class="form-control" type="text" placeholder="Last Name"> </div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<input class="form-control" type="text" placeholder="Email"> </div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<input class="form-control" type="text" placeholder="Phone"> </div>
-								</div>
-								<div class="col-md-12">
-									<div class="form-group">
-										<input class="form-control" type="text" placeholder="Subject"> </div>
-								</div>
-								<div class="col-12">
-									<div class="form-group">
-										<textarea class="form-control" rows="6" placeholder="Message"></textarea>
-									</div>
-								</div>
-                            <div class="col-md-12">
-                                <button class="b-main-filter__btn btn btn-secondary">Submit</button>
-                            </div>
-							</div>
-                          </form>
-						</div>
-					</div>
-					<div class="col-md-6 col-lg-6">
-						<div class="text-left title-padding-m-top">
-							<h2 class="ui-title">Boat Rental FAQ’s</h2>
-							<p>Dolore magna aliqua enim ad minim veniam, quis nostrudreprehenderits
-								<br> dolore fugiat nulla pariatur lorem ipsum dolor sit amet. </p> <img src="/images/decore03.png" alt="photo"> </div>
-
-                           <div class="ui-accordion accordion" id="accordion-1">
-                  <div class="card">
-                    <div class="card-header" id="heading1">
-                      <h3 class="mb-0">
-                        <button class="ui-accordion__link collapsed" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1"><span class="ui-accordion__number">01</span>How to book a yacht/boat from Nevica?<i class="ic fas fa-chevron-down"></i></button>
-                      </h3>
-                    </div>
-                    <div class="collapse show" id="collapse1" data-aria-labelledby="heading1" data-parent="#accordion-1">
-                      <div class="card-body">Quis nostrud exercitate laboridy aliquip duis irure sed dolor ipsum excpture fugiat estan veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex velit esse cillum dolore eu fugiat nulla pariatur.</div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="heading2">
-                      <h3 class="mb-0">
-                        <button class="ui-accordion__link collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2"><span class="ui-accordion__number">02</span>What are the safety precautions maintained by you?<i class="ic fas fa-chevron-down"></i></button>
-                      </h3>
-                    </div>
-                    <div class="collapse" id="collapse2" data-aria-labelledby="heading2" data-parent="#accordion-1">
-                      <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson</div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="heading3">
-                      <h3 class="mb-0">
-                        <button class="ui-accordion__link collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3"><span class="ui-accordion__number">03</span>What if the weather gets unfavourable for boating?<i class="ic fas fa-chevron-down"></i></button>
-                      </h3>
-                    </div>
-                    <div class="collapse" id="collapse3" data-aria-labelledby="heading3" data-parent="#accordion-1">
-                      <div class="card-bodyFood">truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.</div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="heading4">
-                      <h3 class="mb-0">
-                        <button class="ui-accordion__link collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4"><span class="ui-accordion__number">04</span>Can I bring my own food or drinking water?<i class="ic fas fa-chevron-down"></i></button>
-                      </h3>
-                    </div>
-                    <div class="collapse" id="collapse4" data-aria-labelledby="heading4" data-parent="#accordion-1">
-                      <div class="card-body">Nliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson</div>
-                    </div>
-                  </div>
-
-                </div>
-                <!-- end .accordion-->
-
-
-					</div>
-				</div>
-			</div>
-		</section>
 		<section class="section-reviews area-bg area-bg_dark area-bg_op_90">
 			<div class="area-bg__inner section-default">
 				<div class="container text-center">

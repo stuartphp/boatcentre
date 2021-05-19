@@ -576,8 +576,8 @@ input:-ms-input-placeholder {
 }
 
 .ui-select {
-    height: 50px;
-    padding-top: 12px;
+    /* height: 50px;
+    padding-top: 12px; */
     padding-right: 20px;
     padding-left: 20px;
     font-size: 15px;
@@ -2810,9 +2810,9 @@ html .b-goods-slider .slick-list {
 }
 
 .b-main-filter__selector .ui-select {
-    height: 59px;
+   /* height: 59px;
     padding-top: 19px;
-    padding-bottom: 19px;
+    padding-bottom: 19px;*/
 }
 
 .b-main-filter__checkbox-item {

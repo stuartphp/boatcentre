@@ -14,9 +14,9 @@ class MainController extends Controller
     }
     public function getCategories()
     {
-        $html = '';
+        $html = '<option value="" selected>All Boats</option>';
         $cat = DB::table('boat_categories')->orderBy('parent_id', 'asc')->orderBy('name')->get();
-        
+
         foreach($cat as $k)
         {
             if($k->parent_id==0)

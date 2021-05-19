@@ -31,12 +31,12 @@
 		<div data-off-canvas="mobile-slidebar left overlay">
 			<ul class="navbar-nav">
 				<li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item "><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item "><a class="nav-link" href="listing.html">Boats Listing</a></li>
-                 <li class="nav-item "><a class="nav-link" href="tours.html">Tours</a></li>
-                <li class="nav-item "><a class="nav-link" href="blog.html">News</a></li>
+                <li class="nav-item "><a class="nav-link" href="/Showroom">About</a></li>
+                <li class="nav-item "><a class="nav-link" href="/accesories">Accesories</a></li>
+                 <li class="nav-item "><a class="nav-link" href="/services">Services</a></li>
 				<li class="nav-item"><a class="nav-link" href="/contact-us">Contact</a></li>
-				<li class="nav-item"><a class="nav-link" href="/login">Login / Register</a></li>
+				<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                <li class="nav-item "><a class="nav-link" href="/register">Register</a></li>
 			</ul>
 		</div>
 		<header class="header header-slider">
@@ -77,11 +77,13 @@
                                     <li class="nav-item "><a class="nav-link" href="/showroom">Showroom</a> </li>
                                     <li class="nav-item "><a class="nav-link" href="/accesories">Accesories</a> </li>
 
-									<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#">Our Fleet</a>
+									<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#">Services</a>
 										<div class="dropdown-menu">
-                                            <a class="dropdown-item" href="listing.html">Boats Listing 1</a>
-                                            <a class="dropdown-item" href="listing-sidebar.html">Boats Listing 2</a>
-                                            <a class="dropdown-item" href="details.html">Boats Details</a>
+                                            <a class="dropdown-item" href="listing.html">Boats Insurance</a>
+                                            <a class="dropdown-item" href="listing-sidebar.html">Boats Loans</a>
+                                            <a class="dropdown-item" href="details.html">Boats Transport</a>
+                                            <a class="dropdown-item" href="details.html">Boats Warranty</a>
+                                            <a class="dropdown-item" href="details.html">Boats Documentation</a>
                                         </div>
 									</li>
                                     {{-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="tours.html">Our Tours</a>
@@ -101,7 +103,8 @@
 									<li class="nav-item"><a class="nav-link {{ request()->is('login') ? 'open' : '' }}" href="/login">Login</a></li>
 									<li class="nav-item"><a class="nav-link {{ request()->is('register') ? 'open' : '' }}" href="/register">Register</a></li>
 								</ul>
-								<span class="header-main__link btn_header_search"><i class="ic icon-magnifier"></i></span>
+                                <button class="header-main__btn btn btn-secondary">Sell Your Boat</button>
+								{{-- <span class="header-main__link btn_header_search"><i class="ic icon-magnifier"></i></span> --}}
 						</div>
 					</div>
 				</div>
@@ -202,7 +205,6 @@
 	<script src="/plugins/headers/header.js"></script>
 	<!-- Mail scripts-->
 	<script src="/plugins/jqBootstrapValidation.js"></script>
-	<script src="/plugins/contact_me.js"></script>
 	<!-- Progress numbers-->
 	<script src="/plugins/rendro-easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="/plugins/rendro-easy-pie-chart/jquery.waypoints.min.js"></script>
