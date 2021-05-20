@@ -5,12 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BoatCategory extends Model
+class SaPostalCode extends Model
 {
     use HasFactory;
-    protected $table ='boat_categories';
-    protected $fillable = [
-        'name',
-        'parent_id',
-        ];
+    protected $table ='sa_postal_codes';
 }

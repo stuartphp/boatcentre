@@ -23,7 +23,9 @@ Auth::routes();
 
 Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::resource('website/banners', \App\Http\Controllers\Admin\Website\BannersController::class);
+    Route::get('website/banners', [\App\Http\Controllers\Admin\Website\BannersController::class, 'index']);
+    Route::get('boats', [\App\Http\Controllers\Admin\BoatsController::class, 'index']);
+    Route::get('categories', [\App\Http\Controllers\Admin\BoatCategoriesController::class, 'index']);
 
 });
 

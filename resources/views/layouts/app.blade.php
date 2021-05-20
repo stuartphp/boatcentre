@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-flex">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">BoatCentre</a>
@@ -56,6 +56,17 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Boats
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/admin/boats">Boats</a></li>
+                                <li><a class="dropdown-item" href="/admin/categories">Categories</a></li>
+                                <li><a class="dropdown-item" href="/admin/manufacturers">Manufacturers</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">

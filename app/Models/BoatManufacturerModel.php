@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BoatCategory extends Model
+class BoatManufacturerModel extends Model
 {
     use HasFactory;
-    protected $table ='boat_categories';
+    protected $table ='boat_manufacturer_models';
     protected $fillable = [
-        'name',
-        'parent_id',
+        'boat_manufacturer_id',
+        'model',
+        'specifications'
         ];
+
 }

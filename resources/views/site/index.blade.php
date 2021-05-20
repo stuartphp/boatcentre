@@ -52,7 +52,7 @@
                     <div class="b-main-filter__item col-md-4">
                         <div class="b-main-filter__label">Select Boat Type</div>
                         <div class="b-main-filter__selector">
-                            <select class="selectpicker" data-width="100%" data-style="ui-select" name="category">
+                            <select class="selectpicker" data-width="100%" data-style="ui-select" name="category" data-live-search="true">
                                 {!! $categories !!}
                             </select>
                         </div>

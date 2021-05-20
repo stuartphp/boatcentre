@@ -1,6 +1,5 @@
 <div>
     @if ($paginator->hasPages())
-    {{ $paginator->count() }}
         <nav>
             <ul class="pagination pagination-sm">
                 {{-- Previous Page Link --}}

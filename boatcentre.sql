@@ -32,6 +32,7 @@ CREATE TABLE `boats` (
   `reference` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `company_id` bigint(20) UNSIGNED NOT NULL,
   `vin_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `keywords` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `category_id` int(10) UNSIGNED NOT NULL,
   `cof` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -46,6 +47,7 @@ CREATE TABLE `boats` (
   `city` int(10) UNSIGNED NOT NULL,
   `short_description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `curency` char(3) COLLATE utf8mb4_unicode_ci NOT NULL,
   `retail_price` double DEFAULT NULL,
   `is_feature` tinyint(1) NOT NULL DEFAULT 0,
   `special_price` double DEFAULT NULL,
@@ -17341,6 +17343,12 @@ ALTER TABLE `boat_additionals`
 --
 ALTER TABLE `boat_images`
   ADD CONSTRAINT `boat_images_boat_id_foreign` FOREIGN KEY (`boat_id`) REFERENCES `boats` (`id`);
+
+--
+-- Alter boats
+--
+ALTER TABLE `companies` CHANGE `trading_name` `trading_name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL, CHANGE `vat_number` `vat_number` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

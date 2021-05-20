@@ -53,6 +53,21 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="profile" class="col-md-4 col-form-label text-md-right">Profile</label>
+
+                            <div class="col-md-6">
+                                <select id="profile"class="form-control selectpicker" data-style="ui-style">
+                                    <option value="2">Dealer</option>
+                                    <option value="3">Private</option>
+                                </select>
+                                @error('profile')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
