@@ -12,5 +12,10 @@ class BoatCategory extends Model
     protected $fillable = [
         'name',
         'parent_id',
-        ];
+        'is_active'
+    ];
+    public function parent()
+    {
+        return $this->hasMany(BoatCategory::class, 'parent_id');
+    }
 }

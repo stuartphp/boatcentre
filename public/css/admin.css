@@ -11,3 +11,7 @@ body {
 .dropdown-item {
     font-size: 0.8rem;
 }
+
+.error {
+    color: #ff0000;
+}
