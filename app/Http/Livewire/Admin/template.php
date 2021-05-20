@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\BoatCategory;
+use App\Models\[MODEL];
 
 class BoatCategories extends Component
 {
@@ -21,12 +21,9 @@ class BoatCategories extends Component
     public $modal_btn; 
     // Model
     public $row_id;
-    public $name;
-    public $parent_id;
-    public $is_active;
+    
     protected $rules = [
-        'name' => 'required',
-        'is_active' => 'required'
+        
     ];
 
     public function mount()
@@ -67,38 +64,32 @@ class BoatCategories extends Component
 
     public function loadForm($id)
     {
-        $res = BoatCategory::find($id);
+        $res = [MODEL]::find($id);
         $this->row_id = isset($res->id) ? $res->id : '';
-        $this->name = isset($res->name) ? $res->name : '';
-        $this->parent_id = isset($res->parent_id) ? $res->parent_id : '';
-        $this->is_active = isset($res->is_active) ? $res->is_active : '';
+        
     }
 
     public function recordAction()
     {
         if($this->action=='delete')
         {
-            BoatCategory::destroy($this->row_id);
+            [MODEL]::destroy($this->row_id);
             $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Deleted']);
         }else{
             $this->validate();
-            $record = BoatCategory::where('id', $this->row_id)->first();
+            $record = [MODEL]::where('id', $this->row_id)->first();
             if($record !== null){
                 // Update
                 $record->update(
                     [
-                        'name'=>$this->name,
-                        'parent_id'=> $this->parent_id,
-                        'is_active'=>$this->is_active
+                        
                     ]
                 );
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
             }else{
                 // Insert
-                BoatCategory::create([
-                    'name'=>$this->name,
-                    'parent_id'=> $this->parent_id,
-                    'is_active'=>$this->is_active
+                [MODEL]::create([
+                    
                 ]);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
             }
@@ -112,9 +103,9 @@ class BoatCategories extends Component
         if($this->search > '')
         {
            // $this->page=1;
-            $data = BoatCategory::where('name', 'like', '%'.$this->search.'%')->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->paginate($this->page_size);
+            $data = [MODEL]::where('name', 'like', '%'.$this->search.'%')->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->paginate($this->page_size);
         }else{
-            $data = BoatCategory::orderBy('parent_id', 'asc')->orderBy('name', 'asc')->paginate($this->page_size);
+            $data = [MODEL]::orderBy('parent_id', 'asc')->orderBy('name', 'asc')->paginate($this->page_size);
         }
         
         $cats = $this->category();
@@ -123,6 +114,6 @@ class BoatCategories extends Component
 
     public function category()
     {
-        return BoatCategory::where('parent_id', 0)->pluck('name', 'id')->toArray();
+        return [MODEL]::where('parent_id', 0)->pluck('name', 'id')->toArray();
     }
 }
