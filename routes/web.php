@@ -26,6 +26,7 @@ Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('website/banners', [\App\Http\Controllers\Admin\Website\BannersController::class, 'index']);
     Route::get('boats', [\App\Http\Controllers\Admin\BoatsController::class, 'index']);
     Route::get('categories', [\App\Http\Controllers\Admin\BoatCategoriesController::class, 'index']);
+    Route::get('manufacturers', [\App\Http\Controllers\Admin\ManufacturersController::class, 'index']);
 
 });
 
