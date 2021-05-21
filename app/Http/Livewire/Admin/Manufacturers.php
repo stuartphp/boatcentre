@@ -22,10 +22,10 @@ class Manufacturers extends Component
     // Model
     public $row_id;
     public $name;
-    protected $rules = [
-        'name' =>'required'
-    ];
 
+    protected $rules = [
+        'name' => 'required'
+    ];
 
     public function mount()
     {
@@ -65,8 +65,9 @@ class Manufacturers extends Component
 
     public function loadForm($id)
     {
-        $res = BoatManufacturer::find($id);
+        $res = BoatManufacturer::with(['models'])->find($id);
         $this->row_id = isset($res->id) ? $res->id : '';
+        $this->name = isset($res->name) ? $res->name : '';
 
     }
 
@@ -83,19 +84,18 @@ class Manufacturers extends Component
                 // Update
                 $record->update(
                     [
-
+                        'name' => $this->name
                     ]
                 );
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
             }else{
                 // Insert
                 BoatManufacturer::create([
-
+                    'name' => $this->name
                 ]);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
             }
         }
-
         $this->dispatchBrowserEvent('modal', ['modal'=>'formModal', 'action'=>'hide']);
     }
 
@@ -104,11 +104,12 @@ class Manufacturers extends Component
         if($this->search > '')
         {
            // $this->page=1;
-            $data = BoatManufacturer::where('name', 'like', '%'.$this->search.'%')->orderBy('name', 'asc')->paginate($this->page_size);
+            $data = BoatManufacturer::with('models')->where('name', 'like', '%'.$this->search.'%')->orderBy('name', 'asc')->paginate($this->page_size);
         }else{
-            $data = BoatManufacturer::orderBy('name', 'asc')->paginate($this->page_size);
+            $data = BoatManufacturer::with('models')->orderBy('name', 'asc')->paginate($this->page_size);
         }
-
+        //dd($data);
         return view('livewire.admin.manufacturers', compact('data'));
     }
+
 }

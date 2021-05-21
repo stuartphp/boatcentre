@@ -23,20 +23,40 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+<<<<<<< HEAD
                             <th>Name</th>
+=======
+                            <th>Name</th>  
+                            <th>Models</th>                     
+>>>>>>> 37a57c3e420dbe710d84b4cf144028267794fa9b
                             <th class="col-1">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+<<<<<<< HEAD
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{ $item->name }}</td>
+=======
+                        @foreach ($data as $item)                        
+                            <tr>
+                                <td>{{ $item->name }}</td> 
+                                <td>
+                                @foreach ($item->models as $model)
+                                    {{ $model->model }},
+                                @endforeach
+                                </td>
+>>>>>>> 37a57c3e420dbe710d84b4cf144028267794fa9b
                                 <td class="col-1"><select class="form-select form-select-sm" wire:change="loadModal($event.target.value, {{ $item->id }})">
                                     <option value="">Select</option>
                                     <option value="edit">Edit</option>
                                     <option value="delete">Delete</option>
                                 </select></td>
+<<<<<<< HEAD
                             </tr>
+=======
+                            </tr>                            
+>>>>>>> 37a57c3e420dbe710d84b4cf144028267794fa9b
                         @endforeach
                     </tbody>
                 </table>
@@ -66,6 +86,11 @@
         </div>
     </div>
     </div>
+<<<<<<< HEAD
 
 </div>
 
+=======
+   
+</div>
+>>>>>>> 37a57c3e420dbe710d84b4cf144028267794fa9b

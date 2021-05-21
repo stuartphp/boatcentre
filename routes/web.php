@@ -27,7 +27,9 @@ Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('boats', [\App\Http\Controllers\Admin\BoatsController::class, 'index']);
     Route::get('categories', [\App\Http\Controllers\Admin\BoatCategoriesController::class, 'index']);
     Route::get('manufacturers', [\App\Http\Controllers\Admin\ManufacturersController::class, 'index']);
-
+    Route::get('counters', [\App\Http\Controllers\Admin\CountersController::class, 'index']);
+    Route::get('dealers', [\App\Http\Controllers\Admin\DealersController::class, 'index']);
+    Route::get('dealers/info/{id}', [\App\Http\Controllers\Admin\DealersController::class, 'info']);
 });
 
 Route::any('/{any}', [App\Http\Controllers\Site\MainController::class, 'index']);
