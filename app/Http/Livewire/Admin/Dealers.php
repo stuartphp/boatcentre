@@ -4,9 +4,9 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Boat;
+use App\Models\Dealer;
 
-class Boats extends Component
+class Dealers extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -21,49 +21,27 @@ class Boats extends Component
     public $modal_btn; 
     // Model
     public $row_id;
-    public $reference;
-    public $company_id;
-    public $vin_number;
-    public $name;
-    public $keywords;
-    public $category_id;
-    public $cof;
-    public $brand;
-    public $model;
-    public $manufacturer;
-    public $year_of_manufacture;
-    public $main_color;
-    public $new_used;
-    public $condition;
-    public $province;
-    public $city;
-    public $short_description;
-    public $description;
-    public $currency;
-    public $retail_price;
-    public $is_feature;
-    public $special_price;
-    public $special_start;
-    public $special_end;
-    public $viewed;
-    public $weight;
-    public $loa;
-    public $beam;
-    public $draft;
-    public $crew;
-    public $passengers;
-    public $fuel_type;
-    public $fuel_tank;
-    public $max_speed;
-    public $hull_construction;
-    public $youtube_link;
-    public $fb_link;
-    public $is_sold;
-    public $is_approved;
+    public $account_number;
+    public $registered_name;
+    public $trading_name;
+    public $vat_number;
+    public $physical_address;
+    public $contact_person;
+    public $mobile;
+    public $office_number;
+    public $website;
+    public $email;
+    public $logo;
     public $is_active;
     
     protected $rules = [
-        
+        'registered_name'=>'required',
+        'trading_name'=>'string',
+        'vat_number'=>'numeric',
+        'physical_address'=>'required',
+        'contact_person'=>'required',
+        'mobile'=>'required',
+        'email'=>'required|email'
     ];
 
     public function mount()
@@ -106,30 +84,54 @@ class Boats extends Component
 
     public function loadForm($id)
     {
-        $res = Boat::find($id);
+        $res = Dealer::find($id);
         $this->row_id = isset($res->id) ? $res->id : '';
-        
+        $this->account_number = isset($res->account_number) ? $res->account_number : '' ;
+        $this->registered_name = isset($res->registered_name) ? $res->registered_name : '' ;
+        $this->trading_name = isset($res->trading_name) ? $res->trading_name : '' ;
+        $this->vat_number = isset($res->vat) ? $res->vat : '' ;
+        $this->physical_address = isset($res->physical_address) ? $res->physical_address : '' ;
+        $this->contact_person = isset($res->contact_person) ? $res->contact_person : '' ;
+        $this->mobile = isset($res->mobile) ? $res->mobile : '' ;
+        $this->office_number = isset($res->office_number) ? $res->office_number : '' ;
+        $this->website = isset($res->website) ? $res->website : '' ;
+        $this->email = isset($res->email) ? $res->email : '' ;
+        $this->logo = isset($res->logo) ? $res->logo : '' ;
+        $this->is_active = isset($res->is_active) ? $res->is_active : '' ;
     }
 
     public function recordAction()
     {
         if($this->action=='delete')
         {
-            Boat::destroy($this->row_id);
+            Dealer::destroy($this->row_id);
             $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Deleted']);
         }else{
             $this->validate();
-            $record = Boat::where('id', $this->row_id)->first();
+            $record = Dealer::where('id', $this->row_id)->first();
             $fields = [
-                
+                'account_number'=>$this->account_number,
+                'registered_name'=>$this->registered_name,
+                'trading_name'=>$this->trading_name,
+                'vat_number'=>$this->vat_number,
+                'physical_address'=>$this->physical_address,
+                'contact_person'=>$this->contact_person,
+                'mobile'=>$this->mobile,
+                'office_number'=>$this->office_number,
+                'website'=>$this->website,
+                'email'=>$this->email,
+                'logo'=>$this->logo,
+                'is_active'=>$this->is_active,
             ];
             if($record !== null){
                 // Update
-                $record->update($fields);
+                $record->update(
+                    $fields
+                );
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
             }else{
                 // Insert
-                Boat::create($fields);
+                Dealer::create($fields);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
             }
         }
@@ -142,11 +144,11 @@ class Boats extends Component
         if($this->search > '')
         {
            // $this->page=1;
-            $data = Boat::where('name', 'like', '%'.$this->search.'%')->orderBy('name', 'asc')->paginate($this->page_size);
+            $data = Dealer::where('registered_name', 'like', '%'.$this->search.'%')->orderBy('registered_name', 'asc')->paginate($this->page_size);
         }else{
-            $data = Boat::orderBy('name', 'asc')->paginate($this->page_size);
+            $data = Dealer::orderBy('registered_name', 'asc')->paginate($this->page_size);
         }
         
-        return view('livewire.admin.boats', compact('data'));
+        return view('livewire.admin.dealers', compact('data'));
     }
 }

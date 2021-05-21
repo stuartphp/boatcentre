@@ -3,7 +3,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-8">
-                    <div class="card-title">Boat Listings</div>
+                    <div class="card-title">Boat Listings&nbsp;<div wire:loading class="text-warning">Loading...</div></div>
                 </div>
                 <div class="col-4">
                     <div class="row">
@@ -25,7 +25,6 @@
                             <th>New/Used</th>
                             <th>Condition</th>
                             <th>Province</th>
-                            <th>City</th>
                             <th>Retail Price</th>
                             <th>Action</th>
                         </tr>
@@ -37,7 +36,38 @@
             </div>
         </div>
         <div class="card-footer">
-
+        {{ $data->links() }}
         </div>
+    </div>
+    <div class="modal" tabindex="-1" wire:ignore.self id="formModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ $modal_title }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="@if($action=='delete') d-none @else d-block @endif">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control form-control-sm" id="name" wire:model="name">
+                    @error('name') <span class="error">{{ $message }}</span> @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="is_active" class="form-label">is Active</label>
+                    <select class="form-select form-select-sm" id="is_active" wire:model="is_active">
+                        <option value="">--Select--</option>                    
+                        <option value="0">No</option>                    
+                        <option value="1">Yes</option>                    
+                    </select>
+                </div>
+            </div>
+            @if($action=='delete')  Are you sure you want to delete this records? @endif
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn {{ $modal_btn}} btn-sm" wire:click="recordAction">{{ $modal_btn_title }}</button>
+        </div>
+        </div>
+    </div>
     </div>
 </div>

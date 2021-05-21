@@ -4,9 +4,9 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Models\Boat;
+use App\Models\Counter;
 
-class Boats extends Component
+class Counters extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -21,56 +21,21 @@ class Boats extends Component
     public $modal_btn; 
     // Model
     public $row_id;
-    public $reference;
-    public $company_id;
-    public $vin_number;
     public $name;
-    public $keywords;
-    public $category_id;
-    public $cof;
-    public $brand;
-    public $model;
-    public $manufacturer;
-    public $year_of_manufacture;
-    public $main_color;
-    public $new_used;
-    public $condition;
-    public $province;
-    public $city;
-    public $short_description;
-    public $description;
-    public $currency;
-    public $retail_price;
-    public $is_feature;
-    public $special_price;
-    public $special_start;
-    public $special_end;
-    public $viewed;
-    public $weight;
-    public $loa;
-    public $beam;
-    public $draft;
-    public $crew;
-    public $passengers;
-    public $fuel_type;
-    public $fuel_tank;
-    public $max_speed;
-    public $hull_construction;
-    public $youtube_link;
-    public $fb_link;
-    public $is_sold;
-    public $is_approved;
-    public $is_active;
+    public $prefix;
+    public $number;
     
     protected $rules = [
-        
+        'name',
+        'prefix',
+        'number'
     ];
 
     public function mount()
     {
         $this->search='';
         $this->modal_title = 'Add new record';
-        $this->modal_btn_title = 'Create Record';
+        $this->modal_btn_title = 'Save';
         $this->modal_btn = 'btn-primary';
         $this->action='add';
     }
@@ -82,16 +47,14 @@ class Boats extends Component
         {
             case 'add':                
                 $this->modal_btn_title = 'Add new record';
-                $this->modal_title = 'Create Record';
+                $this->modal_title = 'Save';
                 $this->action='add';
-                $this->modal_btn = 'btn-primary';
                 break;
             case 'edit':
                 $this->action='edit';
                 // Modal
                 $this->modal_btn_title = 'Update';
                 $this->modal_title = 'Update Record';
-                $this->modal_btn = 'btn-primary';
                 break;
             case 'delete':
                 $this->action='delete';
@@ -106,8 +69,11 @@ class Boats extends Component
 
     public function loadForm($id)
     {
-        $res = Boat::find($id);
+        $res = Counter::find($id);
         $this->row_id = isset($res->id) ? $res->id : '';
+        $this->name = isset($res->name) ? $res->name : '';
+        $this->prefix = isset($res->prefix) ? $res->prefix : '';
+        $this->number = isset($res->number) ? $res->number : '';
         
     }
 
@@ -115,21 +81,28 @@ class Boats extends Component
     {
         if($this->action=='delete')
         {
-            Boat::destroy($this->row_id);
+            Counter::destroy($this->row_id);
             $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Deleted']);
         }else{
             $this->validate();
-            $record = Boat::where('id', $this->row_id)->first();
-            $fields = [
-                
-            ];
+            $record = Counter::where('id', $this->row_id)->first();
             if($record !== null){
                 // Update
-                $record->update($fields);
+                $record->update(
+                    [
+                        'name'=>$this->name,
+                        'prefix'=>$this->prefix,
+                        'number'=>$this->number
+                    ]
+                );
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
             }else{
                 // Insert
-                Boat::create($fields);
+                Counter::create([
+                    'name'=>$this->name,
+                    'prefix'=>$this->prefix,
+                    'number'=>$this->number
+                ]);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
             }
         }
@@ -142,11 +115,11 @@ class Boats extends Component
         if($this->search > '')
         {
            // $this->page=1;
-            $data = Boat::where('name', 'like', '%'.$this->search.'%')->orderBy('name', 'asc')->paginate($this->page_size);
+            $data = Counter::where('name', 'like', '%'.$this->search.'%')->orderBy('name', 'asc')->paginate($this->page_size);
         }else{
-            $data = Boat::orderBy('name', 'asc')->paginate($this->page_size);
+            $data = Counter::orderBy('name', 'asc')->paginate($this->page_size);
         }
         
-        return view('livewire.admin.boats', compact('data'));
+        return view('livewire.admin.counters', compact('data'));
     }
 }
