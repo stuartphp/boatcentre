@@ -14,5 +14,8 @@ class BoatManufacturerModel extends Model
         'model',
         'specifications'
         ];
-
+    public function manufacturer()
+    {
+        return $this->belongsTo(BoatManufacturer::class);
+    }
 }

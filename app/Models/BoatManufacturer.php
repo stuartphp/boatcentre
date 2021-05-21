@@ -12,5 +12,8 @@ class BoatManufacturer extends Model
     protected $fillable = [
         'name'
         ];
-
+    public function models()
+    {
+        return $this->hasMany(BoatManufacturerModel::class, 'boat_manufacturer_id', 'id');
+    }
 }

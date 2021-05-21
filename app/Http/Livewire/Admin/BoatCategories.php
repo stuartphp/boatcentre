@@ -33,7 +33,7 @@ class BoatCategories extends Component
     {
         $this->search='';
         $this->modal_title = 'Add new record';
-        $this->modal_btn_title = 'Save';
+        $this->modal_btn_title = 'Create Record';
         $this->modal_btn = 'btn-primary';
         $this->action='add';
     }
@@ -45,14 +45,16 @@ class BoatCategories extends Component
         {
             case 'add':                
                 $this->modal_btn_title = 'Add new record';
-                $this->modal_title = 'Save';
+                $this->modal_title = 'Create Record';
                 $this->action='add';
+                $this->modal_btn = 'btn-primary';
                 break;
             case 'edit':
                 $this->action='edit';
                 // Modal
                 $this->modal_btn_title = 'Update';
                 $this->modal_title = 'Update Record';
+                $this->modal_btn = 'btn-primary';
                 break;
             case 'delete':
                 $this->action='delete';
@@ -83,23 +85,18 @@ class BoatCategories extends Component
         }else{
             $this->validate();
             $record = BoatCategory::where('id', $this->row_id)->first();
-            if($record !== null){
-                // Update
-                $record->update(
-                    [
+            $fields = [
                         'name'=>$this->name,
                         'parent_id'=> $this->parent_id,
                         'is_active'=>$this->is_active
-                    ]
-                );
+            ];
+            if($record !== null){
+                // Update
+                $record->update($fields);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
             }else{
                 // Insert
-                BoatCategory::create([
-                    'name'=>$this->name,
-                    'parent_id'=> $this->parent_id,
-                    'is_active'=>$this->is_active
-                ]);
+                BoatCategory::create($fields);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
             }
         }
