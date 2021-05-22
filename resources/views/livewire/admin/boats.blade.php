@@ -30,7 +30,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -56,13 +56,13 @@
                 <div class="mb-3">
                     <label for="is_active" class="form-label">is Active</label>
                     <select class="form-select form-select-sm" id="is_active" wire:model="is_active">
-                        <option value="">--Select--</option>                    
-                        <option value="0">No</option>                    
-                        <option value="1">Yes</option>                    
+                        <option value="">--Select--</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
                     </select>
                 </div>
             </div>
-            @if($action=='delete')  Are you sure you want to delete this records? @endif
+            @if($action=='delete')  Are you sure you want to delete this record? @endif
         </div>
         <div class="modal-footer">
             <button type="button" class="btn {{ $modal_btn}} btn-sm" wire:click="recordAction">{{ $modal_btn_title }}</button>

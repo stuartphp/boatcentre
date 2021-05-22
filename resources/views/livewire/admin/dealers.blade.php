@@ -30,12 +30,12 @@
                             <th>mobile</th>
                             <th>office_number</th>
                             <th>website</th>
-                            <th>email</th>                       
+                            <th>email</th>
                             <th class="col-1">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $item)                        
+                        @foreach ($data as $item)
                             <tr>
                                 <td>{{ $item->account_number }} </td>
                                 <td>{{ ($item->trading_name>'') ? $item->trading_name : $item->registered_name }} </td>
@@ -49,7 +49,7 @@
                                     <option value="edit">Edit</option>
                                     <option value="delete">Delete</option>
                                 </select></td>
-                            </tr>                            
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="modal" tabindex="-1" wire:ignore.self id="formModal">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">{{ $modal_title }}</h5>
@@ -68,10 +68,12 @@
         </div>
         <div class="modal-body">
         <div class="@if($action=='delete') d-none @else d-block @endif">
-            <div class="mb-3">
-                <label for="account_number" class="form-label">Account Number</label>        
-                <input type="text" class="form-control form-control-sm" id="account_number" wire:model="account_number"> 
-                @error('account_number') <span class="error">{{ $message }}</span> @enderror       
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3">
+                <label for="account_number" class="form-label">Account Number</label>
+                <input type="text" class="form-control form-control-sm" id="account_number" wire:model="account_number" @if($action=='add') disabled @endif>
+                @error('account_number') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="mb-3">
                 <label for="registered_name" class="form-label">Registered Name</label>
@@ -93,10 +95,12 @@
                 @error('vat_number') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="mb-3">
-                <label for="physical_address" class="form-label">VAT Number</label>
+                <label for="physical_address" class="form-label">Physical Address</label>
                 <textarea class="form-control form-control-sm" id="physical_address" rows="4" wire:model="physical_address"></textarea>
             </div>
-            <div class="mb-3">
+                </div>
+                <div class="col-6">
+<div class="mb-3">
                 <label for="contact_person" class="form-label">Contact Person</label>
                 <input type="text" class="form-control form-control-sm" id="contact_person" wire:model="contact_person">
                 @error('contact_person') <span class="error">{{ $message }}</span> @enderror
@@ -128,13 +132,17 @@
             <div class="mb-3">
                 <label for="is_active" class="form-label">is Active</label>
                 <select class="form-select form-select-sm" id="is_active" wire:model="is_active">
-                    <option value="">--Select--</option>                    
-                    <option value="0">No</option>                    
-                    <option value="1">Yes</option>                    
+                    <option value="">--Select--</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
                 </select>
             </div>
-        </div> 
-        @if($action=='delete')  Are you sure you want to delete this records? @endif
+                </div>
+            </div>
+
+
+        </div>
+        @if($action=='delete')  Are you sure you want to delete this record? @endif
         </div>
         <div class="modal-footer">
             <button type="button" class="btn {{ $modal_btn}} btn-sm" wire:click="recordAction">{{ $modal_btn_title }}</button>
@@ -142,5 +150,5 @@
         </div>
     </div>
     </div>
-   
+
 </div>

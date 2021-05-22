@@ -18,13 +18,13 @@ class Counters extends Component
     protected $queryString = ['search'=>['except'=>''], 'page'=>['except'=>1]];
     public $modal_title;
     public $modal_btn_title;
-    public $modal_btn; 
+    public $modal_btn;
     // Model
     public $row_id;
     public $name;
     public $prefix;
     public $number;
-    
+
     protected $rules = [
         'name',
         'prefix',
@@ -35,7 +35,7 @@ class Counters extends Component
     {
         $this->search='';
         $this->modal_title = 'Add new record';
-        $this->modal_btn_title = 'Save';
+        $this->modal_btn_title = 'Create Record';
         $this->modal_btn = 'btn-primary';
         $this->action='add';
     }
@@ -45,9 +45,9 @@ class Counters extends Component
         $this->loadForm($id);
         switch($val)
         {
-            case 'add':                
+            case 'add':
                 $this->modal_btn_title = 'Add new record';
-                $this->modal_title = 'Save';
+                $this->modal_title = 'Create Record';
                 $this->action='add';
                 break;
             case 'edit':
@@ -74,7 +74,7 @@ class Counters extends Component
         $this->name = isset($res->name) ? $res->name : '';
         $this->prefix = isset($res->prefix) ? $res->prefix : '';
         $this->number = isset($res->number) ? $res->number : '';
-        
+
     }
 
     public function recordAction()
@@ -86,27 +86,22 @@ class Counters extends Component
         }else{
             $this->validate();
             $record = Counter::where('id', $this->row_id)->first();
-            if($record !== null){
-                // Update
-                $record->update(
-                    [
+            $fields = [
                         'name'=>$this->name,
                         'prefix'=>$this->prefix,
                         'number'=>$this->number
-                    ]
-                );
+            ];
+            if($record !== null){
+                // Update
+                $record->update($fields);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
             }else{
                 // Insert
-                Counter::create([
-                    'name'=>$this->name,
-                    'prefix'=>$this->prefix,
-                    'number'=>$this->number
-                ]);
+                Counter::create($fields);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
             }
         }
-        
+
         $this->dispatchBrowserEvent('modal', ['modal'=>'formModal', 'action'=>'hide']);
     }
 
@@ -119,7 +114,7 @@ class Counters extends Component
         }else{
             $data = Counter::orderBy('name', 'asc')->paginate($this->page_size);
         }
-        
+
         return view('livewire.admin.counters', compact('data'));
     }
 }

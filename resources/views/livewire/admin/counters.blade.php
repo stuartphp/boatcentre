@@ -24,23 +24,23 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Prefix</th> 
-                            <th>Number</th>                           
+                            <th>Prefix</th>
+                            <th>Number</th>
                             <th class="col-1">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($data as $item)                        
+                        @foreach ($data as $item)
                             <tr>
-                                <td>{{ $item->name }}</td> 
+                                <td>{{ $item->name }}</td>
                                 <td>{{ $item->prefix }}</td>
                                 <td>{{ $item->number }}</td>
-                                <td class="col-1"><select class="form-select form-select-sm" wire:change="loadModal($event.target.value, {{ $item->id }})" id="action_{{ $item->id }}">
+                                <td class="col-1"><select class="form-select form-select-sm" wire:change="loadModal($event.target.value, {{ $item->id }})" id="action_{{ $item->id }}" onchange="setTimeout(()=>{ $('#action_{{$item->id}}').val('');},1000)">
                                     <option value="">Select</option>
                                     <option value="edit">Edit</option>
                                     <option value="delete">Delete</option>
                                 </select></td>
-                            </tr>                            
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -58,6 +58,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+            <div class="@if($action=='delete') d-none @else d-block @endif">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control form-control-sm" id="name" wire:model="name">
@@ -74,11 +75,13 @@
                 @error('number') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
+        @if($action=='delete')  Are you sure you want to delete this record? @endif
+        </div>
         <div class="modal-footer">
             <button type="button" class="btn {{ $modal_btn}} btn-sm" wire:click="recordAction">{{ $modal_btn_title }}</button>
         </div>
         </div>
     </div>
     </div>
-   
+
 </div>

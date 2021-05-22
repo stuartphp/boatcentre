@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\BoatManufacturer;
+use App\Models\BoatManufacturerModel;
 
 class Manufacturers extends Component
 {
@@ -22,6 +23,13 @@ class Manufacturers extends Component
     // Model
     public $row_id;
     public $name;
+    // Model for ManufacturerModel
+    public $model_row_id;
+    public $model_model;
+    public $model_boat_manufacturer_id;
+    public $model_specifications;
+    public $manufacturer;
+    public $model_action;
 
     protected $rules = [
         'name' => 'required'
@@ -30,8 +38,11 @@ class Manufacturers extends Component
     public function mount()
     {
         $this->search='';
+        $this->manufacturer='';
+        $this->model_model='';
+        $this->model_specifications='';
         $this->modal_title = 'Add new record';
-        $this->modal_btn_title = 'Save';
+        $this->modal_btn_title = 'Create Record';
         $this->modal_btn = 'btn-primary';
         $this->action='add';
     }
@@ -43,7 +54,7 @@ class Manufacturers extends Component
         {
             case 'add':
                 $this->modal_btn_title = 'Add new record';
-                $this->modal_title = 'Save';
+                $this->modal_title = 'Create Record';
                 $this->action='add';
                 break;
             case 'edit':
@@ -61,6 +72,62 @@ class Manufacturers extends Component
                 break;
         }
         $this->dispatchBrowserEvent('modal', ['modal'=>'formModal', 'action'=>'show']);
+    }
+
+    /** Load Manufacturer Models */
+    public function loadModel($val, $man_id, $mod_id)
+    {
+        $this->model_row_id=$mod_id;
+        $this->model_boat_manufacturer_id = $man_id;
+        switch($val)
+        {
+            case 'add':
+                /** save the model */
+                $this->showModelModal('hide');
+                break;
+            case 'create':
+                /** Show clear form */
+                $man = $this->getManufacturer($man_id);
+                $this->model_model = 'Create a Model';
+                $this->manufacturer = $man->name;
+                $this->model_action='add';
+                $this->showModelModal('show');
+                break;
+            case 'update':
+                /** Get model detail */
+                $man = $this->getManufacturer($man_id);
+                $mod = $this->getModel($mod_id);
+                $this->model_model = $mod->model;
+                $this->model_specifications = $mod->specifications;
+                $this->manufacturer = $man->name;
+                $this->model_action='save';
+                $this->showModelModal('show');
+                break;
+            case 'save':
+                /** Save update */
+                $this->showModelModal('hide');
+                break;
+            case 'destroy':
+                /** Delete Model */
+                $this->showModelModal('hide');
+                break;
+        }
+    }
+
+    /** Get Manufacturer */
+    public function getManufacturer($id)
+    {
+        return BoatManufacturer::find($id);
+    }
+    /** Get Model */
+    public function getModel($id)
+    {
+        return BoatManufacturerModel::find($id);
+    }
+
+    public function showModelModal($action)
+    {
+        $this->dispatchBrowserEvent('modal', ['modal'=>'formModel', 'action'=>$action]);
     }
 
     public function loadForm($id)
