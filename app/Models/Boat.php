@@ -17,7 +17,6 @@ class Boat extends Model
 'keywords',
 'category_id',
 'cof',
-'brand',
 'model',
 'manufacturer',
 'year_of_manufacture',

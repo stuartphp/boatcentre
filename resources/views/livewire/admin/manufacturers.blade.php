@@ -75,7 +75,7 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-1" wire:ignor.self id="formModel">
+    <div class="modal" tabindex="-2" wire:ignore.self id="formModel">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -86,18 +86,18 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="model" class="form-label">Model</label>
-                    <input type="text" class="form-control form-control-sm" id="model" wire:model="model_model">
-                    @error('model') <span class="error">{{ $message }}</span> @enderror
+                    <input type="text" class="form-control form-control-sm" id="model" wire:model.defer="model_model">
+                    @error('model_model') <span class="error">{{ $message }}</span> @enderror
                 </div>
                 <div class="mb-3">
                     <label for="specifications" class="form-label">Specifications</label>
-                    <textarea class="form-control form-control-sm" wire:model="model_specifications" rows="10" autocomplete="off">{{ $model_specifications }}</textarea>
-                    @error('specifications') <span class="error">{{ $message }}</span> @enderror
+                    <textarea class="form-control form-control-sm" wire:model.defer="model_specifications" rows="10" autocomplete="off">{{ $model_specifications }}</textarea>
+                    @error('model_specifications') <span class="error">{{ $message }}</span> @enderror
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger btn-sm">Delete</button>
-              <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+              @if($model_action !='add')<button type="button" class="btn btn-danger btn-sm" wire:click.prevent="loadModel('destroy', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Delete</button>@endif
+              <button type="button" class="btn btn-primary btn-sm" wire:click.prevent="loadModel('{{ $model_action }}', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Save changes</button>
             </div>
           </div>
         </div>

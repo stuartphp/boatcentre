@@ -3,7 +3,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-7">
-                    <div class="card-title">Admin Counters</div>
+                    <div class="card-title">Admin Counters&nbsp;<div wire:loading class="text-warning">Loading...</div></div>
                 </div>
                 <div class="col-5">
                     <div class="row">

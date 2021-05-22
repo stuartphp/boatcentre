@@ -40,6 +40,8 @@ class Manufacturers extends Component
         $this->search='';
         $this->manufacturer='';
         $this->model_model='';
+        $this->model_action='';
+        $this->model_row_id='';
         $this->model_specifications='';
         $this->modal_title = 'Add new record';
         $this->modal_btn_title = 'Create Record';
@@ -83,6 +85,11 @@ class Manufacturers extends Component
         {
             case 'add':
                 /** save the model */
+                BoatManufacturerModel::create([
+                    'boat_manufacturer_id'=>$man_id,
+                    'model'=>$this->model_model,
+                    'specifications'=>$this->model_specifications]);
+                $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
                 $this->showModelModal('hide');
                 break;
             case 'create':
@@ -90,6 +97,7 @@ class Manufacturers extends Component
                 $man = $this->getManufacturer($man_id);
                 $this->model_model = 'Create a Model';
                 $this->manufacturer = $man->name;
+                $this->model_row_id=0;
                 $this->model_action='add';
                 $this->showModelModal('show');
                 break;
@@ -105,10 +113,20 @@ class Manufacturers extends Component
                 break;
             case 'save':
                 /** Save update */
+                $rec = BoatManufacturerModel::where('id', $mod_id)->first();
+                //dd($this->model_specifications);
+                $rec->update([
+                    'boat_manufacturer_id'=>$man_id,
+                    'model'=>$this->model_model,
+                    'specifications'=>$this->model_specifications
+                ]);
+                $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
                 $this->showModelModal('hide');
                 break;
             case 'destroy':
                 /** Delete Model */
+                BoatManufacturerModel::destroy($mod_id);
+                $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Deleted']);
                 $this->showModelModal('hide');
                 break;
         }
