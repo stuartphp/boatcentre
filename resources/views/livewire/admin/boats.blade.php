@@ -46,7 +46,7 @@
 <!-- The Modal -->
 <div id="myModal" class="fancy-modal">
     <!-- Modal content -->
-    <div class="fancy-modal-content" style="max-width: 80vw">
+    <div class="fancy-modal-content container-lg">
         <div class="fancy-modal-header">
             <div class="row">
                 <div class="col-10"><p>Boat Listing</p></div>
