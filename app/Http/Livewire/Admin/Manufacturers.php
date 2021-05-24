@@ -24,6 +24,9 @@ class Manufacturers extends Component
     public $row_id;
     public $name;
     // Model for ManufacturerModel
+    // public $manufacturer_model = [
+
+    // ];
     public $model_row_id;
     public $model_model;
     public $model_boat_manufacturer_id;
@@ -103,6 +106,7 @@ class Manufacturers extends Component
                 break;
             case 'update':
                 /** Get model detail */
+
                 $man = $this->getManufacturer($man_id);
                 $mod = $this->getModel($mod_id);
                 $this->model_model = $mod->model;

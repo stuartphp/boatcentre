@@ -75,33 +75,38 @@
             </div>
         </div>
     </div>
-    <div class="modal" tabindex="-2" wire:ignore.self id="formModel">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">{{ $model_model }} for {{ $manufacturer }}</h5>
-
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="model" class="form-label">Model</label>
-                    <input type="text" class="form-control form-control-sm" id="model" wire:model.defer="model_model">
-                    @error('model_model') <span class="error">{{ $message }}</span> @enderror
-                </div>
-                <div class="mb-3">
-                    <label for="specifications" class="form-label">Specifications</label>
-                    <textarea class="form-control form-control-sm" wire:model.defer="model_specifications" rows="10" autocomplete="off">{{ $model_specifications }}</textarea>
-                    @error('model_specifications') <span class="error">{{ $message }}</span> @enderror
-                </div>
-            </div>
-            <div class="modal-footer">
-              @if($model_action !='add')<button type="button" class="btn btn-danger btn-sm" wire:click.prevent="loadModel('destroy', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Delete</button>@endif
-              <button type="button" class="btn btn-primary btn-sm" wire:click.prevent="loadModel('{{ $model_action }}', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Save changes</button>
-            </div>
-          </div>
+<div class="modal" tabindex="-1" wire:ignore.self id="formModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">{{ $model_model }} for {{ $manufacturer }}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-      </div>
-
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="model" class="form-label">Model</label>
+                <input type="text" class="form-control form-control-sm" id="model" wire:model.defer="model_model">
+                @error('model_model') <span class="error">{{ $message }}</span> @enderror
+            </div>
+            <div class="mb-3">
+                <label for="specifications" class="form-label">Specifications</label>
+                <div wire:ignore>
+                    <textarea x-data="ckeditor()"
+                              x-init="init($dispatch)"
+                              wire:key="ckEditor"
+                              x-ref="ckEditor"
+                              wire:model.debounce.2000ms="model_specifications"
+                              class="form-control @error('model_specifications') is-invalid @enderror"
+                              name="model_specifications"></textarea>
+                </div>
+                @error('model_specifications') <span class="error">{{ $message }}</span> @enderror
+            </div>
+        </div>
+        <div class="modal-footer">
+            @if($model_action !='add')<button type="button" class="btn btn-danger btn-sm" wire:click.prevent="loadModel('destroy', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Delete</button>@endif
+              <button type="button" class="btn btn-primary btn-sm" wire:click.prevent="loadModel('{{ $model_action }}', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Save changes</button>
+        </div>
+        </div>
+    </div>
 </div>
-
+</div>

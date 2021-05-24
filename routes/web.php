@@ -24,12 +24,16 @@ Auth::routes();
 Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('website/banners', [\App\Http\Controllers\Admin\Website\BannersController::class, 'index']);
-    Route::get('boats', [\App\Http\Controllers\Admin\BoatsController::class, 'index']);
+    Route::resource('boats', \App\Http\Controllers\Admin\BoatsController::class);
     Route::get('categories', [\App\Http\Controllers\Admin\BoatCategoriesController::class, 'index']);
     Route::get('manufacturers', [\App\Http\Controllers\Admin\ManufacturersController::class, 'index']);
     Route::get('counters', [\App\Http\Controllers\Admin\CountersController::class, 'index']);
     Route::get('dealers', [\App\Http\Controllers\Admin\DealersController::class, 'index']);
     Route::get('dealers/info/{id}', [\App\Http\Controllers\Admin\DealersController::class, 'info']);
+    //Search
+    Route::post('/search/manufacturers', [\App\Http\Controllers\Admin\SearchController::class, 'manufacturers']);
+    Route::post('/search/models', [\App\Http\Controllers\Admin\SearchController::class, 'models']);
+    Route::post('/search/city', [\App\Http\Controllers\Admin\SearchController::class, 'city']);
 });
 
 Route::any('/{any}', [App\Http\Controllers\Site\MainController::class, 'index']);

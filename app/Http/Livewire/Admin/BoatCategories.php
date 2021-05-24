@@ -18,7 +18,7 @@ class BoatCategories extends Component
     protected $queryString = ['search'=>['except'=>''], 'page'=>['except'=>1]];
     public $modal_title;
     public $modal_btn_title;
-    public $modal_btn; 
+    public $modal_btn;
     // Model
     public $row_id;
     public $name;
@@ -43,7 +43,7 @@ class BoatCategories extends Component
         $this->loadForm($id);
         switch($val)
         {
-            case 'add':                
+            case 'add':
                 $this->modal_btn_title = 'Add new record';
                 $this->modal_title = 'Create Record';
                 $this->action='add';
@@ -100,7 +100,7 @@ class BoatCategories extends Component
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
             }
         }
-        
+
         $this->dispatchBrowserEvent('modal', ['modal'=>'formModal', 'action'=>'hide']);
     }
 
@@ -109,11 +109,12 @@ class BoatCategories extends Component
         if($this->search > '')
         {
            // $this->page=1;
-            $data = BoatCategory::where('name', 'like', '%'.$this->search.'%')->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->paginate($this->page_size);
+            $data = BoatCategory::where('name', 'like', '%'.$this->search.'%')
+            ->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->paginate($this->page_size);
         }else{
             $data = BoatCategory::orderBy('parent_id', 'asc')->orderBy('name', 'asc')->paginate($this->page_size);
         }
-        
+
         $cats = $this->category();
         return view('livewire.admin.boat-categories', compact('data', 'cats'));
     }
