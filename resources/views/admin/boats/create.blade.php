@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+<form action="{{ route('boats.store') }}" method="POST">
+@csrf
+
 <div class="ms-3 me-3">
     <div class="card">
         <div class="card-header">Boat Listing / Create</div>
@@ -8,7 +11,7 @@
         <div class="col-lg-4">
             <div class="mb-3">
                 <label for="reference">Reference</label>
-                <input type="text" class="form-control form-control-sm" disabled name="reference"/>
+                <input type="text" class="form-control form-control-sm" name="reference"/>
             </div>
             <div class="mb-3">
                 <label for="vin_number">VIN No. for Trailer</label>
@@ -16,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="name">Name</label>
-                <input type="text" class="form-control form-control-sm" name="name"/>
+                <input type="text" class="form-control form-control-sm" name="name" required/>
             </div>
             <div class="mb-3">
                 <label for="keywords">Keywords (Comma seperated)</label>
@@ -28,7 +31,7 @@
             </div>
             <div class="mb-3">
                 <label for="manufacturer">Manufacturer</label>
-                <select class="form-select form-select-sm select" name="manufacturer" onchange="getModels(this.value)" name="manufacturer">
+                <select class="form-select form-select-sm select" name="manufacturer" onchange="getModels(this.value)" name="manufacturer" required>
                     <option value="" selected>Select</option>
                     @foreach ($manufacturers as $k=>$v )
                     <option value="{{ $k }}">{{ $v }}</option>
@@ -37,13 +40,13 @@
             </div>
             <div class="mb-3">
                 <label for="model">Model</label>
-                <select class="form-select form-select-sm select" id="model" onchange="getModelDetail(this.value)" name="model">
+                <select class="form-select form-select-sm select" id="model" onchange="getModelDetail(this.value)" name="model" required>
                     <option value="">Select</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="main_color">Main Color</label>
-                <input type="color" class="form-control form-control-sm" value="#ffffff" name="main_color"/>
+                <input type="color" class="form-control form-control-sm" value="#ffffff" name="main_color" required/>
             </div>
             <div class="mb-3">
                 <label for="new_used">New/Used</label>
@@ -54,7 +57,7 @@
             </div>
             <div class="mb-3">
                 <label for="condition">Condition</label>
-                <select class="form-select form-select-sm select" name="condition">
+                <select class="form-select form-select-sm select" name="condition" required>
                     <option value="10">Gem Mint 100%</option>
                     <option value="9">Mint 95%</option>
                     <option value="8">Near Mint 90%</option>
@@ -67,36 +70,44 @@
                     <option value="1">Very Poor < 40%</option>
                 </select>
             </div>
+
             <div class="mb-3">
-                <label for="hull_construction">Hull Construction</label>
-                <input type="text" class="form-control form-control-sm" name="hull_construction"/>
+                <label for="year_of_manufacture">Year Of Manufacture</label>
+                <input type="text" class="form-control form-control-sm" name="year_of_manufacture"/>
             </div>
         </div>
         <div class="col-lg-4">
             <div class="mb-3">
+                <label for="hull_construction">Hull Construction</label>
+                <input type="text" class="form-control form-control-sm" name="hull_construction" required/>
+            </div>
+            <div class="mb-3">
                 <label for="province">Province</label>
-                <select class="form-select form-select-sm" name="province" onchange="getCity(this.value)">
+                <select class="form-select form-select-sm" name="province" onchange="getCity(this.value)" required>
                     <option value="">Select</option>
-                    @foreach ($provinces as $k=>$v )
-                    <option value="{{ $k }}">{{ strtoupper($v) }}</option>
-                    @endforeach
-                </select>
+                        <option value="1">EASTERN CAPE</option>
+                        <option value="2">FREE STATE</option>
+                        <option value="3">GAUTENG</option>
+                        <option value="4">KWAZULU-NATAL</option>
+                        <option value="5">LIMPOPO</option>
+                        <option value="6">MPUMALANGA</option>
+                        <option value="8">NORTH WEST</option>
+                        <option value="7">NORTHERN CAPE</option>
+                        <option value="9">WESTERN CAPE</option>
+                    </select>
             </div>
             <div class="mb-3">
                 <label for="city">City</label>
-                <select class="form-select form-select-sm select" data-live-search="true" name="city" id="city"></select>
+                <select class="form-select form-select-sm select" data-live-search="true" name="city" id="city" required></select>
             </div>
-            <div class="mb-3">
-                <label for="short_description">Short Description</label>
-                <input type="text" class="form-control form-control-sm" name="short_description"/>
-            </div>
+
             <div class="mb-3">
                 <label for="description">Decription</label>
-                <textarea id="description" name="description"></textarea>
+                <textarea id="description" name="description" required></textarea>
             </div>
             <div class="mb-3">
                 <label for="retail">Retail Price</label>
-                <input type="text" class="form-control form-control-sm" name="retail" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                <input type="text" class="form-control form-control-sm" name="retail" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required/>
             </div>
             <div class="mb-3">
                 <label for="special_price">Special Price</label>
@@ -130,18 +141,18 @@
             </div>
             <div class="mb-3">
                 <label for="crew">Crew</label>
-                <input type="number" class="form-control form-control-sm" name="crew"/>
+                <input type="number" class="form-control form-control-sm" name="crew" value="1"/>
             </div>
             <div class="mb-3">
                 <label for="passengers">Passengers</label>
-                <input type="number" class="form-control form-control-sm" name="passengers"/>
+                <input type="number" class="form-control form-control-sm" name="passengers" value="1"/>
             </div>
             <div class="mb-3">
                 <label for="fuel_type">Fuel Type</label>
                 <select class="form-select form-select-sm" name="fuel_type">
-                    <option value="1" selected>Diesel</option>
+                    <option value="1">Diesel</option>
                     <option value="2">Electric / Battery</option>
-                    <option value="3">Petrol</option>
+                    <option value="3" selected>Petrol</option>
                     <option value="4">Nature / Wind</option>
                 </select>
             </div>
@@ -167,7 +178,7 @@
         </div>
         <div class="card-footer">
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="is_sold" name="is_sold">
                         <label class="form-check-label" for="is_sold">
@@ -175,7 +186,7 @@
                         </label>
                       </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="is_approved">
                         <label class="form-check-label" for="is_approved">
@@ -183,7 +194,15 @@
                         </label>
                       </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="is_feature">
+                        <label class="form-check-label" for="is_feature">
+                          Is Feature
+                        </label>
+                      </div>
+                </div>
+                <div class="col-sm-2">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="is_active">
                         <label class="form-check-label" for="is_active">
@@ -191,14 +210,14 @@
                         </label>
                       </div>
                 </div>
-                <div class="col-sm-3 text-end"><button type="submit" class="btn btn-primary btn-sm">Save</button></div>
+                <div class="col-sm-4 text-end"><button type="submit" class="btn btn-primary btn-sm">Save</button></div>
             </div>
 
         </div>
     </div>
 
 </div>
-
+</form>
 @endsection
 @section('scripts')
 <script>
