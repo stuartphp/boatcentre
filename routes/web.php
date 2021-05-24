@@ -30,6 +30,7 @@ Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('counters', [\App\Http\Controllers\Admin\CountersController::class, 'index']);
     Route::get('dealers', [\App\Http\Controllers\Admin\DealersController::class, 'index']);
     Route::get('dealers/info/{id}', [\App\Http\Controllers\Admin\DealersController::class, 'info']);
+    Route::get('boats/images/{id}', [\App\Http\Controllers\Admin\BoatsController::class, 'images']);
     //Search
     Route::post('/search/manufacturers', [\App\Http\Controllers\Admin\SearchController::class, 'manufacturers']);
     Route::post('/search/models', [\App\Http\Controllers\Admin\SearchController::class, 'models']);

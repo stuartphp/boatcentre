@@ -30,8 +30,8 @@
                 <input type="text" class="form-control form-control-sm" name="cof"/>
             </div>
             <div class="mb-3">
-                <label for="manufacturer">Manufacturer</label>
-                <select class="form-select form-select-sm select" name="manufacturer" onchange="getModels(this.value)" name="manufacturer" required>
+                <label for="boat_manufacturer_id">Manufacturer</label>
+                <select class="form-select form-select-sm select" onchange="getModels(this.value)" required name="boat_manufacturer_id" id="boat_manufacturer_id">
                     <option value="" selected>Select</option>
                     @foreach ($manufacturers as $k=>$v )
                     <option value="{{ $k }}">{{ $v }}</option>
@@ -39,8 +39,8 @@
                 </select>
             </div>
             <div class="mb-3">
-                <label for="model">Model</label>
-                <select class="form-select form-select-sm select" id="model" onchange="getModelDetail(this.value)" name="model" required>
+                <label for="boat_manufacturer_model_id">Model</label>
+                <select class="form-select form-select-sm select" id="boat_manufacturer_model_id" onchange="getModelDetail(this.value)" name="boat_manufacturer_model_id" required>
                     <option value="">Select</option>
                 </select>
             </div>
@@ -58,16 +58,9 @@
             <div class="mb-3">
                 <label for="condition">Condition</label>
                 <select class="form-select form-select-sm select" name="condition" required>
-                    <option value="10">Gem Mint 100%</option>
-                    <option value="9">Mint 95%</option>
-                    <option value="8">Near Mint 90%</option>
-                    <option value="7">Excellent / Near Mint 85%</option>
-                    <option value="6">Excelent 80%</option>
-                    <option value="5">Very Good 70%</option>
-                    <option value="4">Good 60%</option>
-                    <option value="3">Fair 50%</option>
-                    <option value="2">Poor 40%</option>
-                    <option value="1">Very Poor < 40%</option>
+                    @foreach (__('global.condition') as $k=>$v )
+                        <option value="{{ $k }}">{{ $v }}</option>
+                    @endforeach
                 </select>
             </div>
 
@@ -83,7 +76,7 @@
             </div>
             <div class="mb-3">
                 <label for="province">Province</label>
-                <select class="form-select form-select-sm" name="province" onchange="getCity(this.value)" required>
+                <select class="form-select form-select-sm" name="province_id" onchange="getCity(this.value)" required>
                     <option value="">Select</option>
                         <option value="1">EASTERN CAPE</option>
                         <option value="2">FREE STATE</option>
@@ -98,7 +91,7 @@
             </div>
             <div class="mb-3">
                 <label for="city">City</label>
-                <select class="form-select form-select-sm select" data-live-search="true" name="city" id="city" required></select>
+                <select class="form-select form-select-sm select" data-live-search="true" name="city_id" id="city_id" required></select>
             </div>
 
             <div class="mb-3">
@@ -234,14 +227,16 @@
                 for(var i=0; i<data.length; i++)
                 {
                     var Opt = new Option(data[i].text, data[i].id, false, false);
-                    $('#city').append(Opt);
+                    $('#city_id').append(Opt);
                 }
-                $('#city').trigger('change');
-            }
+                $('#city_id').trigger('change');
+            },
+
         });
     }
     function getModels(val)
     {
+
         $.ajax({
             url: '/admin/search/manufacturers',
             data: {id:val},
@@ -249,10 +244,10 @@
             method:'POST',
             success: function(data)
             {
-                $('#model').empty();
-                $("#model").append('<option value="">Select</option>');
+                $('#boat_manufacturer_model_id').empty();
+                $("#boat_manufacturer_model_id").append('<option value="">Select</option>');
                 for(var i=0; i<data.length; i++){
-                    $("#model").append('<option value="'+data[i]['id']+'">'+data[i]['val']+'</option>');
+                    $("#boat_manufacturer_model_id").append('<option value="'+data[i]['id']+'">'+data[i]['val']+'</option>');
                 }
             }
         });

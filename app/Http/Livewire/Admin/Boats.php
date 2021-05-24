@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Boat;
+use Illuminate\Support\Facades\DB;
 
 class Boats extends Component
 {
@@ -19,7 +20,7 @@ class Boats extends Component
     public $modal_title;
     public $modal_btn_title;
     public $modal_btn;
-    
+
 
     protected $rules = [
 
@@ -103,7 +104,19 @@ class Boats extends Component
            // $this->page=1;
             $data = Boat::where('name', 'like', '%'.$this->search.'%')->orderBy('name', 'asc')->paginate($this->page_size);
         }else{
-            $data = Boat::orderBy('name', 'asc')->paginate($this->page_size);
+            //$data = Boat::orderBy('name', 'asc')->paginate($this->page_size);
+            $data = DB::table('boats')
+                ->join('boat_manufacturers', 'boat_manufacturers.id', '=', 'boats.boat_manufacturer_id')
+                ->join('boat_manufacturer_models', 'boat_manufacturer_models.id', '=', 'boats.boat_manufacturer_model_id')
+                ->join('provinces', 'provinces.id', '=', 'boats.province_id')
+                ->join('sa_postal_codes', 'sa_postal_codes.id', '=', 'boats.city_id')
+                ->select('boats.*',
+                'boat_manufacturers.name as manufacturere_name',
+                'boat_manufacturer_models.model as model_name',
+                'provinces.name as province',
+                'sa_postal_codes.city as city',
+                )
+                ->paginate($this->page_size);
         }
 
         return view('livewire.admin.boats', compact('data'));

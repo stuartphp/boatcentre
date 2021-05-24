@@ -26,8 +26,29 @@ class BoatsController extends Controller
     {
         $data = request()->all();
         $data['company_id']=1;
-        
+
         Boat::create(request()->all());
         return redirect('/admin/boats');
     }
+
+    public function edit($id)
+    {
+        $data = Boat::find($id);
+        $manufacturers = BoatManufacturer::orderBy('name')->pluck('name', 'id')->toArray();
+        return view('admin.boats.edit', compact('data', 'manufacturers'));
+    }
+
+    public function update($id)
+    {
+        $data = request()->all();
+        $rec = Boat::findOrFail($id);
+        $rec->update($data);
+        return redirect('/admin/boats');
+    }
+
+    public function images($id)
+    {
+        return view('admin.boats.images', ['id'=>$id]);
+    }
+    //SELECT sum(retail_price * on_hand) as total FROM `stock_items` WHERE is_active=1 and (on_hand > 0 or on_hand <1000)
 }

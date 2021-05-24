@@ -25,7 +25,7 @@
                         <tr>
                             <th>Reference</th>
                             <th>Name</th>
-                            <th>Category</th>
+                            <th>Model</th>
                             <th>New/Used</th>
                             <th>Condition</th>
                             <th>Province</th>
@@ -34,7 +34,24 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                    @foreach ($data as $item)
+                        <tr>
+                            <td>{{ $item->reference }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->manufacturere_name }} / {{ $item->model_name }}</td>
+                            <td>{{ ($item->new_used==0) ? 'Old' : 'New' }}</td>
+                            <td>{{ __('global.condition.'.$item->condition) }}</td>
+                            <td>{{ strtoupper($item->province) }} / {{ $item->city }}</td>
+                            <td>{{ $item->retail_price }}</td>
+                            <td><select class="form-select form-select-sm" onchange="doAction({{ $item->id }}, this.value)">
+                                <option value="">Select</option>
+                                <option value="edit">Edit</option>
+                                <option value="images">Images</option>
+                                <option value="delete">Delete</option>
+                            </select>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -43,5 +60,4 @@
         {{ $data->links() }}
         </div>
     </div>
-
 </div>
