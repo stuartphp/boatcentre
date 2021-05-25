@@ -27,7 +27,7 @@
 
             <div class="row">
               <div class="col-md-6">
-                <div class="map" id="map"></div>
+                <div class="map" id="map">Map of your location</div>
               </div>
               <div class="col-md-6">
                 <section class="section-form-contacts">

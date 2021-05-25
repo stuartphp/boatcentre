@@ -95,7 +95,7 @@
                 </select>
               </div>
             </div>
-            <div class="b-filter-slider ui-filter-slider">
+            {{-- <div class="b-filter-slider ui-filter-slider">
               <div class="b-filter-slider__title">Price</div>
               <div class="b-filter-slider__main">
                 <div id="filterPrice"></div>
@@ -117,7 +117,7 @@
                   <input class="ui-select" id="input-range"/>
                 </div>
               </div>
-            </div>
+            </div>--}}
             <button class="b-filter__reset btn btn-secondary w-100" type="reset">reset filters</button>
           </form>
         </div>
@@ -146,7 +146,7 @@
             <div class="b-goods-flip__header row no-gutters align-items-center">
               <div class="col"><a class="b-goods-flip__title" href="#">GOLDEN ODYSSEY</a></div>
               <div class="col-auto">
-                <div class="b-goods-flip__price text-primary">$140 <span>/ per day</span></div>
+                <div class="b-goods-flip__price text-primary">R 980 000</div>
               </div>
             </div>
               <div class="b-goods-descrip_nev_wrap">
@@ -172,7 +172,7 @@
             <div class="b-goods-flip__header row no-gutters align-items-center">
               <div class="col"><a class="b-goods-flip__title" href="#">Black pearl</a></div>
               <div class="col-auto">
-                <div class="b-goods-flip__price text-primary">$150 <span>/ per day</span></div>
+                <div class="b-goods-flip__price text-primary">R 650 000</div>
               </div>
             </div>
               <div class="b-goods-descrip_nev_wrap">
@@ -201,7 +201,7 @@
             <div class="b-goods-flip__header row no-gutters align-items-center">
               <div class="col"><a class="b-goods-flip__title" href="#">Sea Senora</a></div>
               <div class="col-auto">
-                <div class="b-goods-flip__price text-primary">$230 <span>/ per day</span></div>
+                <div class="b-goods-flip__price text-primary">R 430 00</div>
               </div>
             </div>
               <div class="b-goods-descrip_nev_wrap">
