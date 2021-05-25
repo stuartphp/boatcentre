@@ -18,6 +18,7 @@
     <link href="/css/admin.css" rel="stylesheet">
     @yield('css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     @livewireStyles
 </head>
 

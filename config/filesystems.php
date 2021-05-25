@@ -37,8 +37,26 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/assets'),
-            'url' => env('APP_URL').'/storage',
+            'root' => storage_path('app/public/images'),
+            'url' => env('APP_URL').'/images',
+            'visibility' => 'public',
+        ],
+        'boats' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/boats'),
+            'url' => env('APP_URL').'/images/boats',
+            'visibility' => 'public',
+        ],
+        'logos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/logos'),
+            'url' => env('APP_URL').'/images/logos',
+            'visibility' => 'public',
+        ],
+        'stock' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/stock'),
+            'url' => env('APP_URL').'/images/stock',
             'visibility' => 'public',
         ],
 
@@ -67,6 +85,9 @@ return [
 
     'links' => [
         public_path('images') => storage_path('app/public'),
+        public_path('images/boats') => storage_path('app/public/boats'),
+        public_path('images/stock') => storage_path('app/public/stock'),
+        public_path('images/logos') => storage_path('app/public/logos'),
     ],
 
 ];
