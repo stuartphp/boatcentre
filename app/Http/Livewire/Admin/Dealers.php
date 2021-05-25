@@ -4,11 +4,12 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 use App\Models\Dealer;
 
 class Dealers extends Component
 {
-    use WithPagination;
+    use WithPagination, WithFileUploads;
     protected $paginationTheme = 'bootstrap';
     // Standard
     public $page_size=12;
@@ -18,7 +19,7 @@ class Dealers extends Component
     protected $queryString = ['search'=>['except'=>''], 'page'=>['except'=>1]];
     public $modal_title;
     public $modal_btn_title;
-    public $modal_btn; 
+    public $modal_btn;
     // Model
     public $row_id;
     public $account_number;
@@ -32,8 +33,9 @@ class Dealers extends Component
     public $website;
     public $email;
     public $logo;
+    public $photo;
     public $is_active;
-    
+
     protected $rules = [
         'registered_name'=>'required',
         'trading_name'=>'string',
@@ -51,6 +53,7 @@ class Dealers extends Component
         $this->modal_btn_title = 'Create Record';
         $this->modal_btn = 'btn-primary';
         $this->action='add';
+        $this->photo='';
     }
     public function loadModal($val, $id)
     {
@@ -58,7 +61,7 @@ class Dealers extends Component
         $this->loadForm($id);
         switch($val)
         {
-            case 'add':                
+            case 'add':
                 $this->modal_btn_title = 'Add new record';
                 $this->modal_title = 'Create Record';
                 $this->action='add';
@@ -100,6 +103,21 @@ class Dealers extends Component
         $this->is_active = isset($res->is_active) ? $res->is_active : '' ;
     }
 
+    public function save()
+    {
+        $rec = Dealer::where('id', $this->row_id)->first();
+
+        $this->photo->store('/logos', ['disk'=>'public']);
+        $this->logo = $this->photo->hashName();
+        // Delete old logo
+        if($rec->logo > '')
+        {
+            unlink(public_path().'/images/logos/'.$rec->logo);
+        }
+        $rec->update(['logo'=>$this->logo]);
+        $this->photo='';
+        $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Logo Uploaded']);
+    }
     public function recordAction()
     {
         if($this->action=='delete')
@@ -108,7 +126,9 @@ class Dealers extends Component
             $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Deleted']);
         }else{
             $this->validate();
+
             $record = Dealer::where('id', $this->row_id)->first();
+
             $fields = [
                 'account_number'=>$this->account_number,
                 'registered_name'=>$this->registered_name,
@@ -120,7 +140,7 @@ class Dealers extends Component
                 'office_number'=>$this->office_number,
                 'website'=>$this->website,
                 'email'=>$this->email,
-                'logo'=>$this->logo,
+                //'logo'=>$this->logo,
                 'is_active'=>$this->is_active,
             ];
             if($record !== null){
@@ -135,7 +155,7 @@ class Dealers extends Component
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
             }
         }
-        
+
         $this->dispatchBrowserEvent('modal', ['modal'=>'formModal', 'action'=>'hide']);
     }
 
@@ -148,7 +168,7 @@ class Dealers extends Component
         }else{
             $data = Dealer::orderBy('registered_name', 'asc')->paginate($this->page_size);
         }
-        
+
         return view('livewire.admin.dealers', compact('data'));
     }
 }

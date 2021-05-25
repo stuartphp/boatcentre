@@ -39,7 +39,7 @@
                             <td>{{ $item->reference }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->manufacturere_name }} / {{ $item->model_name }}</td>
-                            <td>{{ ($item->new_used==0) ? 'Old' : 'New' }}</td>
+                            <td>{{ ($item->new_used==0) ? 'Used' : 'New' }}</td>
                             <td>{{ __('global.condition.'.$item->condition) }}</td>
                             <td>{{ strtoupper($item->province) }} / {{ $item->city }}</td>
                             <td>{{ $item->retail_price }}</td>

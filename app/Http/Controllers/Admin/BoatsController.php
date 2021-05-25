@@ -25,8 +25,8 @@ class BoatsController extends Controller
     public function store()
     {
         $data = request()->all();
-        $data['company_id']=1;
-
+        $data['dealer_id']=1;
+        //dd($data);
         Boat::create(request()->all());
         return redirect('/admin/boats');
     }

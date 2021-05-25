@@ -21,7 +21,6 @@ class Boats extends Component
     public $modal_btn_title;
     public $modal_btn;
 
-
     protected $rules = [
 
     ];
@@ -118,7 +117,6 @@ class Boats extends Component
                 )
                 ->paginate($this->page_size);
         }
-
         return view('livewire.admin.boats', compact('data'));
     }
 }

@@ -5,7 +5,7 @@
 
 <div class="ms-3 me-3">
     <div class="card">
-        <div class="card-header">Boat Listing / Create</div>
+        <div class="card-header"><a href="/admin/boats">Boat Listing</a> / Create</div>
         <div class="card-body">
           <div class="row">
         <div class="col-lg-4">
@@ -99,8 +99,8 @@
                 <textarea id="description" name="description" required></textarea>
             </div>
             <div class="mb-3">
-                <label for="retail">Retail Price</label>
-                <input type="text" class="form-control form-control-sm" name="retail" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required/>
+                <label for="retail_price">Retail Price</label>
+                <input type="text" class="form-control form-control-sm" name="retail_price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required/>
             </div>
             <div class="mb-3">
                 <label for="special_price">Special Price</label>
