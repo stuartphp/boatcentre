@@ -5,7 +5,7 @@
 <input type="hidden" name="_method" value="PUT"/>
 <div class="ms-3 me-3">
     <div class="card">
-        <div class="card-header">Boat Listing / Create</div>
+        <div class="card-header"><a href="/admin/boats">Boat Listing</a> / Create</div>
         <div class="card-body">
           <div class="row">
         <div class="col-lg-4">

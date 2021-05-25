@@ -37,26 +37,7 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/images'),
-            'url' => env('APP_URL').'/images',
-            'visibility' => 'public',
-        ],
-        'boats' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public/boats'),
-            'url' => env('APP_URL').'/images/boats',
-            'visibility' => 'public',
-        ],
-        'logos' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public/logos'),
-            'url' => env('APP_URL').'/images/logos',
-            'visibility' => 'public',
-        ],
-        'stock' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public/stock'),
-            'url' => env('APP_URL').'/images/stock',
+            'root' => public_path().'/images',
             'visibility' => 'public',
         ],
 

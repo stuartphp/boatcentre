@@ -32,12 +32,6 @@
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="trading_name" class="col-sm-4 col-form-label">Trading Name</label>
-        <div class="col-sm-8">
-            <input type="text" class="form-control form-control-sm" id="trading_name" value="{{ $data->trading_name }}">
-        </div>
-    </div>
-    <div class="mb-3 row">
         <label for="vat_number" class="col-sm-4 col-form-label">VAT Number</label>
         <div class="col-sm-8">
             <input type="text" class="form-control form-control-sm" id="vat_number" value="{{ $data->vat_number }}">
@@ -62,28 +56,31 @@
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="office_number" class="col-sm-4 col-form-label">office_number</label>
+        <label for="office_number" class="col-sm-4 col-form-label">Office Number</label>
         <div class="col-sm-8">
             <input type="text" class="form-control form-control-sm" id="office_number" value="{{ $data->office_number }}">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="website" class="col-sm-4 col-form-label">website</label>
+        <label for="website" class="col-sm-4 col-form-label">Website</label>
         <div class="col-sm-8">
             <input type="text" class="form-control form-control-sm" id="website" value="{{ $data->website }}">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="email" class="col-sm-4 col-form-label">email</label>
+        <label for="email" class="col-sm-4 col-form-label">Email</label>
         <div class="col-sm-8">
             <input type="text" class="form-control form-control-sm" id="email" value="{{ $data->email }}">
         </div>
     </div>
     <div class="mb-3 row">
-        <label for="logo" class="col-sm-4 col-form-label">logo</label>
+        <label for="logo" class="col-sm-4 col-form-label">Logo</label>
         <div class="col-sm-8">
             <input type="text" class="form-control form-control-sm" id="logo" value="{{ $data->logo }}">
         </div>
+        @if ($data->logo>'')
+            <img src="/images/logos/{{ $data->logo }}">
+        @endif
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-primary btn-sm">Update</button>
