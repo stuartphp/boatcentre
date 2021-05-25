@@ -261,7 +261,7 @@
             method:'POST',
             success: function(data)
             {
-                $('#description').summernote('insertText',data);
+                $('#description').summernote('code',data);
             }
         });
     }

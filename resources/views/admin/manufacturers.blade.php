@@ -1,51 +1,48 @@
 @extends('layouts.app')
+@section('css')
+    <link href="/plugins/summernote/summernote-lite.min.css" rel="stylesheet">
+@endsection
 @section('content')
 @livewire('admin.manufacturers')
 @endsection
 @section('scripts')
-    <script>
-     /**
-     * An alpinejs app that handles CKEditor's lifecycle
-     */
-    function ckeditor() {
-        return {
-            /**
-             * The function creates the editor and returns its instance
-             * @param $dispatch Alpine's magic property
-             */
-            create: async function($dispatch) {
-                // Create the editor with the x-ref
-                const editor = await ClassicEditor.create(this.$refs.ckEditor);
-                // Handle data updates
-                editor.model.document.on('change:data', function() {
-                    $dispatch('input', editor.getData())
-                });
-                // return the editor
-                return editor;
-            },
-            /**
-             * Initilizes the editor and creates a listener to recreate it after a rerender
-             * @param $dispatch Alpine's magic property
-             */
-            init: async function($dispatch) {
-                // Get an editor instance
-                const editor = await this.create($dispatch);
-                // Set the initial data
-                //editor.setData('{{ old('model_specifications') }}')
-                // Pass Alpine context to Livewire's
-                const $this = this;
-                // On reinit, destroy the old instance and create a new one
-                Livewire.on('reinit', async function(e) {
-                    editor.setData('');
-                    editor.destroy()
-                        .catch( error => {
-                            console.log( error );
-                        } );
-                    await $this.create($dispatch);
-                });
-            }
-        }
-    }
+<script src="/plugins/summernote/summernote-lite.min.js"></script>
+<script>
+    var span = document.getElementsByClassName("close")[0];
+    var modal = document.getElementById("formModel");
+    window.addEventListener('fancymodal', event => {
+      $('#summernote').summernote('code', event.detail.action);
+      modal.style.display = "block";
+  });
+  // When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+$(document).ready(function() {
+    $('#summernote').summernote({
+        tabsize: 2,
+        height: 180,
+        dialogsInBody: true,
+        dialogsFade: true,
+        disableDragAndDrop: false,
+        dialogsInBody: true,
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+        ]
+    });
+});
+
 
     </script>
 @endsection

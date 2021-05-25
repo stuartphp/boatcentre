@@ -34,6 +34,7 @@ class Manufacturers extends Component
     public $manufacturer;
     public $model_action;
 
+    protected $listeners = ['loadJSModel'];
     protected $rules = [
         'name' => 'required'
     ];
@@ -50,6 +51,11 @@ class Manufacturers extends Component
         $this->modal_btn_title = 'Create Record';
         $this->modal_btn = 'btn-primary';
         $this->action='add';
+    }
+
+    public function loadJSModel()
+    {
+        $this->loadModel($this->model_action, $this->model_boat_manufacturer_id, $this->model_row_id);
     }
     public function loadModal($val, $id)
     {
@@ -93,7 +99,7 @@ class Manufacturers extends Component
                     'model'=>$this->model_model,
                     'specifications'=>$this->model_specifications]);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
-                $this->showModelModal('hide');
+                //$this->showModelModal('hide');
                 break;
             case 'create':
                 /** Show clear form */
@@ -102,7 +108,7 @@ class Manufacturers extends Component
                 $this->manufacturer = $man->name;
                 $this->model_row_id=0;
                 $this->model_action='add';
-                $this->showModelModal('show');
+                $this->showModelModal('');
                 break;
             case 'update':
                 /** Get model detail */
@@ -113,7 +119,7 @@ class Manufacturers extends Component
                 $this->model_specifications = $mod->specifications;
                 $this->manufacturer = $man->name;
                 $this->model_action='save';
-                $this->showModelModal('show');
+                $this->showModelModal($mod->specifications);
                 break;
             case 'save':
                 /** Save update */
@@ -124,7 +130,7 @@ class Manufacturers extends Component
                     'model'=>$this->model_model,
                     'specifications'=>$this->model_specifications
                 ]);
-                $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
+                //$this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Updated']);
                 $this->showModelModal('hide');
                 break;
             case 'destroy':
@@ -149,7 +155,7 @@ class Manufacturers extends Component
 
     public function showModelModal($action)
     {
-        $this->dispatchBrowserEvent('modal', ['modal'=>'formModel', 'action'=>$action]);
+        $this->dispatchBrowserEvent('fancymodal', ['modal'=>'formModel', 'action'=>$action]);
     }
 
     public function loadForm($id)

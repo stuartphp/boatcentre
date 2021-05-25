@@ -75,14 +75,13 @@
             </div>
         </div>
     </div>
-<div class="modal" tabindex="-1" wire:ignore.self id="formModel">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
+<div class="fancy-modal" tabindex="-1" wire:ignore.self id="formModel">
+        <div class="fancy-modal-content" style="max-width: 530px">
+        <div class="fancy-modal-header">
             <h5 class="modal-title">{{ $model_model }} for {{ $manufacturer }}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <span class="close">&times;</span>
         </div>
-        <div class="modal-body">
+        <div class="fancy-modal-body">
             <div class="mb-3">
                 <label for="model" class="form-label">Model</label>
                 <input type="text" class="form-control form-control-sm" id="model" wire:model.defer="model_model">
@@ -91,22 +90,29 @@
             <div class="mb-3">
                 <label for="specifications" class="form-label">Specifications</label>
                 <div wire:ignore>
-                    <textarea x-data="ckeditor()"
-                              x-init="init($dispatch)"
-                              wire:key="ckEditor"
-                              x-ref="ckEditor"
-                              wire:model.debounce.2000ms="model_specifications"
-                              class="form-control @error('model_specifications') is-invalid @enderror"
-                              name="model_specifications"></textarea>
+                    <textarea id="summernote" name="model_specifications" wire:model="model_specifications">
+                        {{ old('model_specifications', $model_specifications) }}
+                        </textarea>
                 </div>
                 @error('model_specifications') <span class="error">{{ $message }}</span> @enderror
             </div>
         </div>
-        <div class="modal-footer">
+        <div class="fancy-modal-footer">
             @if($model_action !='add')<button type="button" class="btn btn-danger btn-sm" wire:click.prevent="loadModel('destroy', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Delete</button>@endif
-              <button type="button" class="btn btn-primary btn-sm" wire:click.prevent="loadModel('{{ $model_action }}', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Save changes</button>
+              <button type="button" class="btn btn-primary btn-sm" onclick="setCallBack('{{ $model_action }}', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Save changes</button>
         </div>
         </div>
-    </div>
+
 </div>
+<script>
+// wire:click.prevent="""
+    function setCallBack(model_action, model_boat_manufacturer_id, model_row_id)
+    {
+        var text = $('#summernote').val();
+        $('#formModel').toggle();
+        @this.set('model_specifications', text);
+        Livewire.emit('loadJSModel');
+    }//, ['model_action'=>model_action, 'model_boat_manufacturer_id'=>$model_boat_manufacturer_id, 'model_row_id'=>model_row_id]
+</script>
 </div>
+
