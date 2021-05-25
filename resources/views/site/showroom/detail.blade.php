@@ -254,7 +254,7 @@
           <div class="col-lg-4">
             <aside class="l-sidebar">
               <div class="b-goods-f-price">
-                <div class="b-goods-f-price__header bg-secondary"><span class="b-goods-f-price__main">$120</span> / per day</div>
+                <div class="b-goods-f-price__header bg-secondary"><span class="b-goods-f-price__main">R 1 230 000</span></div>
 
               </div>
               {{-- <div class="b-goods__wrap-bnrs">
@@ -280,9 +280,9 @@
                   <div class="b-seller__contact"><span class="d-block">Contact Seller</span><a class="b-seller__phone" href="tel:12584037961">1 (258) 403 7961</a></div>
                   <ul class="b-seller-soc list-unstyled">
                     <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
-                    <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-linkedin-in"></i></a></li>
+                    {{-- <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-linkedin-in"></i></a></li> --}}
                     <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li>
-                    <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-behance"></i></a></li>
+                    {{-- <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-behance"></i></a></li> --}}
                     <li class="b-seller-soc__item"><a class="b-seller-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li>
                   </ul>
                 </div>

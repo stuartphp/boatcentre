@@ -134,7 +134,7 @@
 						<section class="footer-section footer-section_link pl-5">
 							<h3 class="footer-section__title">Boat Services</h3>
 							<ul class="footer-list list-unstyled">
-								<li><a href="#">Wedding Facility</a></li>
+								<li><a href="#">Showroom</a></li>
 								<li><a href="#">Cruise and Marina</a></li>
 								<li><a href="#">Yacht Party Event</a></li>
 								<li><a href="#">Corporate Event</a></li>
@@ -147,7 +147,7 @@
 					</div>
 					<div class="col-lg-3 col-md-6">
 						<section class="footer-section footer-section_link footer-section_link_about">
-							<h3 class="footer-section__title">About Nevica</h3>
+							<h3 class="footer-section__title">About Us</h3>
 							<ul class="footer-list list-unstyled">
 								<li><a href="#"> Home</a></li>
 								<li><a href="#">Services</a></li>

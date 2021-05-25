@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Boat;
+use Illuminate\Support\Facades\DB;
 
 class Boats extends Component
 {
@@ -18,52 +19,11 @@ class Boats extends Component
     protected $queryString = ['search'=>['except'=>''], 'page'=>['except'=>1]];
     public $modal_title;
     public $modal_btn_title;
-    public $modal_btn; 
-    // Model
-    public $row_id;
-    public $reference;
-    public $company_id;
-    public $vin_number;
-    public $name;
-    public $keywords;
-    public $category_id;
-    public $cof;
-    public $brand;
-    public $model;
-    public $manufacturer;
-    public $year_of_manufacture;
-    public $main_color;
-    public $new_used;
-    public $condition;
-    public $province;
-    public $city;
-    public $short_description;
-    public $description;
-    public $currency;
-    public $retail_price;
-    public $is_feature;
-    public $special_price;
-    public $special_start;
-    public $special_end;
-    public $viewed;
-    public $weight;
-    public $loa;
-    public $beam;
-    public $draft;
-    public $crew;
-    public $passengers;
-    public $fuel_type;
-    public $fuel_tank;
-    public $max_speed;
-    public $hull_construction;
-    public $youtube_link;
-    public $fb_link;
-    public $is_sold;
-    public $is_approved;
-    public $is_active;
-    
+    public $modal_btn;
+
+
     protected $rules = [
-        
+
     ];
 
     public function mount()
@@ -80,7 +40,7 @@ class Boats extends Component
         $this->loadForm($id);
         switch($val)
         {
-            case 'add':                
+            case 'add':
                 $this->modal_btn_title = 'Add new record';
                 $this->modal_title = 'Create Record';
                 $this->action='add';
@@ -108,7 +68,7 @@ class Boats extends Component
     {
         $res = Boat::find($id);
         $this->row_id = isset($res->id) ? $res->id : '';
-        
+
     }
 
     public function recordAction()
@@ -121,7 +81,7 @@ class Boats extends Component
             $this->validate();
             $record = Boat::where('id', $this->row_id)->first();
             $fields = [
-                
+
             ];
             if($record !== null){
                 // Update
@@ -133,7 +93,7 @@ class Boats extends Component
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Record Created']);
             }
         }
-        
+
         $this->dispatchBrowserEvent('modal', ['modal'=>'formModal', 'action'=>'hide']);
     }
 
@@ -144,9 +104,21 @@ class Boats extends Component
            // $this->page=1;
             $data = Boat::where('name', 'like', '%'.$this->search.'%')->orderBy('name', 'asc')->paginate($this->page_size);
         }else{
-            $data = Boat::orderBy('name', 'asc')->paginate($this->page_size);
+            //$data = Boat::orderBy('name', 'asc')->paginate($this->page_size);
+            $data = DB::table('boats')
+                ->join('boat_manufacturers', 'boat_manufacturers.id', '=', 'boats.boat_manufacturer_id')
+                ->join('boat_manufacturer_models', 'boat_manufacturer_models.id', '=', 'boats.boat_manufacturer_model_id')
+                ->join('provinces', 'provinces.id', '=', 'boats.province_id')
+                ->join('sa_postal_codes', 'sa_postal_codes.id', '=', 'boats.city_id')
+                ->select('boats.*',
+                'boat_manufacturers.name as manufacturere_name',
+                'boat_manufacturer_models.model as model_name',
+                'provinces.name as province',
+                'sa_postal_codes.city as city',
+                )
+                ->paginate($this->page_size);
         }
-        
+
         return view('livewire.admin.boats', compact('data'));
     }
 }

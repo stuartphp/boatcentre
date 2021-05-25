@@ -35,20 +35,16 @@
             });
         });
 
-        var modal = document.querySelector('.fancy-modal');
-        var btn = document.querySelector('.fancy-modal-open');
-        var span = document.getElementsByClassName("close")[0];
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
+function doAction(id, val){
+    switch(val)
+    {
+        case 'edit':
+            window.location.href='/admin/boats/'+id+'/edit';
+            break;
+        case 'images':
+            window.location.href='/admin/boats/images/'+id;
+            break;
+    }
+}
     </script>
 @endsection

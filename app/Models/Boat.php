@@ -11,20 +11,19 @@ class Boat extends Model
     protected $table ="boats";
     protected $fillable = [
 'reference',
-'company_id',
+'dealer_id',
 'vin_number',
 'name',
 'keywords',
-'category_id',
 'cof',
-'model',
-'manufacturer',
+'boat_manufacturer_model_id',
+'boat_manufacturer_id',
 'year_of_manufacture',
 'main_color',
 'new_used',
 'condition',
-'province',
-'city',
+'province_id',
+'city_id',
 'short_description',
 'description',
 'currency',
@@ -51,4 +50,5 @@ class Boat extends Model
 'is_active',
 
     ];
+
 }

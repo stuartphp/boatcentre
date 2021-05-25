@@ -11,12 +11,14 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
+    <link href="/plugins/summernote/summernote-lite.min.css" rel="stylesheet">
+    <link href="/plugins/select2/dist/css/select2.min.css" rel="stylesheet">
     <link href="/css/admin.css" rel="stylesheet">
     @yield('css')
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.1/dist/alpine.min.js" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     @livewireStyles
 </head>
 
@@ -123,13 +125,23 @@
         @csrf
     </form>
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
-    </script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/plugins/select2/dist/js/select2.full.min.js"></script>
+
+    <script src="/plugins/summernote/summernote-lite.min.js"></script>
+
 @livewireScripts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script>
+      $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+$(document).ready(function() {
+    $('.select').select2();
+});
 	window.addEventListener('alert', event => {
 		toastr[event.detail.type](event.detail.message, event.detail.title ?? '')
 		toastr.options = {
@@ -140,7 +152,7 @@
   window.addEventListener('modal', event => {
       $('#'+event.detail.modal).modal(event.detail.action);
   });
- </script>
+</script>
 @yield('scripts')
 
 </body>
