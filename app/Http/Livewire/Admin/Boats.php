@@ -98,10 +98,23 @@ class Boats extends Component
 
     public function render()
     {
+        switch(auth()->user()->profile)
+        {
+            case 1:
+                $data = $this->admin();
+                break;
+            default:
+                $data = $this->dealer();
+        }
+        return view('livewire.admin.boats', compact('data'));
+    }
+
+    public function admin()
+    {
         if($this->search > '')
         {
            // $this->page=1;
-           $data = DB::table('boats')
+          return DB::table('boats')
            ->join('boat_manufacturers', 'boat_manufacturers.id', '=', 'boats.boat_manufacturer_id')
            ->join('boat_manufacturer_models', 'boat_manufacturer_models.id', '=', 'boats.boat_manufacturer_model_id')
            ->join('provinces', 'provinces.id', '=', 'boats.province_id')
@@ -119,8 +132,7 @@ class Boats extends Component
            })
            ->paginate($this->page_size);
         }else{
-            //$data = Boat::orderBy('name', 'asc')->paginate($this->page_size);
-            $data = DB::table('boats')
+            return DB::table('boats')
                 ->join('boat_manufacturers', 'boat_manufacturers.id', '=', 'boats.boat_manufacturer_id')
                 ->join('boat_manufacturer_models', 'boat_manufacturer_models.id', '=', 'boats.boat_manufacturer_model_id')
                 ->join('provinces', 'provinces.id', '=', 'boats.province_id')
@@ -133,6 +145,45 @@ class Boats extends Component
                 )
                 ->paginate($this->page_size);
         }
-        return view('livewire.admin.boats', compact('data'));
+    }
+    public function dealer()
+    {
+        if($this->search > '')
+        {
+           // $this->page=1;
+          return DB::table('boats')
+           ->join('boat_manufacturers', 'boat_manufacturers.id', '=', 'boats.boat_manufacturer_id')
+           ->join('boat_manufacturer_models', 'boat_manufacturer_models.id', '=', 'boats.boat_manufacturer_model_id')
+           ->join('provinces', 'provinces.id', '=', 'boats.province_id')
+           ->join('sa_postal_codes', 'sa_postal_codes.id', '=', 'boats.city_id')
+           ->select('boats.*',
+           'boat_manufacturers.name as manufacturere_name',
+           'boat_manufacturer_models.model as model_name',
+           'provinces.name as province',
+           'sa_postal_codes.city as city',
+           )
+           ->where('dealer_id', auth()->user()->dealer_id)
+           ->where(function($q){
+               $q->where('boats.name', 'like', '%'.$this->search.'%')
+                ->orWhere('boats.reference', 'like', '%'.$this->search.'%')
+                ->orWhere('boat_manufacturer_models.model', 'like', '%'.$this->search.'%')
+                ->orWhere('boat_manufacturers.name', 'like', '%'.$this->search.'%');
+           })
+           ->paginate($this->page_size);
+        }else{
+            return DB::table('boats')
+                ->join('boat_manufacturers', 'boat_manufacturers.id', '=', 'boats.boat_manufacturer_id')
+                ->join('boat_manufacturer_models', 'boat_manufacturer_models.id', '=', 'boats.boat_manufacturer_model_id')
+                ->join('provinces', 'provinces.id', '=', 'boats.province_id')
+                ->join('sa_postal_codes', 'sa_postal_codes.id', '=', 'boats.city_id')
+                ->where('dealer_id', auth()->user()->dealer_id)
+                ->select('boats.*',
+                'boat_manufacturers.name as manufacturere_name',
+                'boat_manufacturer_models.model as model_name',
+                'provinces.name as province',
+                'sa_postal_codes.city as city',
+                )
+                ->paginate($this->page_size);
+        }
     }
 }

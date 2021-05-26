@@ -21,14 +21,14 @@ class BoatsController extends Controller
     public function create()
     {
         $manufacturers = BoatManufacturer::orderBy('name')->pluck('name', 'id')->toArray();
-        $action='add';
-        return view('admin.boats.create', compact('manufacturers', 'action'));
+        $action='create';
+        return view('admin.boats.form', compact('manufacturers', 'action'));
     }
 
     public function store()
     {
         $data = request()->all();
-        $data['dealer_id']=1;
+        $data['dealer_id']=auth()->user()->dealer_id;
         $error = Validator::make($data, $this->validation());
         if($error->fails())
         {
@@ -40,11 +40,14 @@ class BoatsController extends Controller
             $ref = DB::table('counters')->where('name', 'boats')->first();
             $ref_nr = $ref->prefix.$ref->number;
             $data['reference']=$ref_nr;
+            $data['is_feature'] = request('is_feature') ? 1:0;
+            $data['is_sold'] = request('is_sold') ? 1:0;
+            $data['is_approved'] = request('is_approved') ? 1:0;
+            $data['is_active'] = request('is_active') ? 1:0;
             DB::table('counters')->where('id', $ref->id)->increment('number');
             Boat::create($data);
-
             DB::commit();
-            return redirect('/admin/boats');
+            return response()->json(['success'=>'yes']);
         } catch (\Exception $e){
             DB::rollBack();
             dd($e);
@@ -56,15 +59,20 @@ class BoatsController extends Controller
     {
         $data = Boat::find($id);
         $manufacturers = BoatManufacturer::orderBy('name')->pluck('name', 'id')->toArray();
-        return view('admin.boats.edit', compact('data', 'manufacturers'));
+        $action='update';
+        return view('admin.boats.form', compact('data', 'manufacturers', 'action'));
     }
 
     public function update($id)
     {
         $data = request()->all();
+        $data['is_feature'] = request('is_feature') ? 1:0;
+        $data['is_sold'] = request('is_sold') ? 1:0;
+        $data['is_approved'] = request('is_approved') ? 1:0;
+        $data['is_active'] = request('is_active') ? 1:0;
         $rec = Boat::findOrFail($id);
         $rec->update($data);
-        return redirect('/admin/boats');
+        return response()->json(['success'=>'yes']);
     }
 
     public function images($id)
@@ -79,14 +87,13 @@ class BoatsController extends Controller
             'name',
             'boat_manufacturer_model_id'=>'required|integer',
             'boat_manufacturer_id'=>'required|integer',
-            'year_of_manufacture'=>'required|numeric|max:4',
             'province_id'=>'required|integer',
             'city_id'=>'required|integer',
             'description'=>'required',
             'retail_price'=>'required|numeric',
-            'special_price'=>'numeric',
-            'special_start'=>'date',
-            'special_end'=>'date'
+            'special_price'=>'nullable|numeric',
+            'special_start'=>'nullable|date',
+            'special_end'=>'nullable|date'
         ];
     }
 }
