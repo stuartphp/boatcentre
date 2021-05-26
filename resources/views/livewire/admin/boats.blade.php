@@ -42,7 +42,7 @@
                             <td>{{ ($item->new_used==0) ? 'Used' : 'New' }}</td>
                             <td>{{ __('global.condition.'.$item->condition) }}</td>
                             <td>{{ strtoupper($item->province) }} / {{ $item->city }}</td>
-                            <td>{{ $item->retail_price }}</td>
+                            <td class="text-end">{{ number_format($item->retail_price,2) }}</td>
                             <td><select class="form-select form-select-sm" onchange="doAction({{ $item->id }}, this.value)">
                                 <option value="">Select</option>
                                 <option value="edit">Edit</option>

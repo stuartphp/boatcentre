@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
-<form action="{{ route('boats.store') }}" method="POST">
+<form action="{{ route('boats.store') }}" method="POST" id="frmBoat">
 @csrf
-
+<input type="hidden" id="action" value="{{ $action }}"/>
 <div class="ms-3 me-3">
     <div class="card">
         <div class="card-header"><a href="/admin/boats">Boat Listing</a> / Create</div>
@@ -11,23 +11,24 @@
         <div class="col-lg-4">
             <div class="mb-3">
                 <label for="reference">Reference</label>
-                <input type="text" class="form-control form-control-sm" name="reference"/>
+                <input type="text" class="form-control form-control-sm" name="reference" readonly/>
             </div>
             <div class="mb-3">
                 <label for="vin_number">VIN No. for Trailer</label>
-                <input type="text" class="form-control form-control-sm" name="vin_number"/>
+                <input type="text" class="form-control form-control-sm" name="vin_number" value="{{ old('vin_number') }}"/>
             </div>
             <div class="mb-3">
                 <label for="name">Name</label>
-                <input type="text" class="form-control form-control-sm" name="name" required/>
+                <input type="text" class="form-control form-control-sm" name="name" required value="{{ old('name') }}"/>
+                @error('name')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
             <div class="mb-3">
                 <label for="keywords">Keywords (Comma seperated)</label>
-                <input type="text" class="form-control form-control-sm" name="keywords" placeholder="key1, key2, key3"/>
+                <input type="text" class="form-control form-control-sm" name="keywords" placeholder="key1, key2, key3" value="{{ old('keywords') }}"/>
             </div>
             <div class="mb-3">
                 <label for="cof">COF (Certificate of Fitness)</label>
-                <input type="text" class="form-control form-control-sm" name="cof"/>
+                <input type="text" class="form-control form-control-sm" name="cof" value="{{ old('cof') }}"/>
             </div>
             <div class="mb-3">
                 <label for="boat_manufacturer_id">Manufacturer</label>
@@ -37,16 +38,19 @@
                     <option value="{{ $k }}">{{ $v }}</option>
                     @endforeach
                 </select>
+                @error('boat_manufacturer_id')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
             <div class="mb-3">
                 <label for="boat_manufacturer_model_id">Model</label>
                 <select class="form-select form-select-sm select" id="boat_manufacturer_model_id" onchange="getModelDetail(this.value)" name="boat_manufacturer_model_id" required>
                     <option value="">Select</option>
                 </select>
+                @error('boat_manufacturer_model_id')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
             <div class="mb-3">
                 <label for="main_color">Main Color</label>
                 <input type="color" class="form-control form-control-sm" value="#ffffff" name="main_color" required/>
+
             </div>
             <div class="mb-3">
                 <label for="new_used">New/Used</label>
@@ -67,12 +71,20 @@
             <div class="mb-3">
                 <label for="year_of_manufacture">Year Of Manufacture</label>
                 <input type="text" class="form-control form-control-sm" name="year_of_manufacture"/>
+                @error('year_of_manufacture')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
         </div>
         <div class="col-lg-4">
             <div class="mb-3">
                 <label for="hull_construction">Hull Construction</label>
-                <input type="text" class="form-control form-control-sm" name="hull_construction" required/>
+                <select class="form-select form-select-sm" name="hull_construction">
+                    <option value="Aluminum">Aluminum</option>
+                    <option value="Carbon Fibre">Carbon Fibre</option>
+                    <option value="Fiberglass">Fiberglass</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Wood">Wood</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="province">Province</label>
@@ -234,6 +246,7 @@
 
         });
     }
+
     function getModels(val)
     {
 
@@ -283,7 +296,36 @@
       });
     });
 
-
+    $('#frmBoat').on('submit', function(e){
+        e.preventDefault();
+        var action = $('#action').val();
+        if(action === 'add')
+        {
+            $.ajax({
+                url:'{{ route('boats.store') }}',
+                method: 'POST',
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                dataType: 'JSON',
+                success: function (response) {
+                    if(response.success){
+                        //notice('success', '{{trans('global.record_added')}}');
+                        //getDetail(response.success);
+                    }else{
+                        var err='<div class="row"><div class="col-sm-12"><ul class="text-start">';
+                        for(let i=0; i<response.error.length; i++)
+                        {
+                            err += "<li>"+response.error[i]+"</li>";
+                        }
+                        err +='</ul></div></div>'
+                        notice('error', 'Errors Found', err);
+                    }
+                }
+            });
+        }
+    })
 
 </script>
 @endsection

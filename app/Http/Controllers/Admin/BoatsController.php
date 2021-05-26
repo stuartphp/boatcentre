@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Boat;
 use App\Models\BoatManufacturer;
+use Illuminate\Support\Facades\DB;
+use Validator;
 
 class BoatsController extends Controller
 {
@@ -19,16 +21,35 @@ class BoatsController extends Controller
     public function create()
     {
         $manufacturers = BoatManufacturer::orderBy('name')->pluck('name', 'id')->toArray();
-        return view('admin.boats.create', compact('manufacturers'));
+        $action='add';
+        return view('admin.boats.create', compact('manufacturers', 'action'));
     }
 
     public function store()
     {
         $data = request()->all();
         $data['dealer_id']=1;
-        //dd($data);
-        Boat::create(request()->all());
-        return redirect('/admin/boats');
+        $error = Validator::make($data, $this->validation());
+        if($error->fails())
+        {
+            return response()->json(['error'=>$error->errors()->all()]);
+        }
+        try{
+            DB::beginTransaction();
+            // Create Reference
+            $ref = DB::table('counters')->where('name', 'boats')->first();
+            $ref_nr = $ref->prefix.$ref->number;
+            $data['reference']=$ref_nr;
+            DB::table('counters')->where('id', $ref->id)->increment('number');
+            Boat::create($data);
+
+            DB::commit();
+            return redirect('/admin/boats');
+        } catch (\Exception $e){
+            DB::rollBack();
+            dd($e);
+        }
+
     }
 
     public function edit($id)
@@ -50,5 +71,22 @@ class BoatsController extends Controller
     {
         return view('admin.boats.images', ['id'=>$id]);
     }
-    //SELECT sum(retail_price * on_hand) as total FROM `stock_items` WHERE is_active=1 and (on_hand > 0 or on_hand <1000)
+
+    public function validation()
+    {
+        return [
+            'dealer_id',
+            'name',
+            'boat_manufacturer_model_id'=>'required|integer',
+            'boat_manufacturer_id'=>'required|integer',
+            'year_of_manufacture'=>'required|numeric|max:4',
+            'province_id'=>'required|integer',
+            'city_id'=>'required|integer',
+            'description'=>'required',
+            'retail_price'=>'required|numeric',
+            'special_price'=>'numeric',
+            'special_start'=>'date',
+            'special_end'=>'date'
+        ];
+    }
 }

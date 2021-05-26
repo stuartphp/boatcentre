@@ -124,6 +124,20 @@
     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
         @csrf
     </form>
+    <div class="modal" tabindex="-1" id="Message">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
     <!-- Scripts -->
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
@@ -133,6 +147,7 @@
 
 @livewireScripts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
   <script>
       $.ajaxSetup({
     headers: {
@@ -152,6 +167,45 @@ $(document).ready(function() {
   window.addEventListener('modal', event => {
       $('#'+event.detail.modal).modal(event.detail.action);
   });
+//   @if(session()->get('success'))
+// //https://sweetalert.js.org/guides/
+// Swal.fire({
+//     position: 'top-end',
+//     toast: true,
+//     title:'{!! session()->get("success") !!}',
+//     text:"",
+//     icon: 'success',
+//     showConfirmButton: false,
+//     timer: 1500
+// });
+// @endif
+// @if(session()->get('error'))
+// Swal.fire({
+//     position: 'top-end',
+//     toast: true,
+//     title:'{!! session()->get("error") !!}',
+//     text:"",
+//     icon: "error",
+//     showConfirmButton: false,
+//     timer: 1500
+// });
+// @endif
+
+
+
+function notice(type, title, message='') {
+    var messageModal = document.getElementById('Message');
+    switch(type)
+    {
+        case 'error':
+        messageModal.querySelector('modal-header').innerHTML(title);
+        break;
+        case 'warning':
+
+        break;
+    }
+    messageModal.style.display="block";
+}
 </script>
 @yield('scripts')
 

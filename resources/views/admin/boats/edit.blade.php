@@ -72,7 +72,14 @@
         <div class="col-lg-4">
             <div class="mb-3">
                 <label for="hull_construction">Hull Construction</label>
-                <input type="text" class="form-control form-control-sm" name="hull_construction" required value="{{ $data->hull_construction }}"/>
+                <select class="form-select form-select-sm" name="hull_construction">
+                    <option value="Aluminum" @if($data->hull_construction=='Aluminum') selected @endif>Aluminum</option>
+                    <option value="Carbon Fibre" @if($data->hull_construction=='Carbon Fibre') selected @endif>Carbon Fibre</option>
+                    <option value="Fiberglass" @if($data->hull_construction=='Fiberglass') selected @endif>Fiberglass</option>
+                    <option value="Steel" @if($data->hull_construction=='Steel') selected @endif>Steel</option>
+                    <option value="Wood" @if($data->hull_construction=='Wood') selected @endif>Wood</option>
+                    <option value="Other" @if($data->hull_construction=='Other') selected @endif>Other</option>
+                </select>
             </div>
             <div class="mb-3">
                 <label for="province_id">Province</label>
