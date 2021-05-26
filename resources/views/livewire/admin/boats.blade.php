@@ -2,10 +2,10 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-8">
+                <div class="col-6">
                     <div class="card-title">Boat Listings&nbsp;<div wire:loading class="text-warning">Loading...</div></div>
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <div class="row">
                         <div class="col-1"><a href="/admin/boats/create"><i class="fa fa-plus mt-2"></i></a></div>
                         <div class="col-7"><input type="search" class="form-control form-control-sm" wire:model="search" placeholder="Search"/></div>

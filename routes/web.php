@@ -31,6 +31,7 @@ Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('dealers', [\App\Http\Controllers\Admin\DealersController::class, 'index']);
     Route::get('dealers/info/{id}', [\App\Http\Controllers\Admin\DealersController::class, 'info']);
     Route::get('boats/images/{id}', [\App\Http\Controllers\Admin\BoatsController::class, 'images']);
+    Route::get('users', [\App\Http\Controllers\Admin\UsersController::class, 'index']);
     //Search
     Route::post('/search/manufacturers', [\App\Http\Controllers\Admin\SearchController::class, 'manufacturers']);
     Route::post('/search/models', [\App\Http\Controllers\Admin\SearchController::class, 'models']);

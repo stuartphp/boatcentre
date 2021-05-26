@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
- 
+
     /**
      * Show the application dashboard.
      *
@@ -14,17 +15,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        /**
-         * switch(auth()->user()->profile)
-         * {
-         *  case 1: // Admin
-         *  break;
-         *  case 2: // Dealer
-         *  break;
-         *  case 3: // Private
-         *  break;
-         * }
-         */
+        // Get Dealer Info
+        $dealer = DB::table('dealers')->where('id', auth()->user()->dealer_id)->first();
+        foreach($dealer as $k=>$v)
+        {
+            session()->put($k, $v);
+        }
+        
         return view('home');
     }
 }
