@@ -72,7 +72,19 @@ class Banners extends Component
 
     public function recordAction()
     {
-        dd($this->action);
+
+        switch($this->action)
+        {
+            case 'add':
+                WebsiteBanner::create([
+                    'image'=>$this->image,
+                    'slogan'=>$this->slogan,
+                    'title'=>$this->title,
+                    'link'=>$this->link,
+                    'is_active'=>$this->is_active
+                ]);
+                break;
+        }
 
         $this->dispatchBrowserEvent('modal', ['modal'=>'formModal', 'action'=>'hide']);
     }

@@ -38,7 +38,7 @@
         <tbody>
             @foreach ($data as $item)
                 <tr>
-                    <td><img src="/images/{{ $item->image  }}" style="height:75px"/></td>
+                    <td><img src="/images/banners/{{ $item->image  }}" style="height:75px"/></td>
                     <td>{{ $item->slogan }}</td>
                     <td>{{ $item->title }}</td>
                     <td>{{ $item->link }}</td>
@@ -73,28 +73,28 @@
       </div>
       <div class="modal-body">
         @if ($current_image)
-          <img src="/images/{{ $current_image }}" style="width:460px"/>
+          <img src="/images/banners/{{ $current_image }}" style="width:460px"/>
         @endif
         <div class="mb-3">
-            <label for="formFile" class="form-label">@if($current_image>'') Change Image @else Select Image @endif</label>
-            <input class="form-control" type="file" id="formFile" wire:model="image">
+            <label for="formFile" class="form-label">@if($current_image>'') Change Image @else Select Image (1920 x 800) @endif</label>
+            <input class="form-control form-control-sm" type="file" id="formFile" wire:model="image">
         </div>
         <div wire:loading wire:target="image">Uploading...</div>
         <div class="mb-3">
             <label for="slogan" class="form-label">Slogan</label>
-            <input type="text" class="form-control" id="slogan" wire:model="slogan">
+            <input type="text" class="form-control form-control-sm" id="slogan" wire:model="slogan">
         </div>
         <div class="mb-3">
             <label for="title" class="form-label">title</label>
-            <input type="text" class="form-control" id="title" wire:model="title">
+            <input type="text" class="form-control form-control-sm" id="title" wire:model="title">
         </div>
         <div class="mb-3">
             <label for="link" class="form-label">link</label>
-            <input type="text" class="form-control" id="link" wire:model="link">
+            <input type="text" class="form-control form-control-sm" id="link" wire:model="link">
         </div>
         <div class="mb-3">
             <label for="is_active" class="form-label">Is Active</label>
-            <select class="form-select" wire:model="is_active">
+            <select class="form-select form-select-sm" wire:model="is_active">
                 <option value="0">No</option>
                 <option value="1">Yes</option>
             </select>

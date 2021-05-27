@@ -35,7 +35,7 @@
                     </thead>
                     <tbody>
                     @foreach ($data as $item)
-                        <tr>
+                        <tr @if(auth()->user()->dealer_id != $item->dealer_id) class="table-info" @endif>
                             <td>{{ $item->reference }}</td>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->manufacturere_name }} / {{ $item->model_name }}</td>

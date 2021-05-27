@@ -2,47 +2,33 @@
 @section('title', 'Home')
 @section('content')
 
-    <div class="b-main-slider slider-pro" id="main-slider" data-slider-width="100%" data-slider-height="920px"
-        data-slider-arrows="false" data-slider-buttons="false">
-        <div class="sp-slides">
-            <!-- Slide 1-->
-            <div class="b-main-slider__slide b-main-slider__slide-1 sp-slide"><img class="sp-image"
-                    src="{{ asset('images/b01.jpg') }}" alt="slider">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="sp-layer" data-width="100%" data-show-transition="left" data-hide-transition="left"
-                                data-show-duration="800" data-show-delay="400" data-hide-delay="400">
-                                <div class="b-main-slider__title-wrap">
-                                    <div class="b-main-slider__slogan">Your No.1 Online</div>
-                                    <div class="b-main-slider__title">Boating Solution</div>
-                                    {{-- <div class="b-main-slider__label text-secondary">Explore Now</div> --}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Slide 1-->
-            <div class="b-main-slider__slide b-main-slider__slide-1 sp-slide"><img class="sp-image"
-                    src="{{ asset('images/b02.jpg') }}" alt="slider">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="sp-layer" data-width="100%" data-show-transition="left" data-hide-transition="left"
-                                data-show-duration="800" data-show-delay="400" data-hide-delay="400">
-                                <div class="b-main-slider__title-wrap">
-                                    <div class="b-main-slider__slogan">Your No.1 Online</div>
-                                    <div class="b-main-slider__title">Boating Solution</div>
-                                    {{-- <div class="b-main-slider__label text-secondary">Explore Now</div> --}}
-                                </div>
+<div class="b-main-slider slider-pro" id="main-slider" data-slider-width="100%" data-slider-height="920px"
+data-slider-arrows="false" data-slider-buttons="false">
+<div class="sp-slides">
+    @foreach ($banners as $banner)
+        <div class="b-main-slider__slide b-main-slider__slide-1 sp-slide"><img class="sp-image" src="/images/banners/{{ $banner->image }}" alt="slider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="sp-layer" data-width="100%" data-show-transition="left" data-hide-transition="left"
+                            data-show-duration="800" data-show-delay="400" data-hide-delay="400">
+                            <div class="b-main-slider__title-wrap">
+                                <div class="b-main-slider__slogan">{{ $banner->slogan }}</div>
+                                <div class="b-main-slider__title">{{ $banner->title }}</div>
+                                @if ($banner->link > '')
+                                    <div class="b-main-slider__label text-secondary">
+                                        <a href="/{{ $banner->link }}">Explore Now</a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endforeach
+</div>
+</div>
     <!-- end .b-main-slider-->
     <div class="b-about">
         <div class="ui-decor ui-decor_down"></div>
