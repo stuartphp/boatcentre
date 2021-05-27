@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Boat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,9 +13,10 @@ class ShowroomController extends Controller
     {
         return view('site.showroom.index');
     }
-    public function detail()
+    public function detail($id)
     {
-        return view('site.showroom.detail');
+        $boat = Boat::with(['dealer','images', 'manufacturer', 'model'])->findOrFail($id);
+        return view('site.showroom.detail', compact('boat'));
     }
     public function search()
     {

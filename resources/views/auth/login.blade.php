@@ -1,7 +1,7 @@
 @extends('layouts.site')
 @section('title', 'login')
 @section('content')
-<div class="section-title-page area-bg area-bg_dark area-bg_op_60">
+<div class="section-title-page login area-bg area-bg_dark area-bg_op_60">
         <div class="area-bg__inner">
           <div class="container text-center">
             <h1 class="b-title-page">Login</h1>
@@ -79,7 +79,7 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 </div>
-                                    
+
                                 @endif
                             </div>
                         </div>

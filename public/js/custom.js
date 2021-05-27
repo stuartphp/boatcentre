@@ -249,13 +249,17 @@ $(document).ready(function() {
         $('.js-slider-for').slick({
             arrows: true,
             fade: true,
+            adaptiveHeight: false,
             asNavFor: '.js-slider-nav'
         });
         $('.js-slider-nav').slick({
             slidesToShow: 5,
             slidesToScroll: 1,
             asNavFor: '.js-slider-for',
-            focusOnSelect: true
+            focusOnSelect: true,
+            adaptiveHeight: false,
+            // autoplay: true,
+            // autoplaySpeed: 3000,
         });
     }
 

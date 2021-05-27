@@ -4522,8 +4522,23 @@ html .b-goods-slider .slick-list {
 .section-title-page {
     position: relative;
     padding-top: 200px;
-    padding-bottom: 75px;
+    padding-bottom: 45px;
+}
+
+.login {
     background-image: url("../images/b01.jpg");
+    background-size: cover;
+}
+.contact {
+    background-image: url("../images/b02.jpg");
+    background-size: cover;
+}
+.showroom {
+    background-image: url("../images/b03.jpg");
+    background-size: cover;
+}
+.detail {
+    background-image: url("../images/b04.jpg");
     background-size: cover;
 }
 
@@ -4583,7 +4598,7 @@ html .b-goods-slider .slick-list {
 .b-title-page {
     margin-top: 0;
     margin-bottom: 0;
-    font: 700 60px/1 Montserrat;
+    font: 700 30px/1 Montserrat;
     color: #fff;
     letter-spacing: 1px;
     text-transform: uppercase;

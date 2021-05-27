@@ -23,4 +23,9 @@ class Dealer extends Model
         'logo',
         'is_active',
     ];
+
+    public function boats()
+    {
+        return $this->hasMany(Boat::class);
+    }
 }

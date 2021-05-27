@@ -24,6 +24,12 @@ return
         "8"=>'NORTH WEST',
         "7"=>'NORTHERN CAPE',
         "9"=>'WESTERN CAPE',
+     ],
+     'fuel_type'=>[
+         1=>'Diesel',
+         2=>'Electric / Battery',
+         3=>'Petrol',
+         4=>'Nature / Wind'
      ]
 
  ];

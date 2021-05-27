@@ -57,7 +57,7 @@ class BoatsController extends Controller
 
     public function edit($id)
     {
-        $data = Boat::find($id);
+        $data = Boat::findOrFail($id);
         $manufacturers = BoatManufacturer::orderBy('name')->pluck('name', 'id')->toArray();
         $action='update';
         return view('admin.boats.form', compact('data', 'manufacturers', 'action'));
@@ -70,9 +70,17 @@ class BoatsController extends Controller
         $data['is_sold'] = request('is_sold') ? 1:0;
         $data['is_approved'] = request('is_approved') ? 1:0;
         $data['is_active'] = request('is_active') ? 1:0;
-        $rec = Boat::findOrFail($id);
-        $rec->update($data);
-        return response()->json(['success'=>'yes']);
+
+        $error = Validator::make($data, $this->validation());
+        if($error->fails())
+        {
+            return response()->json(['error'=>$error->errors()->all()]);
+        }else{
+            $rec = Boat::findOrFail($id);
+            $rec->update($data);
+            return response()->json(['success'=>'yes']);
+        }
+
     }
 
     public function images($id)
@@ -89,6 +97,7 @@ class BoatsController extends Controller
             'boat_manufacturer_id'=>'required|integer',
             'province_id'=>'required|integer',
             'city_id'=>'required|integer',
+            'short_description'=>'required',
             'description'=>'required',
             'retail_price'=>'required|numeric',
             'special_price'=>'nullable|numeric',
