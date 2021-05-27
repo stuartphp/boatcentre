@@ -19,8 +19,8 @@
 
 @media (min-width:1200px) and (max-width:1549px) {
   .header-main__btn {
-    padding: 9px 15px;
-    font-size: 15px;
+    padding: 5px 7px;
+    font-size: 12px;
   }
   .header-soc__link {
     margin-left: 16px;

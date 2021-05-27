@@ -11,7 +11,7 @@
 	<meta content="telephone=no" name="format-detection">
 	<meta name="HandheldFriendly" content="true">
 	<link rel="stylesheet" href="/css/master.css?{{ md5(time()) }}">
-	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 	<!--[if lt IE 9 ]>
 <script src="js/separate-js/html5shiv-3.7.2.min.js" type="text/javascript"></script>
 <meta content="no" http-equiv="imagetoolbar">
@@ -100,8 +100,13 @@
                                         </div>
 									</li> --}}
 									<li class="nav-item"><a class="nav-link {{ request()->is('contact-us') ? 'open' : '' }}" href="/contact-us">Contact</a></li>
-									<li class="nav-item"><a class="nav-link {{ request()->is('login') ? 'open' : '' }}" href="/login">Login</a></li>
-									<li class="nav-item"><a class="nav-link {{ request()->is('register') ? 'open' : '' }}" href="/register">Register</a></li>
+									@auth
+                                        <li class="nav-item"><a class="nav-link " href="/admin/home">Admin</a></li>
+                                        @else
+                                        <li class="nav-item"><a class="nav-link {{ request()->is('login') ? 'open' : '' }}" href="/login">Login</a></li>
+									    <li class="nav-item"><a class="nav-link {{ request()->is('register') ? 'open' : '' }}" href="/register">Register</a></li>
+                                    @endauth
+
 								</ul>
                                 <button class="header-main__btn btn btn-secondary">Sell Your Boat</button>
 								{{-- <span class="header-main__link btn_header_search"><i class="ic icon-magnifier"></i></span> --}}

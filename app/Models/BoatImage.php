@@ -15,6 +15,7 @@ class BoatImage extends Model
         'image',
         'sort_order',
     ];
+
     public function boat()
     {
       return $this->belongsTo(Boat::class);

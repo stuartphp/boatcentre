@@ -73,8 +73,6 @@
                 <input type="text" class="form-control form-control-sm" name="year_of_manufacture" value="{{ isset($data->year_of_manufacture) ? $data->year_of_manufacture : old('year_of_manufacture') }}"/>
                 @error('year_of_manufacture')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
-        </div>
-        <div class="col-lg-4">
             <div class="mb-3">
                 <label for="hull_construction">Hull Construction</label>
                 <select class="form-select form-select-sm" name="hull_construction" id="hull_construction">
@@ -86,6 +84,9 @@
                     <option value="Other">Other</option>
                 </select>
             </div>
+        </div>
+        <div class="col-lg-4">
+
             <div class="mb-3">
                 <label for="province">Province</label>
                 <select class="form-select form-select-sm" name="province_id" id="province_id" onchange="getCity(this.value)" required>
@@ -99,10 +100,17 @@
                 <label for="city">City</label>
                 <select class="form-select form-select-sm select" data-live-search="true" name="city_id" id="city_id" required></select>
             </div>
-
+            <div class="mb-3">
+                <label for="short_description">Short Description</label>
+                <input type="text" class="form-control form-control-sm" name="short_description" require value="{{ isset($data->short_description) ? $data->short_description : old('short_description') }}"/>
+            </div>
             <div class="mb-3">
                 <label for="description">Decription</label>
-                <textarea id="description" name="description" required></textarea>
+                <textarea id="description" name="description" required>
+                    @if (isset($data->description))
+                        {!! $data->description !!}
+                    @endif
+                </textarea>
             </div>
             <div class="mb-3">
                 <label for="retail_price">Retail Price</label>
@@ -179,7 +187,7 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" @if(isset($data->is_sold) && $data->is_sold==1) checked @endif id="is_sold" name="is_sold">
+                        <input class="form-check-input" type="checkbox" name="is_sold" @if(isset($data->is_sold) && $data->is_sold==1) checked @endif id="is_sold" name="is_sold">
                         <label class="form-check-label" for="is_sold">
                           Is Sold
                         </label>
@@ -187,7 +195,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" @if(isset($data->is_feature) && $data->is_feature==1) checked @endif id="is_feature">
+                        <input class="form-check-input" type="checkbox" name="is_feature" @if(isset($data->is_feature) && $data->is_feature==1) checked @endif id="is_feature">
                         <label class="form-check-label" for="is_feature">
                           Is Feature
                         </label>
@@ -196,7 +204,7 @@
 
                 <div class="col-sm-2">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox"
+                        <input class="form-check-input" type="checkbox" name="is_approved"
                              @if(isset($data->is_approved) && $data->is_approved==1) checked @endif id="is_approved"
                              @if(auth()->user()->profile > 1) disabled @endif
                              >
@@ -207,7 +215,7 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox"
+                        <input class="form-check-input" type="checkbox" name="is_active"
                         @if(isset($data->is_active) && $data->is_active==1) checked @endif id="is_active"
                         @if(auth()->user()->profile > 1) disabled @endif>
                         <label class="form-check-label" for="is_active">
@@ -227,9 +235,11 @@
 @section('scripts')
 <script>
 var boat_id=0;
+var model_id=0;
 @if(isset($data))
 $(function(){
-     boat_id= {{ $data->id }};
+    boat_id= {{ $data->id }};
+    model_id= {{ $data->boat_manufacturer_model_id }};
     getCity('{{ $data->province_id }}');
     getModels('{{$data->boat_manufacturer_id}}');
     $('#new_used').val({{ $data->new_used }});
@@ -283,8 +293,6 @@ $(function(){
                 for(var i=0; i<data.length; i++){
                     $("#boat_manufacturer_model_id").append('<option value="'+data[i]['id']+'">'+data[i]['val']+'</option>');
                 }
-
-
             }
         }).done(function(d,t,j){
             @if (isset($data->boat_manufacturer_model_id) && $data->boat_manufacturer_model_id)
@@ -302,7 +310,11 @@ $(function(){
             method:'POST',
             success: function(data)
             {
-                $('#description').summernote('code',data);
+                if(id != model_id)
+                {
+                    $('#description').summernote('code',data);
+                }
+
             }
         });
     }
@@ -311,7 +323,7 @@ $(function(){
         $('#description').summernote({
             placeholder: 'Enter description',
             tabsize: 2,
-            height: 135,
+            height: 192,
             toolbar: [
                 ['style', ['style']],
                 ['font', ['bold', 'underline', 'clear']],
