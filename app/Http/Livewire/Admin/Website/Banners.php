@@ -42,12 +42,6 @@ class Banners extends Component
         switch($val)
         {
             case 'add':
-                // $this->row_id = '';
-                // $this->image = '';
-                // $this->slogan = '';
-                // $this->title = '';
-                // $this->link = '';
-                // $this->is_active = 1;
                 $this->reset();
                 $this->modal_btn = 'Add new record';
                 $this->modal_title = 'Save';

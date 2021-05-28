@@ -64,6 +64,7 @@
 
         </div>
     </div>
+    <form wire:submit.prevent="save">
 <div class="modal" tabindex="-1" id="formModal" wire:ignore.self>
   <div class="modal-dialog">
     <div class="modal-content">
@@ -79,7 +80,6 @@
             <label for="formFile" class="form-label">@if($current_image>'') Change Image @else Select Image (1920 x 800) @endif</label>
             <input class="form-control form-control-sm" type="file" id="formFile" wire:model="image">
         </div>
-        <div wire:loading wire:target="image">Uploading...</div>
         <div class="mb-3">
             <label for="slogan" class="form-label">Slogan</label>
             <input type="text" class="form-control form-control-sm" id="slogan" wire:model="slogan">
@@ -101,9 +101,9 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-sm" wire:click="recordAction">{{ $modal_btn }}</button>
+        <button type="submit" class="btn btn-primary btn-sm">{{ $modal_btn }}</button>
       </div>
     </div>
   </div>
-</div>
+</div></form>
 </div>

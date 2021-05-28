@@ -33,8 +33,8 @@
 				<li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
                 <li class="nav-item "><a class="nav-link" href="/Showroom">About</a></li>
                 <li class="nav-item "><a class="nav-link" href="/accesories">Accesories</a></li>
-                 <li class="nav-item "><a class="nav-link" href="/services">Services</a></li>
-				<li class="nav-item"><a class="nav-link" href="/contact-us">Contact</a></li>
+                 <!-- <li class="nav-item "><a class="nav-link" href="/services">Services</a></li> -->
+				<li class="nav-item"><a class="nav-link" href="/contact-us">Contact Us</a></li>
 				<li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
                 <li class="nav-item "><a class="nav-link" href="/register">Register</a></li>
 			</ul>
@@ -77,7 +77,7 @@
                                     <li class="nav-item "><a class="nav-link" href="/showroom">Showroom</a> </li>
                                     <li class="nav-item "><a class="nav-link" href="/accesories">Accesories</a> </li>
 
-									<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#">Services</a>
+									{{--<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#">Services</a>
 										<div class="dropdown-menu">
                                             <a class="dropdown-item" href="listing.html">Boats Insurance</a>
                                             <a class="dropdown-item" href="listing-sidebar.html">Boats Loans</a>
@@ -86,7 +86,7 @@
                                             <a class="dropdown-item" href="details.html">Boats Documentation</a>
                                         </div>
 									</li>
-                                    {{-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="tours.html">Our Tours</a>
+                                     <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="tours.html">Our Tours</a>
 										<div class="dropdown-menu">
                                             <a class="dropdown-item" href="tours.html">Tours Listing</a>
                                             <a class="dropdown-item" href="tour.html">Tour Details</a>
@@ -99,10 +99,10 @@
                                         <a class="dropdown-item" href="post.html">Blog post</a>
                                         </div>
 									</li> --}}
-									<li class="nav-item"><a class="nav-link {{ request()->is('contact-us') ? 'open' : '' }}" href="/contact-us">Contact</a></li>
+									<li class="nav-item"><a class="nav-link {{ request()->is('contact-us') ? 'open' : '' }}" href="/contact-us">Contact  Us</a></li>
 									@auth
                                         <li class="nav-item"><a class="nav-link " href="/admin/home">Admin</a></li>
-                                        @else
+                                    @else
                                         <li class="nav-item"><a class="nav-link {{ request()->is('login') ? 'open' : '' }}" href="/login">Login</a></li>
 									    <li class="nav-item"><a class="nav-link {{ request()->is('register') ? 'open' : '' }}" href="/register">Register</a></li>
                                     @endauth
@@ -158,7 +158,7 @@
 								<li><a href="#">Services</a></li>
 								<li><a href="#">About us</a></li>
 								<li><a href="#">Boat Fleet</a></li>
-								<li><a href="#">Parts Shop </a></li>
+								<li><a href="/asscesories">Accesories </a></li>
 								{{-- <li><a href="#">Contact us</a></li>
 								<li><a href="#">Buy or Sell Boats</a></li>
 								<li><a href="#">Featured Vehicles</a></li> --}}

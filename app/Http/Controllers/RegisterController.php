@@ -14,6 +14,7 @@ class RegisterController extends Controller// implements Authenticatable
     {
         $validated = $request->validate([
             'trading_name'=>'required',
+            'contact_person'=>'required',
             'physical_address'=>'required',
             'mobile'=>'required']
         );
@@ -33,6 +34,39 @@ class RegisterController extends Controller// implements Authenticatable
             'mobile'=>request('mobile'),
             'office_number'=>request('office_number'),
             'website'=>request('website'),
+            'email'=>request('email'),
+            'is_active'=>0,
+        ]);
+        $user = User::findOrFail(auth()->user()->id);
+        $user->dealer_id=$id->id;
+        $user->save();
+        Auth::loginUsingId(auth()->user()->id);
+        return redirect('admin/home');
+
+    }
+    public function private(Request $request)
+    {
+        $validated = $request->validate([
+            'contact_person'=>'required',
+            'physical_address'=>'required',
+            'mobile'=>'required']
+        );
+
+        $acc = Counter::where('name', 'private')->first();
+        $account_number = $acc->prefix.$acc->number;
+        $acc->number++;
+        $acc->save();
+
+        $id = Dealer::create([
+            'account_number'=>$account_number,
+            'registered_name'=>request('contact_person'),
+            'trading_name'=>null,
+            'vat_number'=>null,
+            'physical_address'=>request('physical_address'),
+            'contact_person'=>request('contact_person'),
+            'mobile'=>request('mobile'),
+            'office_number'=>null,
+            'website'=>null,
             'email'=>request('email'),
             'is_active'=>0,
         ]);

@@ -21,6 +21,7 @@ Route::get('/showroom/detail/{id}', [App\Http\Controllers\Site\ShowroomControlle
 
 Auth::routes();
 Route::post('auth/dealer', [\App\Http\Controllers\RegisterController::class, 'dealer']);
+Route::post('auth/private', [\App\Http\Controllers\RegisterController::class, 'private']);
 
 Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -34,6 +35,8 @@ Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('boats/images/{id}', [\App\Http\Controllers\Admin\BoatsController::class, 'images']);
     Route::get('boats/additional/{id}', [\App\Http\Controllers\Admin\BoatsController::class, 'additional']);
     Route::get('users', [\App\Http\Controllers\Admin\UsersController::class, 'index']);
+    // Stock
+    Route::resource('stock/items', \App\Http\Controllers\Admin\StockItemsController::class);
     //Search
     Route::post('/search/manufacturers', [\App\Http\Controllers\Admin\SearchController::class, 'manufacturers']);
     Route::post('/search/models', [\App\Http\Controllers\Admin\SearchController::class, 'models']);

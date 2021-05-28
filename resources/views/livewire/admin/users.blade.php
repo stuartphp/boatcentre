@@ -5,7 +5,12 @@
             <div class="col-md-8">Users / List &nbsp; <div wire:loading>Processing...</div></div>
             <div class="col-md-4">
                 <div class="row">
-                    <div class="col-1"><a href="#" wire:click.prevent="modalAction('add', 0)"><i class="fa fa-plus mt-2"></i></a></div>
+                    <div class="col-1">
+                    @if (auth()->user()->profile < 3)
+                        <a href="#" wire:click.prevent="modalAction('add', 0)"><i class="fa fa-plus mt-2"></i></a>
+                    @endif
+
+                    </div>
                         <div class="col-7"><input type="search" class="form-control form-control-sm" wire:model="search" placeholder="Search" /></div>
                         <div class="col-4"><select class="form-select form-select-sm" wire:model="page_size">
                                 <option value="12">12</option>
