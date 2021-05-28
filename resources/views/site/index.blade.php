@@ -117,43 +117,6 @@ data-slider-arrows="false" data-slider-buttons="false">
             </div>
         </div>
     </div>
-    <!-- end .b-services-->
-    <div class="section-advantages">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="b-advantages">
-                        <div class="ic flaticon-boat text-secondary"></div>
-                        <div class="b-advantages__main">
-                            <div class="b-advantages__title">Priceless Experience</div>
-                            <div class="decore01"></div>
-                            <div class="b-advantages__info">Speacialising in fishing boats, but offering the local market a full variety of vessels from the pleasure boats to high end luxury yachts.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="b-advantages">
-                        <div class="ic flaticon-island text-secondary"></div>
-                        <div class="b-advantages__main">
-                            <div class="b-advantages__title">International Exports</div>
-                            <div class="decore01"></div>
-                            <div class="b-advantages__info">Boat Centre soon extended their services and exported boats to countries across their borders. Now operating internationally with the same service excellence that we first started with.</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="b-advantages">
-                        <div class="ic flaticon-yatch text-secondary"></div>
-                        <div class="b-advantages__main">
-                            <div class="b-advantages__title">Manufactur / Design </div>
-                            <div class="decore01"></div>
-                            <div class="b-advantages__info">Dealing with numerous manufacturers and being involved in boat design and projects over many years, we have learnt and know the various hulls, history and origin of many vessels built both within our borders and abroad.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <section class="section-goods">
         <div class="section-default section-goods__inner bg-dark">
             <div class="ui-decor ui-decor_mirror ui-decor_center"></div>
@@ -467,209 +430,6 @@ data-slider-arrows="false" data-slider-buttons="false">
             </div>
         </div>
     </section>
-    <section class="section-progress  ">
-        <div class="container">
-            <div class="dw-wrap">
-                <div class="row">
-                    <div class="col-xs-12 col-md-4">
-                        <div class="dw-img"><img src="{{ asset('images/deal-weak.jpg') }}" alt="photo"></div>
-                    </div>
-                    <div class="col-xs-12 col-md-8">
-                        <div class="dw-info">
-                            <h5 class="decore-title">Deal Of The Week
-
-                            </h5>
-                            <h3>DayDream Boat <span>Rent For $800 / HRS</span></h3>
-                            <div class="dw-text">Builder /Model: French Waves | Type/Year: House Boat 2019 | Length: 105 FT
-                                32 M Charter Guests: 200 | Crew Members: 6</div>
-                            <div class="dw-footer"><i class="fas fa-phone-square"></i> Booking a Charter Boat <strong>+1 755
-                                    302 8549</strong></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- <!-- Counters -->
-				<div class="row bg-counters">
-					<!-- Counter #1 -->
-					<div class="col-12 col-md-6 col-lg-3">
-						<div class="b-progress-list cr-counters bg-accent-1 bg-accent-color1">
-							<div class="cr-counters__icon"> <i class="flaticon-sailor"></i> </div>
-							<div class="cr-counters__numbers js-chart" data-percent="240"> <span class="js-percent"></span> <span>+</span> </div>
-							<div class="cr-counters__description">Travel Destinations Offered</div>
-						</div>
-					</div>
-					<!-- Counter #2 -->
-					<div class="col-12 col-md-6 col-lg-3">
-						<div class="cr-counters bg-accent-2 bg-accent-color2 ">
-							<div class="cr-counters__icon"> <i class="flaticon-snorkel"></i> </div>
-							<div class="cr-counters__numbers js-chart" data-percent="980"> <span class="js-percent"></span> <span>+</span></div>
-							<div class="cr-counters__description">Travel Destinations Offered</div>
-						</div>
-					</div>
-					<!-- Counter #3 -->
-					<div class="col-12 col-md-6 col-lg-3">
-						<div class="cr-counters bg-accent-1 bg-accent-color3">
-							<div class="cr-counters__icon"> <i class="flaticon-island-1"></i> </div>
-							<div class="cr-counters__numbers js-chart" data-percent="175"> <span class="js-percent"></span> <span>+</span></div>
-							<div class="cr-counters__description">Travel Destinations Offered</div>
-						</div>
-					</div>
-					<!-- Counter #4 -->
-					<div class="col-12 col-md-6 col-lg-3">
-						<div class="cr-counters  bg-accent-color4">
-							<div class="cr-counters__icon"> <i class="flaticon-chef-hat"></i> </div>
-							<div class="cr-counters__numbers js-chart" data-percent="630"> <span class="js-percent"></span> <span>+</span></div>
-							<div class="cr-counters__description">Travel Destinations Offered</div>
-						</div>
-					</div>
-				</div>
-				<!-- End of Counters --> --}}
-        </div>
-    </section>
-    <section class="section-goods-offers">
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="text-left offers-left">
-                    <h2 class="ui-title">Premium Boat<br>
-                        Rental Services</h2> <img src="/images/decore02.png" alt="photo">
-                    <div class="offers-left-text">
-                        <p>Eorem ipsum dolor amet consectetur sed adipisicing elit sed eiusmod tempor et dolore magna aliqua
-                            minim veniam, quis nostrud exercitation aliquip ex ea consequat duis aute irure dolorin.</p>
-                    </div>
-
-                    <a class="btn btn-primary" href="#">view more</a>
-
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-8">
-                <div class="b-offers-slider ui-slider_arr-prim js-slider"
-                    data-slick="{&quot;slidesToShow&quot;: 3, &quot;slidesToScroll&quot;: 1, &quot;dots&quot;: false, &quot;arrows&quot;: true, &quot;autoplay&quot;: true,   &quot;responsive&quot;: [{&quot;breakpoint&quot;: 992, &quot;settings&quot;: {&quot;slidesToShow&quot;: 1, &quot;slidesToScroll&quot;: 1}}]}">
-                    <div class="b-offers-nevica">
-                        <div class="b-offers-nevica-photo"> <img src="{{ asset('images/offers001.jpg') }}" alt="photo">
-                        </div>
-                        <h6>Water Sports Boat</h6>
-                        <div class="decore01"></div>
-                        <p>Adipisicing eiusmod tempor incidids labore dolore magna aliqa ust enim ad minim veniams quis
-                            nostrs sed citation ullam coy laboris nisit.</p>
-                    </div>
-                    <!-- end .b-offers-->
-                    <div class="b-offers-nevica">
-                        <div class="b-offers-nevica-photo"> <img src="{{ asset('images/offers002.jpg') }}" alt="photo">
-                        </div>
-                        <h6>Family Gathering</h6>
-                        <div class="decore01"></div>
-                        <p>Adipisicing eiusmod tempor incidids labore dolore magna aliqa ust enim ad minim veniams quis
-                            nostrs sed citation ullam coy laboris nisit.</p>
-                    </div>
-                    <!-- end .b-offers-->
-                    <div class="b-offers-nevica">
-                        <div class="b-offers-nevica-photo"> <img src="{{ asset('images/offers003.jpg') }}" alt="photo">
-                        </div>
-                        <h6>Corporate Events</h6>
-                        <div class="decore01"></div>
-                        <p>Adipisicing eiusmod tempor incidids labore dolore magna aliqa ust enim ad minim veniams quis
-                            nostrs sed citation ullam coy laboris nisit.</p>
-                    </div>
-                    <!-- end .b-offers-->
-                    <div class="b-offers-nevica">
-                        <div class="b-offers-nevica-photo"> <img src="{{ asset('images/offers004.jpg') }}" alt="photo">
-                        </div>
-                        <h6>Celebrations events</h6>
-                        <div class="decore01"></div>
-                        <p>Adipisicing eiusmod tempor incidids labore dolore magna aliqa ust enim ad minim veniams quis
-                            nostrs sed citation ullam coy laboris nisit.</p>
-                    </div>
-                    <!-- end .b-offers-->
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-video section-default section-goods__inner bg-dark ">
-
-        <div class="ui-decor ui-decor_mirror ui-decor_center"></div>
-
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-10 col-lg-10">
-                    <div class="video-info">
-                        <p><img src="/images/decore02.png" alt="decore">Give us a call or drop an email, We endeavor to
-                            answer within 24 hours</p>
-                        <h4>We’ve Exclusive Boats With Charter Offers</h4>
-                        <h5>LET’S PLAN YOUR NEXT TOUR!</h5>
-                        <ul>
-                            <li><i class="fas fa-phone-square"></i> Call Us Today: +1 755 302 8549</li>
-                            <li><i class="fas fa-envelope-square"></i> Email: <a
-                                    href="mailto:name@rmy-domain.com">support@my-domain.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-12 col-md-2 col-lg-2">
-                    <a class="video-btn venobox ternary-video-btn-style vbox-item popup-youtube" data-vbtype="video"
-                        data-autoplay="true" href="../../watch.html?v=JAIvWg4iQHo"><i class="fa fa-play"></i>
-                        <div class="pulsing-bg"></div>
-                        <span>Watch A Tour</span>
-                    </a>
-
-
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section-gallery">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="ui-title">Picture Gallery</h2>
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <p>Dolore magna aliqua enim ad minim veniam, quis nostrud exercitation aliquip duis aute irure
-                            dolorin <br> reprehenderits vol dolore fugiat nulla pariatur excepteur sint occaecat cupidatat.
-                        </p>
-                        <img src="/images/decore03.png" alt="photo">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="ui-gallery js-zoom-gallery">
-            <div class="row no-gutters">
-                <div class="col-lg-3 col-sm-6">
-                    <a class="ui-gallery__img js-zoom-gallery__item" href="#"><img class="img-scale"
-                            src="/images/gal001.jpg" alt="photo"></a>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <a class="ui-gallery__img js-zoom-gallery__item" href="#"><img class="img-scale"
-                            src="/images/gal003.jpg" alt="photo"></a>
-                </div>
-                <div class="col-lg-2 col-sm-6">
-                    <a class="ui-gallery__img js-zoom-gallery__item" href="#"><img class="img-scale"
-                            src="/images/gal009.jpg" alt="photo"></a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a class="ui-gallery__img js-zoom-gallery__item" href="#"><img class="img-scale"
-                            src="/images/gal005.jpg" alt="photo"></a>
-                </div>
-            </div>
-            <div class="row no-gutters">
-                <div class="col-lg-5 col-sm-6">
-                    <a class="ui-gallery__img js-zoom-gallery__item" href="#"><img class="img-scale"
-                            src="/images/gal006.jpg" alt="photo"></a>
-                </div>
-                <div class="col-lg-2 col-sm-6">
-                    <a class="ui-gallery__img js-zoom-gallery__item" href="#"><img class="img-scale"
-                            src="/images/gal008.jpg" alt="photo"></a>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <a class="ui-gallery__img js-zoom-gallery__item" href="#"><img class="img-scale"
-                            src="/images/gal007.jpg" alt="photo"></a>
-                </div>
-                <div class="col-lg-2 col-sm-6">
-                    <a class="ui-gallery__img js-zoom-gallery__item" href="#"><img class="img-scale"
-                            src="/images/gal004.jpg" alt="photo"></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="section-reviews area-bg area-bg_dark area-bg_op_90">
         <div class="area-bg__inner section-default">
             <div class="container text-center">
@@ -725,6 +485,7 @@ data-slider-arrows="false" data-slider-buttons="false">
             </div>
         </div>
     </section>
+    {{--
     <section class="section-article section-default">
         <div class="container">
             <div class="text-center">
@@ -808,7 +569,7 @@ data-slider-arrows="false" data-slider-buttons="false">
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="section-default section-banners">
         <div class="container">
             <div class="text-center"> <img src="/images/banners.jpg" alt="photo"> </div>
