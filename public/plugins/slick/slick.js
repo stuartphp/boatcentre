@@ -2567,7 +2567,6 @@
             if (dontAnimate !== true) {
 
                 _.fadeSlideOut(oldSlide);
-
                 _.fadeSlide(animSlide, function() {
                     _.postSlide(animSlide);
                 });
@@ -2597,7 +2596,6 @@
 
             _.$prevArrow.hide();
             _.$nextArrow.hide();
-
         }
 
         if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {

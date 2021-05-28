@@ -20,6 +20,7 @@ Route::post('/showroom', [App\Http\Controllers\Site\ShowroomController::class, '
 Route::get('/showroom/detail/{id}', [App\Http\Controllers\Site\ShowroomController::class, 'detail']);
 
 Auth::routes();
+Route::post('auth/dealer', [\App\Http\Controllers\RegisterController::class, 'dealer']);
 
 Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,6 +32,7 @@ Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::get('dealers', [\App\Http\Controllers\Admin\DealersController::class, 'index']);
     Route::get('dealers/info/{id}', [\App\Http\Controllers\Admin\DealersController::class, 'info']);
     Route::get('boats/images/{id}', [\App\Http\Controllers\Admin\BoatsController::class, 'images']);
+    Route::get('boats/additional/{id}', [\App\Http\Controllers\Admin\BoatsController::class, 'additional']);
     Route::get('users', [\App\Http\Controllers\Admin\UsersController::class, 'index']);
     //Search
     Route::post('/search/manufacturers', [\App\Http\Controllers\Admin\SearchController::class, 'manufacturers']);

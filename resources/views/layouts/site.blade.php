@@ -227,5 +227,6 @@
 	<!-- User customization-->
 	<script src="/js/custom.js"></script>
 	@livewireScripts
+    @yield('scripts')
 </body>
 </html>

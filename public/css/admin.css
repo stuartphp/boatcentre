@@ -79,3 +79,6 @@ body {
     cursor: pointer;
   }
   .note-dialog .modal-dialog{ z-index:1050; }
+  .select2-container .select2-selection--single {
+    height: 31px;
+}

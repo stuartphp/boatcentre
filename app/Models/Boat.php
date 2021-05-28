@@ -18,6 +18,7 @@ class Boat extends Model
         'cof',
         'boat_manufacturer_model_id',
         'boat_manufacturer_id',
+        'boat_category_id',
         'year_of_manufacture',
         'main_color',
         'new_used',
@@ -68,5 +69,9 @@ class Boat extends Model
     public function images()
     {
         return $this->hasMany(BoatImage::class)->orderBy('sort_order','asc');
+    }
+    public function additionals()
+    {
+        return $this->hasMany(BoatAdditional::class);
     }
 }

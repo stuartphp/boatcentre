@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Boat;
+use App\Models\BoatCategory;
 use App\Models\BoatManufacturer;
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -13,6 +14,7 @@ class BoatsController extends Controller
 {
     public function index()
     {
+        //SELECT * FROM `boat_categories` ORDER BY parent_id ASC, name ASC
         // $data = Boat::paginate(15);
         // return view('admin.boats.index', compact('data'));
         return view(('admin.boats'));
@@ -20,9 +22,10 @@ class BoatsController extends Controller
 
     public function create()
     {
+        $categories = BoatCategory::orderBy('parent_id', 'asc')->get();
         $manufacturers = BoatManufacturer::orderBy('name')->pluck('name', 'id')->toArray();
         $action='create';
-        return view('admin.boats.form', compact('manufacturers', 'action'));
+        return view('admin.boats.form', compact('manufacturers', 'action', 'categories'));
     }
 
     public function store()
@@ -58,9 +61,10 @@ class BoatsController extends Controller
     public function edit($id)
     {
         $data = Boat::findOrFail($id);
+        $categories = BoatCategory::orderBy('parent_id', 'asc')->get();
         $manufacturers = BoatManufacturer::orderBy('name')->pluck('name', 'id')->toArray();
         $action='update';
-        return view('admin.boats.form', compact('data', 'manufacturers', 'action'));
+        return view('admin.boats.form', compact('data', 'manufacturers', 'action', 'categories'));
     }
 
     public function update($id)
@@ -87,6 +91,10 @@ class BoatsController extends Controller
     {
         return view('admin.boats.images', ['id'=>$id]);
     }
+    public function additional($id)
+    {
+        return view('admin.boats.additional', ['id'=>$id]);
+    }
 
     public function validation()
     {
@@ -95,6 +103,7 @@ class BoatsController extends Controller
             'name',
             'boat_manufacturer_model_id'=>'required|integer',
             'boat_manufacturer_id'=>'required|integer',
+            'boat_category_id'=>'required',
             'province_id'=>'required|integer',
             'city_id'=>'required|integer',
             'short_description'=>'required',

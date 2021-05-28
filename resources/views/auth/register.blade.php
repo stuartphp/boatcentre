@@ -57,7 +57,7 @@
                             <label for="profile" class="col-md-4 col-form-label text-md-right">Profile</label>
 
                             <div class="col-md-6">
-                                <select id="profile"class="form-control selectpicker" data-style="ui-style">
+                                <select id="profile"class="form-control selectpicker" name="profile" data-style="ui-style">
                                     <option value="2">Dealer</option>
                                     <option value="3">Private</option>
                                 </select>

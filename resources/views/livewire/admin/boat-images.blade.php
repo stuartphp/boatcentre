@@ -5,15 +5,18 @@
                 <div class="col-sm-5"><a href="/admin/boats">Boat Listings</a> / Images for {{ $boat->name }} ({{ $count }})</div>
                 <div class="col-sm-7">
                     <form wire:submit.prevent="save">
-                        <input type="file" wire:model="photos" multiple>
-                        @error('photos.*') <span class="error">{{ $message }}</span> @enderror
-                        <button type="submit" class="btn btn-primary btn-sm">Upload Images</button>
+                        <div class="row">
+                            <div class="input-group">
+                                <input type="file" class="form-control" wire:model="photos" multiple aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Upload Images</button>
+                              </div>@error('photos.*') <span class="error">{{ $message }}</span> @enderror
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="card-body">
-            <h5>Click and hold to drag</h5>
+            <h5>Click and hold to drag. All images will be resized and turned horizontally to maintain uniformity on this site. Any Image above 2MB will not be uploaded.</h5>
         <div class="row" wire:sortable="updateOrder">
             @foreach ($images as $img)
                 <div class="col-lg-2 border ms-2 me-2 mb-3 text-center"

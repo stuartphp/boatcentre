@@ -44,6 +44,9 @@ function doAction(id, val){
         case 'images':
             window.location.href='/admin/boats/images/'+id;
             break;
+        case 'additional':
+            window.location.href='/admin/boats/additional/'+id;
+            break;
     }
 }
     </script>

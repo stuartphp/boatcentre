@@ -24,7 +24,6 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="b-goods-f__slider">
-
                         <div class="ui-slider-main js-slider-for">
                             @foreach ($boat->images as $img)
                             <img class="img-scale" src="/images/boats/{{ $img->image }}" alt="photo">
@@ -32,7 +31,7 @@
                         </div>
                         <div class="ui-slider-nav js-slider-nav">
                             @foreach ($boat->images as $img)
-                            <img class="img-scale" src="/images/boats/{{ $img->image }}" alt="photo">
+                            <img class="img-scale" src="/images/boats/{{ $img->image }}" height="90px" alt="photo">
                             @endforeach
                         </div>
                     </div>
@@ -124,7 +123,16 @@
                             {!! $boat->description !!}
                         </div>
                         <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                            Manufacturere and boat specs
+                            <div class="row">
+                            @foreach ($boat->additionals as $additional )
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-6"><b>{{ $additional->name }}</b></div>
+                                        <div class="col-6">{{ $additional->value }}</div>
+                                    </div>
+                                </div>
+                            @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -31,6 +31,22 @@
                 <input type="text" class="form-control form-control-sm" name="cof" value="{{ isset($data->cof) ? $data->cof : old('cof') }}"/>
             </div>
             <div class="mb-3">
+                <label for="boat_category_id">Boat Category</label>
+                <select class="form-select form-select-sm select" name="boat_category_id" id="boat_category_id" required>
+                   @foreach ($categories as $cat )
+                    @if ($cat->parent_id == 0)
+                        <optgroup label="{{ $cat->name }}">
+                            @foreach ($categories as $child )
+                                @if($child->parent_id == $cat->id)
+                                <option value="{{ $child->id }}">{{ $child->name }}</option>
+                                @endif
+                            @endforeach
+                        </optgroup>
+                    @endif
+                   @endforeach
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="boat_manufacturer_id">Manufacturer</label>
                 <select class="form-select form-select-sm select" onchange="getModels(this.value)" required name="boat_manufacturer_id" id="boat_manufacturer_id">
                     <option value="" selected>Select</option>
@@ -73,17 +89,7 @@
                 <input type="text" class="form-control form-control-sm" name="year_of_manufacture" value="{{ isset($data->year_of_manufacture) ? $data->year_of_manufacture : old('year_of_manufacture') }}"/>
                 @error('year_of_manufacture')<span class="text-danger">{{ $message }}</span>@enderror
             </div>
-            <div class="mb-3">
-                <label for="hull_construction">Hull Construction</label>
-                <select class="form-select form-select-sm" name="hull_construction" id="hull_construction">
-                    <option value="Aluminum"f>Aluminum</option>
-                    <option value="Carbon Fibre">Carbon Fibre</option>
-                    <option value="Fiberglass">Fiberglass</option>
-                    <option value="Steel">Steel</option>
-                    <option value="Wood">Wood</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
+
         </div>
         <div class="col-lg-4">
 
@@ -130,6 +136,17 @@
             </div>
         </div>
         <div class="col-lg-4">
+            <div class="mb-3">
+                <label for="hull_construction">Hull Construction</label>
+                <select class="form-select form-select-sm" name="hull_construction" id="hull_construction">
+                    <option value="Aluminum"f>Aluminum</option>
+                    <option value="Carbon Fibre">Carbon Fibre</option>
+                    <option value="Fiberglass">Fiberglass</option>
+                    <option value="Steel">Steel</option>
+                    <option value="Wood">Wood</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
             <div class="mb-3">
                 <label for="weight">Weight</label>
                 <input type="text" class="form-control form-control-sm" name="weight" value="{{ isset($data->weight) ? $data->weight : old('weight') }}"/>
@@ -248,6 +265,8 @@ $(function(){
     $('#condition').val({{ $data->condition }});
     $('#hull_construction').val('{{ $data->hull_construction }}');
     $('#fuel_type').val({{ $data->fuel_type }});
+    $('#boat_category_id').val({{ $data->boat_category_id }});
+    $('#boat_category_id').trigger('change');
 });
 @endif
 
@@ -320,10 +339,16 @@ $(function(){
     }
 
     $(function(){
+        console.log(screen.width);
+        let size=235;
+        if(screen.width < 1450)
+        {
+            size=198;
+        }
         $('#description').summernote({
             placeholder: 'Enter description',
             tabsize: 2,
-            height: 192,
+            height: size,
             toolbar: [
                 ['style', ['style']],
                 ['font', ['bold', 'underline', 'clear']],

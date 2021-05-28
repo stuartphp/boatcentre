@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\BoatImage;
 use App\Models\Boat;
+use Image;
 
 class BoatImages extends Component
 {
@@ -26,7 +27,7 @@ class BoatImages extends Component
     public function save()
     {
         $this->validate([
-            'photos.*' => 'image|max:1024', // 1MB Max
+            'photos.*' => 'image|max:2048', // 2MB Max
         ]);
 
         $x=$this->count;
@@ -40,6 +41,50 @@ class BoatImages extends Component
                     'image'=>$photo->hashName(),
                     'sort_order'=>$x,
                 ];
+                /** Resize and rotate the image */
+                $path = public_path('images/boats/'.$photo->hashName());
+                $img = Image::make($path);
+                $width = $img->width();
+                $height = $img->height();
+
+                // rotate Image
+                if($width < $height){
+                    if($width > 1500)
+                    {
+                        $img->resize(1280, null, function($con){
+                            $con->aspectRatio();
+                            $con->upsize();
+                        });
+                    }
+                    if($height > 720)
+                    {
+                        $img->resize(null, 720, function($con){
+                            $con->aspectRatio();
+                            $con->upsize();
+                        });
+                    }
+                    $img->rotate(-90);
+                }
+                if($width > $height)
+                {
+                    if($width > 1500)
+                    {
+                        $img->resize(1280, null, function($con){
+                            $con->aspectRatio();
+                            $con->upsize();
+                        });
+
+                    }
+                    if($height > 720)
+                    {
+                        $img->resize(null, 720, function($con){
+                            $con->aspectRatio();
+                            $con->upsize();
+                        });
+                    }
+                }
+
+                $img->save();
 
                 BoatImage::create($rec);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Image Uploaded']);

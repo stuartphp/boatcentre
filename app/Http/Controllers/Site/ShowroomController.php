@@ -11,11 +11,14 @@ class ShowroomController extends Controller
 {
     public function index()
     {
-        return view('site.showroom.index');
+        $manufacturers = $this->getManufacturers();
+        $categories = $this->getCategory();
+        $boats = Boat::with('images')->paginate(9);
+        return view('site.showroom.index', compact('boats', 'manufacturers', 'categories'));
     }
     public function detail($id)
     {
-        $boat = Boat::with(['dealer','images', 'manufacturer', 'model'])->findOrFail($id);
+        $boat = Boat::with(['dealer','images', 'manufacturer', 'model','additionals'])->findOrFail($id);
         return view('site.showroom.detail', compact('boat'));
     }
     public function search()
@@ -24,26 +27,13 @@ class ShowroomController extends Controller
     }
 
 
-    public function getCategories()
+    public function getManufacturers()
     {
-        $html = '';
-        $cat = DB::table('boat_categories')->orderBy('parent_id', 'asc')->orderBy('name')->get();
+        return DB::table('boat_manufacturers')->orderBy('name', 'asc')->pluck('name', 'id')->toArray();
+    }
 
-        foreach($cat as $k)
-        {
-            if($k->parent_id==0)
-            {
-                $html .= '<optgroup label="'.$k->name.'">';
-                foreach($cat as $sub)
-                {
-                    if($sub->parent_id == $k->id)
-                    {
-                        $html .='<option value="'.$sub->id.'">'.$sub->name.'</option>';
-                    }
-                }
-                $html .= '</optgroup>';
-            }
-        }
-        return $html;
+    public function getCategory()
+    {
+        return DB::table('boat_categories')->orderBy('parent_id', 'asc')->orderBy('name', 'asc')->get();
     }
 }

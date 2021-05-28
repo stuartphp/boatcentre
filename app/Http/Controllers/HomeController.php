@@ -15,13 +15,27 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Get Dealer Info
-        $dealer = DB::table('dealers')->where('id', auth()->user()->dealer_id)->first();
-        foreach($dealer as $k=>$v)
+        if(auth()->user()->dealer_id>0)
         {
-            session()->put($k, $v);
+            // Get Dealer Info
+            $dealer = DB::table('dealers')->where('id', auth()->user()->dealer_id)->first();
+            foreach($dealer as $k=>$v)
+            {
+                session()->put($k, $v);
+            }
+
+            return view('home');
+        }else{
+            switch(auth()->user()->profile)
+            {
+                case 2:
+                    return view('auth.dealer');
+                    break;
+                default:
+                    return view('auth.private');
+                    break;
+            }
         }
-        
-        return view('home');
+
     }
 }
