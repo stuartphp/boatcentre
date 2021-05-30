@@ -157,7 +157,7 @@
                                 </div> -->
                                 <div class="b-seller__title">
                                     <div class="b-seller__name">{{ $boat->dealer->trading_name }}</div>
-                                    <div class="b-seller__category">Member Since {{ date('M Y',strtotime($boat->created_at)) }}</div>
+                                    <div class="b-seller__category">Member Since {{ date('M Y',strtotime($boat->dealer->created_at)) }}</div>
                                 </div>
                             </div>
                             <div class="b-seller__main"><i class="b-seller__ic flaticon-phone-call text-primary"></i>

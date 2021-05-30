@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\StockItem;
+use App\Models\StockCategory;
+use App\Models\Counter;
+use Image;
+use PHPUnit\Framework\Constraint\Count;
 
 class StockItemsController extends Controller
 {
@@ -15,7 +19,7 @@ class StockItemsController extends Controller
      */
     public function index()
     {
-        $data = StockItem::orderBy('name')->paginate(15);
+        $data = StockItem::with('category')->orderBy('name')->paginate(15);
         return view('admin.stock.items', compact('data'));
     }
 
@@ -37,7 +41,35 @@ class StockItemsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->all();
+        $file = request()->file('image');
+        if($file)
+        {
+            $img = Image::make($file);
+            $path = public_path("images/stock");
+            $name = time().'.'.$file->getClientOriginalExtension();
+            $img->save($path.'/'.$name);
+            $data['image'] = $name;
+        }
+        if(empty($data['code']))
+        {
+            $nr = Counter::where('name', 'stock')->first();
+            $data['code']=$nr->prefix.$nr->number;
+            $nr->number++;
+            $nr->save();
+        }
+        if(!is_int(request('stock_category_id')))
+        {
+            // Geteate Category
+            $cat_id = StockCategory::create([
+                'name'=>request('stock_category_id')
+            ]);
+            $data['stock_category_id']=$cat_id->id;
+        }
+
+        //dd($data);
+        StockItem::create($data);
+        return redirect('admin/stock/items');
     }
 
     /**
@@ -48,7 +80,8 @@ class StockItemsController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = StockItem::findOrFail($id);
+        return response()->json(['data'=>$data]);
     }
 
     /**
@@ -59,7 +92,8 @@ class StockItemsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = StockItem::findOrFail($id);
+        return response()->json(['data'=>$data]);
     }
 
     /**
@@ -71,7 +105,35 @@ class StockItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = request()->all();
+        $file = request()->file('image');
+        if($file)
+        {
+            $img = Image::make($file);
+            $path = public_path("images/stock");
+            $name = time().'.'.$file->getClientOriginalExtension();
+            $img->save($path.'/'.$name);
+            $data['image'] = $name;
+        }
+        if(empty($data['code']))
+        {
+            $nr = Counter::where('name', 'stock')->first();
+            $data['code']=$nr->prefix.$nr->number;
+            $nr->number++;
+            $nr->save();
+        }
+        if(! (int)request('stock_category_id'))
+        {
+            // Geteate Category
+            $cat_id = StockCategory::create([
+                'name'=>request('stock_category_id')
+            ]);
+            $data['stock_category_id']=$cat_id->id;
+        }
+
+        $rec = StockItem::findOrFail($id);
+        $rec->update($data);
+        return redirect('/admin/stock/items');
     }
 
     /**

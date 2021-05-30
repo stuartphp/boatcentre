@@ -44,11 +44,11 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/admin/users">Users</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                {{-- <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
                             </ul>
                         </li>
                         @if (auth()->user()->profile == 1)
@@ -58,11 +58,11 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/admin/website/banners">Banners</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                {{-- <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -104,11 +104,11 @@
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            {{-- <li><a class="dropdown-item" href="#">Action</a></li>
                             <li><a class="dropdown-item" href="#">Another action</a></li>
                             <li>
                                 <hr class="dropdown-divider">
-                            </li>
+                            </li> --}}
                             <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

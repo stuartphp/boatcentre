@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BoatManufacturerModel;
 use App\Models\SaPostalCode;
+use App\Models\StockCategory;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
@@ -36,6 +37,27 @@ class SearchController extends Controller
         $id=request('id');
         $res = BoatManufacturerModel::find($id);
         return response()->json($res->specifications);
+    }
+
+    public function categories($id='')
+    {
+        if(request()->ajax())
+        {
+            if(!empty($id))
+            {
+                $res = StockCategory::where('id', $id)->get();
+            }else{
+                $search = request()->get('search');
+                $z=[];
+                $res = StockCategory::where('name', 'like', '%'.$search.'%')->get();
+            }
+
+            foreach($res as $r)
+            {
+                $z[]=['id'=>$r->id, 'text'=>$r->name];
+            }
+            return $z;
+        }
     }
 
 }

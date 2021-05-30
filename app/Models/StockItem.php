@@ -16,7 +16,13 @@ class StockItem extends Model
         'stock_category_id',
         'description',
         'retail_price',
+        'image',
         'on_hand',
         'is_active'
     ];
+
+    public function category()
+    {
+        return $this->hasOne(StockCategory::class, 'id','stock_category_id');
+    }
 }

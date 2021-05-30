@@ -41,6 +41,7 @@ Route::middleware(['auth', 'web'])->prefix('admin')->group(function(){
     Route::post('/search/manufacturers', [\App\Http\Controllers\Admin\SearchController::class, 'manufacturers']);
     Route::post('/search/models', [\App\Http\Controllers\Admin\SearchController::class, 'models']);
     Route::post('/search/city', [\App\Http\Controllers\Admin\SearchController::class, 'city']);
+    Route::post('/search/categories/{id?}', [\App\Http\Controllers\Admin\SearchController::class, 'categories']);
 });
 
 Route::any('/{any}', [App\Http\Controllers\Site\MainController::class, 'index']);
