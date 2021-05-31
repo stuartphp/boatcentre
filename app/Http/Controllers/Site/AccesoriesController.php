@@ -14,4 +14,9 @@ class AccesoriesController extends Controller
         return view('site.accesories', compact('data'));
     }
 
+    public function detail($id)
+    {
+        $data = StockItem::findOrFail($id);
+        return view('site.accesories-detail', compact('data'));
+    }
 }
