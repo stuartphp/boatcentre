@@ -20,42 +20,62 @@
 <div class="l-main-content">
     <div class="ui-decor ui-decor_mirror ui-decor_sm-h bg-primary"></div>
     <div class="container">
-        <div class="row">
-            <div class="col-xl-12 mb-3">
-                <div class="row" style="padding:5px 10px; border: 1px #ccc solid; background-color:#ccc; border-radius:5px">
-                    <div class="col"><select class="selectpicker" data-width="100%" data-live-search="true" data-style="ui-select">
-                        <option value="" selected>Category</option>
-                    @foreach ($categories as $cat )
-                        @if ($cat->parent_id == 0)
-                        <optgroup label="{{ $cat->name }}">
-                            @foreach ($categories as $child )
-                                @if ($child->parent_id == $cat->id)
-                                    <option value="{{ $child->id }}">{{ $child->name }}</option>
-                                @endif
-                            @endforeach
-                        </optgroup>
-                        @endif
-                    @endforeach
-                    </select></div>
-                    <div class="col">
-                        <select class="selectpicker" data-live-search="true" data-width="100%" data-style="ui-select">
-                            <option value="" selected>Manufacturer</option>
-                            @foreach ($manufacturers as $k=>$v)
-                            <option value="{{ $k }}">{{ $v }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col">
-                        <select class="selectpicker" data-live-search="true" data-width="100%" data-style="ui-select">
-                            <option value="" selected>Price Range</option>
-                            @foreach (__('global.price_range') as $k=>$v)
-                            <option value="{{ $k }}">{{ $v }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="col text-right"><button class="b-main-filter__btn btn btn-secondary" type="submit">Search</button></div>
+        <div class="b-about">
+            <div class="ui-decor ui-decor_down"></div>
+            <div class="container">
+                <div class="b-main-filter-content tab-content" id="findTabContent">
+                    <form action="/showroom" method="GET">
+                        <div class="tab-pane fade show active" id="content-allCar">
+                            <div class="row align-items-end no-gutters">
+                                <div class="b-main-filter__main col-lg">
+                                    <div class="b-main-filter__inner row no-gutters">
+                                        <div class="b-main-filter__item col-md-4">
+                                            <div class="b-main-filter__label">Select Boat Type</div>
+                                            <div class="b-main-filter__selector">
+                                                <select class="selectpicker" data-width="100%" data-style="ui-select"
+                                                    name="category" data-live-search="true">
+                                                    {!! $categories !!}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="b-main-filter__item col-md-4">
+                                            <div class="b-main-filter__label">Conditionl</div>
+                                            <div class="b-main-filter__selector">
+                                                <select class="selectpicker" data-width="100%" data-style="ui-select"
+                                                    name="condition">
+                                                    <option value="">Any</option>
+                                                    <option value="1" @if($condition==1) selected @endif>New</option>
+                                                    <option value="0" @if($condition==0) selected @endif>Used</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="b-main-filter__item col-md-4">
+                                            <div class="b-main-filter__label">Price Range</div>
+                                            <div class="b-main-filter__selector">
+                                                <select class="selectpicker" data-width="100%" data-style="ui-select"
+                                                    name="price_range">
+                                                    <option value="">Any</option>
+                                                    @foreach (__('global.price_range') as $k=>$v )
+                                                        <option value="{{ $k }}" @if ($k==$price) selected  @endif>{{ $v }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-auto">
+                                    <button class="b-main-filter__btn btn btn-secondary" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
                 </div>
+
             </div>
+        </div>
+        <div class="row">
             <div class="col-xl-12">
                 <div class="b-goods-group-2 row">
                     @foreach ($boats as $boat)
@@ -89,7 +109,7 @@
                             </div>
                         </div>
                     @endforeach
-            {{ $boats->links() }}
+            {{ $boats->appends(['condition'=>$condition, 'category'=>$category, 'price_range'=>$price])->links() }}
                 </div>
             </div>
         </div>

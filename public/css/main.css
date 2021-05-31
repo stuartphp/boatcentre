@@ -4537,6 +4537,10 @@ html .b-goods-slider .slick-list {
     background-image: url("../images/b03.jpg");
     background-size: cover;
 }
+.accesories {
+    background-image: url("../images/b05.jpg");
+    background-size: cover;
+}
 .detail {
     background-image: url("../images/b04.jpg");
     background-size: cover;

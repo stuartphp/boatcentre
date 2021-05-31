@@ -139,12 +139,12 @@
 						<section class="footer-section footer-section_link pl-5">
 							<h3 class="footer-section__title">Boat Services</h3>
 							<ul class="footer-list list-unstyled">
-								<li><a href="#">Showroom</a></li>
-								<li><a href="#">Cruise and Marina</a></li>
-								<li><a href="#">Yacht Party Event</a></li>
+								<li><a href="/showroom">Showroom</a></li>
+								 <li><a href="/accesories">Accesories</a></li>
+								{{--<li><a href="#">Yacht Party Event</a></li>
 								<li><a href="#">Corporate Event</a></li>
 								<li><a href="#">Fishing Cruiser</a></li>
-								{{-- <li><a href="#">Overnight Stay</a></li>
+								<li><a href="#">Overnight Stay</a></li>
 								<li><a href="#">Birthday Party Yacht</a></li>
 								<li><a href="#">Boar Rentals</a></li> --}}
 							</ul>
@@ -155,11 +155,11 @@
 							<h3 class="footer-section__title">About Us</h3>
 							<ul class="footer-list list-unstyled">
 								<li><a href="#"> Home</a></li>
-								<li><a href="#">Services</a></li>
+								{{-- <li><a href="#">Services</a></li>
 								<li><a href="#">About us</a></li>
 								<li><a href="#">Boat Fleet</a></li>
 								<li><a href="/asscesories">Accesories </a></li>
-								{{-- <li><a href="#">Contact us</a></li>
+								<li><a href="#">Contact us</a></li>
 								<li><a href="#">Buy or Sell Boats</a></li>
 								<li><a href="#">Featured Vehicles</a></li> --}}
 							</ul>

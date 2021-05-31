@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\Site\MainController::class, 'index']);
 Route::get('/contact-us', [App\Http\Controllers\Site\ContactController::class, 'index']);
+Route::get('/accesories', [App\Http\Controllers\Site\AccesoriesController::class, 'index']);
 Route::get('/showroom', [App\Http\Controllers\Site\ShowroomController::class, 'index']);
-Route::post('/showroom', [App\Http\Controllers\Site\ShowroomController::class, 'search']);
 Route::get('/showroom/detail/{id}', [App\Http\Controllers\Site\ShowroomController::class, 'detail']);
 
 Auth::routes();

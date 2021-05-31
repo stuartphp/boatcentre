@@ -34,8 +34,7 @@ data-slider-arrows="false" data-slider-buttons="false">
         <div class="ui-decor ui-decor_down"></div>
         <div class="container">
             <div class="b-main-filter-content tab-content" id="findTabContent">
-                <form action="/showroom" method="POST">
-                    @csrf
+                <form action="/showroom" method="GET">
                     <div class="tab-pane fade show active" id="content-allCar">
                         <div class="row align-items-end no-gutters">
                             <div class="b-main-filter__main col-lg">
@@ -66,15 +65,9 @@ data-slider-arrows="false" data-slider-buttons="false">
                                             <select class="selectpicker" data-width="100%" data-style="ui-select"
                                                 name="price_range">
                                                 <option value="">Any</option>
-                                                <option value="-10">
-                                                    < 10K</option>
-                                                <option value="-20">>10K < 25K</option>
-                                                <option value="-50">>25K < 50K</option>
-                                                <option value="50-100">> 50K < 100K</option>
-                                                <option value="100-200">> 100k < 200K</option>
-                                                <option value="200-550">> 200k < 500K</option>
-                                                <option value="500-1m">> 500k < 1M</option>
-                                                <option value="1m+">1M+</option>
+                                                @foreach (__('global.price_range') as $k=>$v )
+                                                    <option value="{{ $k }}">{{ $v }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
 
