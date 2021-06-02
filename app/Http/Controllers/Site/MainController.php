@@ -10,9 +10,9 @@ class MainController extends Controller
 {
     public function index()
     {
-        $banners = DB::table('website_banners')->where('is_active', 1)->get();
-        
-        return view('site.index', ['categories'=>$this->getCategories(), 'banners'=>$banners]);
+        //$banners = DB::table('website_banners')->where('is_active', 1)->get();
+
+        return view('site.index', ['categories'=>$this->getCategories()]);
     }
     public function getCategories()
     {

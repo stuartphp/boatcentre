@@ -2917,7 +2917,6 @@ html .b-goods-slider .slick-list {
     line-height: 1;
     letter-spacing: 4px;
     padding-bottom: 15px;
-    color: gold;
     font-weight: bold;
 }
 
@@ -4535,19 +4534,19 @@ html .b-goods-slider .slick-list {
     background-size: cover;
 }
 .contact {
-    background-image: url("../images/b02.jpg");
+    background-image: url("../images/contact_us.jpg");
     background-size: cover;
 }
 .showroom {
-    background-image: url("../images/b03.jpg");
+    background-image: url("../images/showroom.jpg");
     background-size: cover;
 }
 .accesories {
-    background-image: url("../images/b05.jpg");
+    background-image: url("../images/accessories.jpg");
     background-size: cover;
 }
 .detail {
-    background-image: url("../images/b04.jpg");
+    background-image: url("../images/accessories.jpg");
     background-size: cover;
 }
 

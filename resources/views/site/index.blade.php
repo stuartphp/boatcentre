@@ -5,28 +5,38 @@
 <div class="b-main-slider slider-pro" id="main-slider" data-slider-width="100%" data-slider-height="920px"
 data-slider-arrows="false" data-slider-buttons="false">
 <div class="sp-slides">
-    @foreach ($banners as $banner)
-        <div class="b-main-slider__slide b-main-slider__slide-1 sp-slide"><img class="sp-image" src="/images/banners/{{ $banner->image }}" alt="slider">
+
+        <div class="b-main-slider__slide b-main-slider__slide-1 sp-slide"><img class="sp-image" src="/images/banners/homepage1.jpg" alt="slider">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="sp-layer" data-width="100%" data-show-transition="left" data-hide-transition="left"
                             data-show-duration="800" data-show-delay="400" data-hide-delay="400">
                             <div class="b-main-slider__title-wrap">
-                                <div class="b-main-slider__slogan">{{ $banner->slogan }}</div>
-                                <div class="b-main-slider__title">{{ $banner->title }}</div>
-                                @if ($banner->link > '')
-                                    <div class="b-main-slider__label text-secondary">
-                                        <a href="/{{ $banner->link }}">Explore Now</a>
-                                    </div>
-                                @endif
+                                <div class="b-main-slider__slogan">Your <span style="color:gold">No.1</span> Online</div>
+                                <div class="b-main-slider__title">Boating Solution</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    @endforeach
+        <div class="b-main-slider__slide b-main-slider__slide-1 sp-slide"><img class="sp-image" src="/images/banners/homepage2.jpg" alt="slider">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="sp-layer" data-width="100%" data-show-transition="left" data-hide-transition="left"
+                            data-show-duration="800" data-show-delay="400" data-hide-delay="400">
+                            <div class="b-main-slider__title-wrap">
+                                <div class="b-main-slider__slogan">Your <span style="color:gold">No.1</span> Online</div>
+                                <div class="b-main-slider__title">Boating Solution</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </div>
 </div>
     <!-- end .b-main-slider-->
