@@ -21,6 +21,7 @@
     <div class="ui-decor ui-decor_sm-h ui-decor_mirror bg-primary"></div>
     <div class="container">
         <section class="b-goods-f">
+            @if($boat->is_sold==1) <h4 style="color: #ff0000">SOLD</h4> @endif
             <div class="row">
                 <div class="col-lg-8">
                     <div class="b-goods-f__slider">
@@ -139,7 +140,9 @@
                 <div class="col-lg-4">
                     <aside class="l-sidebar">
                         <div class="b-goods-f-price">
-                            <div class="b-goods-f-price__header bg-secondary"><span class="b-goods-f-price__main">R {{ number_format($boat->retail_price,2) }}</span></div>
+                            <div class="b-goods-f-price__header bg-secondary">
+                                <span class="b-goods-f-price__main" @if($boat->is_sold==1) style="text-decoration: line-through" @endif>R {{ number_format($boat->retail_price,2) }}</span>
+                            </div>
                         </div>
                         {{-- <div class="b-goods__wrap-bnrs">
 
