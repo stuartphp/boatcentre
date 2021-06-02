@@ -255,6 +255,9 @@ a {
     font-family: 'object-fit: cover;';
     -o-object-fit: cover;
     object-fit: cover;
+    position: relative;
+  top: 0;
+  left: 0;
 }
 
 .section-gallery {
@@ -2910,10 +2913,12 @@ html .b-goods-slider .slick-list {
 }
 
 .b-main-slider__slogan {
-    font-size: 18px;
+    font-size: 24px;
     line-height: 1;
     letter-spacing: 4px;
     padding-bottom: 15px;
+    color: gold;
+    font-weight: bold;
 }
 
 .b-main-slider__slogan_2 {

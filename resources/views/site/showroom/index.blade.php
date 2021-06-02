@@ -87,6 +87,7 @@
                                             <div class="b-goods-flip__img">
                                                 @if (isset($boat->images[0]->image))
                                                     <img class="img-scale" src="/images/boats/{{ $boat->images[0]->image }}" alt="photo" />
+                                                    @if($boat->is_sold==1)<div class="shop-label" style="background-color: #f80303; color: #fff">SOLD</div>@endif
                                                     @else
                                                     <img class="img-scale" src="/images/boats/placeholder.png" alt="photo" />
                                                 @endif
@@ -109,8 +110,7 @@
                             </div>
                         </div>
                     @endforeach
-            {{ $boats->appends(['condition'=>$condition, 'category'=>$category, 'price_range'=>$price])->links() }}
-                </div>
+                </div>{{ $boats->appends(['condition'=>$condition, 'category'=>$category, 'price_range'=>$price])->links() }}
             </div>
         </div>
     </div>

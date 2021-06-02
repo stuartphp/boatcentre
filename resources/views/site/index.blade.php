@@ -85,14 +85,13 @@ data-slider-arrows="false" data-slider-buttons="false">
             <div class="row">
                 <div class="col-lg-6 ">
                     <div class="text-left">
-                        <h2 class="ui-title">Providing a large fleet of Boats for a perfect experience</h2>
+                        <h2 class="ui-title">Providing an extensive range of boats suitable for your every need!</h2>
                         <div class="ui-content">
                             <p>Boat Centre - Established in 1998 , was borne with the passion of boating and fishing by the
                                 owner and CEO Shandon Hawman.
-                                <br>Early on with the introduction of online technology and the advancing internet services
-                                <br>Boat Centre soon evolved and entred in, creating the first South African online boating
-                                website.
-                                <br>Boat Centre soon was became and was renowned as - <strong>Your</strong><span
+                                <br>With the introduction of online technology and the advancing internet services,
+                                <br>Boat Centre plunged into the online marketing and boating sales, creating the first South African boating website.
+                                <br>Boat Centre became renowned as - <strong>Your</strong><span
                                     style="color:#f1c40f"> No 1</span> <strong>Online boating solution</strong>.
                             <ul class="arrow-list">
                                 <li><i class="fas fa-long-arrow-alt-right"></i>Fishing & Bass Boats</li>
@@ -139,29 +138,7 @@ data-slider-arrows="false" data-slider-buttons="false">
                                         <div class="b-goods__info">Stock#: 45098ES - 4 door, White, 2.5L, FWD, Automatic
                                             6-Speed, 2.5L 5 cyls, Florida CA</div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="b-goods__price text-primary"><span
-                                                class="b-goods__price-title">DEALER<br>PRICE</span><span
-                                                class="b-goods__price-number">$140
-                                                <span class="b-goods__price-after-price">Per Day</span></span>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="b-goods-descrip_nev_wrap">
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-user"></i> <span
-                                                class="b-goods-descrip__info">12 Guests</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-bed"></i> <span
-                                                class="b-goods-descrip__info">2 Master Bedroom</span> </div>
-                                    </div>
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-arrows-alt-h"></i> <span
-                                                class="b-goods-descrip__info"> 44 Feet</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span
-                                                class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -175,29 +152,7 @@ data-slider-arrows="false" data-slider-buttons="false">
                                         <div class="b-goods__info">Stock#: 45098ES - 4 door, White, 2.5L, FWD, Automatic
                                             6-Speed, 2.5L 5 cyls, Florida CA</div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="b-goods__price text-primary"><span
-                                                class="b-goods__price-title">DEALER<br>PRICE</span><span
-                                                class="b-goods__price-number">$325
-                                                <span class="b-goods__price-after-price">Per Day</span></span>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="b-goods-descrip_nev_wrap">
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-user"></i> <span
-                                                class="b-goods-descrip__info">12 Guests</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-bed"></i> <span
-                                                class="b-goods-descrip__info">2 Master Bedroom</span> </div>
-                                    </div>
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-arrows-alt-h"></i> <span
-                                                class="b-goods-descrip__info"> 44 Feet</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span
-                                                class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -211,29 +166,7 @@ data-slider-arrows="false" data-slider-buttons="false">
                                         <div class="b-goods__info">Stock#: 45098ES - 4 door, White, 2.5L, FWD, Automatic
                                             6-Speed, 2.5L 5 cyls, Florida CA</div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="b-goods__price text-primary"><span
-                                                class="b-goods__price-title">DEALER<br>PRICE</span><span
-                                                class="b-goods__price-number">$450
-                                                <span class="b-goods__price-after-price">Per Day</span></span>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="b-goods-descrip_nev_wrap">
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-user"></i> <span
-                                                class="b-goods-descrip__info">12 Guests</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-bed"></i> <span
-                                                class="b-goods-descrip__info">2 Master Bedroom</span> </div>
-                                    </div>
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-arrows-alt-h"></i> <span
-                                                class="b-goods-descrip__info"> 44 Feet</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span
-                                                class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -247,29 +180,7 @@ data-slider-arrows="false" data-slider-buttons="false">
                                         <div class="b-goods__info">Stock#: 45098ES - 4 door, White, 2.5L, FWD, Automatic
                                             6-Speed, 2.5L 5 cyls, Florida CA</div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="b-goods__price text-primary"><span
-                                                class="b-goods__price-title">DEALER<br>PRICE</span><span
-                                                class="b-goods__price-number">$160
-                                                <span class="b-goods__price-after-price">Per Day</span></span>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="b-goods-descrip_nev_wrap">
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-user"></i> <span
-                                                class="b-goods-descrip__info">12 Guests</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-bed"></i> <span
-                                                class="b-goods-descrip__info">2 Master Bedroom</span> </div>
-                                    </div>
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-arrows-alt-h"></i> <span
-                                                class="b-goods-descrip__info"> 44 Feet</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span
-                                                class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -283,29 +194,7 @@ data-slider-arrows="false" data-slider-buttons="false">
                                         <div class="b-goods__info">Stock#: 45098ES - 4 door, White, 2.5L, FWD, Automatic
                                             6-Speed, 2.5L 5 cyls, Florida CA</div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="b-goods__price text-primary"><span
-                                                class="b-goods__price-title">DEALER<br>PRICE</span><span
-                                                class="b-goods__price-number">$150
-                                                <span class="b-goods__price-after-price">Per Day</span></span>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="b-goods-descrip_nev_wrap">
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-user"></i> <span
-                                                class="b-goods-descrip__info">12 Guests</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-bed"></i> <span
-                                                class="b-goods-descrip__info">2 Master Bedroom</span> </div>
-                                    </div>
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-arrows-alt-h"></i> <span
-                                                class="b-goods-descrip__info"> 44 Feet</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span
-                                                class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -319,29 +208,7 @@ data-slider-arrows="false" data-slider-buttons="false">
                                         <div class="b-goods__info">Stock#: 45098ES - 4 door, White, 2.5L, FWD, Automatic
                                             6-Speed, 2.5L 5 cyls, Florida CA</div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="b-goods__price text-primary"><span
-                                                class="b-goods__price-title">DEALER<br>PRICE</span><span
-                                                class="b-goods__price-number">$470
-                                                <span class="b-goods__price-after-price">Per Day</span></span>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="b-goods-descrip_nev_wrap">
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-user"></i> <span
-                                                class="b-goods-descrip__info">12 Guests</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-bed"></i> <span
-                                                class="b-goods-descrip__info">2 Master Bedroom</span> </div>
-                                    </div>
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-arrows-alt-h"></i> <span
-                                                class="b-goods-descrip__info"> 44 Feet</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span
-                                                class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -355,29 +222,7 @@ data-slider-arrows="false" data-slider-buttons="false">
                                         <div class="b-goods__info">Stock#: 45098ES - 4 door, White, 2.5L, FWD, Automatic
                                             6-Speed, 2.5L 5 cyls, Florida CA</div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="b-goods__price text-primary"><span
-                                                class="b-goods__price-title">DEALER<br>PRICE</span><span
-                                                class="b-goods__price-number">$155
-                                                <span class="b-goods__price-after-price">Per Day</span></span>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="b-goods-descrip_nev_wrap">
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-user"></i> <span
-                                                class="b-goods-descrip__info">12 Guests</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-bed"></i> <span
-                                                class="b-goods-descrip__info">2 Master Bedroom</span> </div>
-                                    </div>
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-arrows-alt-h"></i> <span
-                                                class="b-goods-descrip__info"> 44 Feet</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span
-                                                class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -391,29 +236,7 @@ data-slider-arrows="false" data-slider-buttons="false">
                                         <div class="b-goods__info">Stock#: 45098ES - 4 door, White, 2.5L, FWD, Automatic
                                             6-Speed, 2.5L 5 cyls, Florida CA</div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="b-goods__price text-primary"><span
-                                                class="b-goods__price-title">DEALER<br>PRICE</span><span
-                                                class="b-goods__price-number">$230
-                                                <span class="b-goods__price-after-price">Per Day</span></span>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="b-goods-descrip_nev_wrap">
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-user"></i> <span
-                                                class="b-goods-descrip__info">12 Guests</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-bed"></i> <span
-                                                class="b-goods-descrip__info">2 Master Bedroom</span> </div>
-                                    </div>
-                                    <div class="b-goods-descrip_nev">
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-arrows-alt-h"></i> <span
-                                                class="b-goods-descrip__info"> 44 Feet</span> </div>
-                                        <div class="b-goods-descrip__nev"> <i class="fas fa-columns"></i> <span
-                                                class="b-goods-descrip__info"> Sun Deck, Kitchen ...</span> </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
@@ -437,38 +260,34 @@ data-slider-arrows="false" data-slider-buttons="false">
                         <div class="b-reviews-slider js-slider"
                             data-slick="{&quot;slidesToShow&quot;: 1, &quot;slidesToScroll&quot;: 1, &quot;autoplay&quot;: true, &quot;dots&quot;: false, &quot;arrows&quot;: false}">
                             <blockquote class="b-reviews">
-                                <div class="b-seller__img"><img class="img-scale" src="/images/avatar.jpg" alt="foto"></div>
-                                <div class="b-reviews__text">Exercit ullamco laboris nisiut aliquip ex ea com irure dolor
-                                    reprehs tempor incididunt ut labore dolore magna aliqua quis nostrud sed exercitation
-                                    ullamco laboris nisiut duis aute irure sit amet, consectetur adipisicing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+                                <div class="b-reviews__text">What an Awesome Experience. Shandon handled everything from sifting through tire kickers and ridiculous offers till he found the right buyer. I had no issues with banks, financing or couriering the boat to new owner. You want to sell a boat a boat you love, do it with Bass Boats South Africa. Hassel free, Send paperwork, Pics and Video of boat and he does the rest. Money in the bank!  Very Happy. Well-done Shandon and team.</div>
                                 <div class="b-reviews__footer">
-                                    <div class="b-reviews__name">Donald James</div>
-                                    <div class="b-reviews__category">Customer</div>
+                                    <div class="b-reviews__name">Ian Versfeld</div>
+                                    <div class="b-reviews__category">2021-03-10</div>
                                 </div>
                             </blockquote>
                             <!-- end .b-reviews-->
                             <blockquote class="b-reviews">
-                                <div class="b-seller__img"><img class="img-scale" src="/images/avatar.jpg" alt="foto"></div>
-                                <div class="b-reviews__text">Exercit ullamco laboris nisiut aliquip ex ea com irure dolor
-                                    reprehs tempor incididunt ut labore dolore magna aliqua quis nostrud sed exercitation
-                                    ullamco laboris nisiut duis aute irure sit amet, consectetur adipisicing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+                                <div class="b-reviews__text">excellant advice and the best service all round? thanks Shandon</div>
                                 <div class="b-reviews__footer">
-                                    <div class="b-reviews__name">Donald James</div>
-                                    <div class="b-reviews__category">Customer</div>
+                                    <div class="b-reviews__name">Donnathin De Beer</div>
+                                    <div class="b-reviews__category">2021-02-02</div>
                                 </div>
                             </blockquote>
                             <!-- end .b-reviews-->
                             <blockquote class="b-reviews">
-                                <div class="b-seller__img"><img class="img-scale" src="/images/avatar.jpg" alt="foto"></div>
-                                <div class="b-reviews__text">Exercit ullamco laboris nisiut aliquip ex ea com irure dolor
-                                    reprehs tempor incididunt ut labore dolore magna aliqua quis nostrud sed exercitation
-                                    ullamco laboris nisiut duis aute irure sit amet, consectetur adipisicing elit, sed do
-                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+                                <div class="b-reviews__text">Shandon sold my boat and got me into new boat in 48 hours. got my price and he negotiated me a great deal on my new boat. super impressed and I recommend him to anyone wanting a boat or selling 1. again Shandon thanks so much</div>
                                 <div class="b-reviews__footer">
-                                    <div class="b-reviews__name">Donald James</div>
-                                    <div class="b-reviews__category">Customer</div>
+                                    <div class="b-reviews__name">Gary Peter</div>
+                                    <div class="b-reviews__category">2019-04-04</div>
+                                </div>
+                            </blockquote>
+                            <!-- end .b-reviews-->
+                            <blockquote class="b-reviews">
+                                <div class="b-reviews__text">Shandon got a good deal for me. With great friendly service! I suggest using him and his recources and contacts!</div>
+                                <div class="b-reviews__footer">
+                                    <div class="b-reviews__name">Gary Dean Boyder</div>
+                                    <div class="b-reviews__category">2018-09-27</div>
                                 </div>
                             </blockquote>
                             <!-- end .b-reviews-->

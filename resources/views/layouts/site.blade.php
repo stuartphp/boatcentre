@@ -49,10 +49,10 @@
 						</div>
 						<div class="col-auto">
 							<ul class="header-soc list-unstyled">
-								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li>
-								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
-								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li>
-								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
+								{{-- <li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li> --}}
+								<li class="header-soc__item"><a class="header-soc__link" href="https://www.facebook.com/www.bassboats.co.za" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
+								{{-- <li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li> --}}
+								<li class="header-soc__item"><a class="header-soc__link" href="https://www.youtube.com/user/bassboatscentre" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -174,10 +174,10 @@
 								<div class="footer-contacts__item"><i class="ic icon-earphones-alt"></i> Phone: <a class="footer-contacts__phone" href="tel:+27832303935">+27 83 230 3935</a> </div>
 							</div>
 							<ul class="footer-soc list-unstyled">
-								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li>
-								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
-								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li>
-								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
+								{{-- <li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li> --}}
+								<li class="footer-soc__item"><a class="footer-soc__link" href="https://www.facebook.com/www.bassboats.co.za" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
+								{{-- <li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li> --}}
+								<li class="footer-soc__item"><a class="footer-soc__link" href="https://www.youtube.com/user/bassboatscentre" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
 							</ul>
                             {{-- <a class="btn btn-white" href="#">confirm booking</a> </section> --}}
 					</div>
