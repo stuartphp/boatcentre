@@ -103,8 +103,9 @@ class BoatImages extends Component
 
     public function deleteImage($id)
     {
+
         $rec = BoatImage::findOrFail($id);
-        unlink(public_path().'/images/boats/'.$rec->image);
+        @unlink(public_path().'/images/boats/'.$rec->image);
         $rec->delete();
         $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Image Deleted']);
     }
