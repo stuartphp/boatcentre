@@ -138,6 +138,9 @@
                 <div class="modal-body" id="message-body">
 
                 </div>
+                <div class="card-footer" id="message-footer">
+
+                </div>
             </div>
         </div>
     </div>

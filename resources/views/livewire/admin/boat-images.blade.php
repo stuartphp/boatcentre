@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="card-body">
-            <h5>Click and hold to drag. All images will be resized and turned horizontally to maintain uniformity on this site. Any Image above 2MB will not be uploaded.</h5>
+            <h5>Click and hold to drag. All images will be resized and turned horizontally to maintain uniformity on this site. Any Image above 3MB will not be uploaded.</h5>
         <div class="row">
         <div class="col-10">
             <div class="row" wire:sortable="updateOrder">

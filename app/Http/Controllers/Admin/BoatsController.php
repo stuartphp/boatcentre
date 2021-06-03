@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Boat;
 use App\Models\BoatCategory;
+use App\Models\BoatImage;
 use App\Models\BoatManufacturer;
 use Illuminate\Support\Facades\DB;
 use Validator;
@@ -94,6 +95,26 @@ class BoatsController extends Controller
     public function additional($id)
     {
         return view('admin.boats.additional', ['id'=>$id]);
+    }
+
+    public function destroy($id)
+    {
+        try{
+            DB::beginTransaction();
+            $images = DB::table('boat_images')->where('boat_id', $id)->get();
+            foreach($images as $img)
+            {
+                @unlink('/images/boats/'.$img->name);
+                DB::table('boat_images')->where('id', $img->id)->delete();
+            }
+            DB::table('boat_additionals')->where('boat_id', $id)->delete();
+            DB::table('boats')->where('id', $id)->delete();
+            DB::commit();
+        } catch (\Exception $e){
+            DB::rollBack();
+            dd($e);
+        }
+        return view(('admin.boats'));
     }
 
     public function validation()

@@ -27,7 +27,7 @@ class BoatImages extends Component
     public function save()
     {
         $this->validate([
-            'photos.*' => 'image|max:2048', // 2MB Max
+            'photos.*' => 'image|max:3072', // 2MB Max
         ]);
 
         $x=$this->count;
@@ -63,7 +63,7 @@ class BoatImages extends Component
                             $con->upsize();
                         });
                     }
-                    $img->rotate(-90);
+                    //$img->rotate(-90);
                 }
                 if($width > $height)
                 {
@@ -83,8 +83,8 @@ class BoatImages extends Component
                         });
                     }
                 }
-
                 $img->save();
+                
 
                 BoatImage::create($rec);
                 $this->dispatchBrowserEvent('alert', ['type' => 'success',  'message' => 'Image Uploaded']);

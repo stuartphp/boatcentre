@@ -35,7 +35,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody> 
                     @foreach ($data as $item)
                         <tr @if(auth()->user()->dealer_id != $item->dealer_id) class="table-info" @endif>
                             <td>{{ $item->reference }}</td>

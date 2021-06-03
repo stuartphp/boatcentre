@@ -141,7 +141,7 @@
                     <aside class="l-sidebar">
                         <div class="b-goods-f-price">
                             <div class="b-goods-f-price__header bg-secondary">
-                                <span class="b-goods-f-price__main" @if($boat->is_sold==1) style="text-decoration: line-through" @endif>R {{ number_format($boat->retail_price,2) }}</span>
+                                <span class="b-goods-f-price__main" @if($boat->is_sold==1) style="text-decoration: line-through" @endif>{{ session()->get('cur_symbol') }} {{ number_format(($boat->retail_price/session()->get('cur_ratio')),2) }}</span>
                             </div>
                         </div>
                         {{-- <div class="b-goods__wrap-bnrs">

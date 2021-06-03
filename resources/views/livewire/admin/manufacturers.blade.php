@@ -98,7 +98,7 @@
             </div>
         </div>
         <div class="fancy-modal-footer">
-            @if($model_action !='add')<button type="button" class="btn btn-danger btn-sm" wire:click.prevent="loadModel('destroy', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Delete</button>@endif
+            @if($model_action !='add')<button type="button" class="btn btn-danger btn-sm" wire:click.prevent="loadModel('destroy', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Delete</button>&nbsp;@endif
               <button type="button" class="btn btn-primary btn-sm" onclick="setCallBack('{{ $model_action }}', {{ $model_boat_manufacturer_id }}, {{ $model_row_id }})">Save changes</button>
         </div>
         </div>

@@ -416,6 +416,9 @@ $(function(){
                 }
             });
         }
+        if(action === 'delete'){
+            alert('del');
+        }
     });
 
 </script>

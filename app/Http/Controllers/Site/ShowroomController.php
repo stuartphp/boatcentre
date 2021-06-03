@@ -31,6 +31,7 @@ class ShowroomController extends Controller
         if(!empty($category) && !empty($condition) && !empty($price))
         {
             return Boat::with('images')
+            ->where('is_approved',1)->where('is_active', 1)
                     ->where('condition', $condition)
                     ->where('boat_category_id', $category)
                     ->whereBetween('retail_price', $this->priceRange($price))
@@ -39,6 +40,7 @@ class ShowroomController extends Controller
         if(!empty($category) && !empty($condition))
         {
             return Boat::with('images')
+            ->where('is_approved',1)->where('is_active', 1)
                     ->where('condition', $condition)
                     ->where('boat_category_id', $category)
                     ->paginate(12);
@@ -46,6 +48,7 @@ class ShowroomController extends Controller
         if(!empty($category) && !empty($price))
         {
             return Boat::with('images')
+            ->where('is_approved',1)->where('is_active', 1)
                     ->where('boat_category_id', $category)
                     ->whereBetween('retail_price', $this->priceRange($price))
                     ->paginate(12);
@@ -53,6 +56,7 @@ class ShowroomController extends Controller
         if(!empty($condition) && !empty($price))
         {
             return Boat::with('images')
+            ->where('is_approved',1)->where('is_active', 1)
                     ->where('boat_category_id', $condition)
                     ->whereBetween('retail_price', $this->priceRange($price))
                     ->paginate(12);
@@ -60,24 +64,27 @@ class ShowroomController extends Controller
         if(!empty($condition))
         {
             return Boat::with('images')
+            ->where('is_approved',1)->where('is_active', 1)
                     ->where('boat_category_id', $condition)
                     ->paginate(12);
         }
         if(!empty($category))
         {
             return Boat::with('images')
+            ->where('is_approved',1)->where('is_active', 1)
                     ->where('boat_category_id', $category)
                     ->paginate(12);
         }
         if(!empty($price))
         {
             return Boat::with('images')
+            ->where('is_approved',1)->where('is_active', 1)
                     ->whereBetween('retail_price', $this->priceRange($price))
                     ->paginate(12);
         }
 
 
-        return Boat::with('images')->paginate(12);
+        return Boat::with('images')->where('is_approved',1)->where('is_active', 1)->paginate(12);
     }
 
     public function priceRange($val)

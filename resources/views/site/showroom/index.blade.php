@@ -94,13 +94,13 @@
                                             </div>
                                             <div class="b-goods-flip__main">
                                                 <div class="b-goods-flip__header row no-gutters align-items-center">
-                                                    <div class="col"><a class="b-goods-flip__title" href="/showroom/detail/{{ $boat->id }}">{{ $boat->name }}</a></div>
-                                                    <div class="col-auto">
-                                                        <div class="b-goods-flip__price text-primary">R {{ number_format($boat->retail_price,2) }}</div>
+                                                    <div class="col-12"><a class="b-goods-flip__title" href="/showroom/detail/{{ $boat->id }}">{{ $boat->name }}</a></div>
+                                                    <div class="col-12 text-right">
+                                                        <div class="b-goods-flip__price text-primary">{{ session()->get('cur_symbol') }} {{ number_format(($boat->retail_price/session()->get('cur_ratio')),2) }}</div>
                                                     </div>
                                                 </div>
                                                 <div class="b-goods-descrip_nev_wrap">
-                                                    <div class="b-ex-info">{{ $boat->short_description }}</div>
+                                                    <!-- <div class="b-ex-info">{{ $boat->short_description }}</div> -->
                                                     <a class="btn btn-default w-100" href="/showroom/detail/{{ $boat->id }}">READ MORE</a>
                                                 </div>
                                             </div>

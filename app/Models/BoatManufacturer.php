@@ -14,6 +14,6 @@ class BoatManufacturer extends Model
         ];
     public function models()
     {
-        return $this->hasMany(BoatManufacturerModel::class, 'boat_manufacturer_id', 'id');
+        return $this->hasMany(BoatManufacturerModel::class, 'boat_manufacturer_id', 'id')->orderBy('model');
     }
 }

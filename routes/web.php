@@ -19,7 +19,7 @@ Route::get('/accesories', [App\Http\Controllers\Site\AccesoriesController::class
 Route::get('/accesories/detail/{id?}', [App\Http\Controllers\Site\AccesoriesController::class, 'detail']);
 Route::get('/showroom', [App\Http\Controllers\Site\ShowroomController::class, 'index']);
 Route::get('/showroom/detail/{id}', [App\Http\Controllers\Site\ShowroomController::class, 'detail']);
-
+Route::get('/currency/{id}', [\App\Http\Controllers\Site\MainController::class, 'currency']);
 Auth::routes();
 Route::post('auth/dealer', [\App\Http\Controllers\RegisterController::class, 'dealer']);
 Route::post('auth/private', [\App\Http\Controllers\RegisterController::class, 'private']);

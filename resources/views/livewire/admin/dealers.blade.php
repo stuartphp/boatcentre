@@ -37,7 +37,7 @@
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
-                        <tr>
+                        <tr @if($item->is_active==0) style="color:#ff0000" @endif>
                             <td>{{ $item->account_number }} </td>
                             <td>{{ ($item->trading_name>'') ? $item->trading_name : $item->registered_name }} </td>
                             <td>{{ $item->contact_person }} </td>
@@ -161,7 +161,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3"><button type="button" class="btn {{ $modal_btn}} btn-sm" wire:click="recordAction">{{ $modal_btn_title }}</button></div>
+                        <div class="col-sm-3 text-end"><button type="button" class="btn {{ $modal_btn}} btn-sm" wire:click="recordAction">{{ $modal_btn_title }}</button></div>
                     </div>
 
                 </div>

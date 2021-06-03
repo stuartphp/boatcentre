@@ -17,6 +17,7 @@
 <meta content="no" http-equiv="imagetoolbar">
 <![endif]-->
 @livewireStyles
+
 </head>
 
 <body class="page">
@@ -24,7 +25,7 @@
 	<div id="page-preloader"><span class="spinner border-t_second_b border-t_prim_a"></span></div>
 	<!-- Loader end-->
 	<div class="l-theme animated-css" data-header="sticky" data-header-top="200" data-canvas="container">
-		@livewire('site.top-search')
+
 		<!-- ==========================-->
 		<!-- MOBILE MENU-->
 		<!-- ==========================-->
@@ -47,12 +48,11 @@
 							<div class="top-bar__item"><i class="fas fa-phone-square"></i> Phone: +27 83 230 3935 </div>
 							<div class="top-bar__item"><i class="fas fa-envelope-square"></i> Email: info@boatcentre.co.za</div>
 						</div>
+
 						<div class="col-auto">
 							<ul class="header-soc list-unstyled">
-								{{-- <li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li> --}}
 								<li class="header-soc__item"><a class="header-soc__link" href="https://www.facebook.com/www.bassboats.co.za" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
-								{{-- <li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li> --}}
-								<li class="header-soc__item"><a class="header-soc__link" href="https://www.youtube.com/user/bassboatscentre" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
+								<li class="header-soc__item"><a class="header-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li>	<li class="header-soc__item"><a class="header-soc__link" href="https://www.youtube.com/user/bassboatscentre" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -106,7 +106,12 @@
                                         <li class="nav-item"><a class="nav-link {{ request()->is('login') ? 'open' : '' }}" href="/login">Login</a></li>
 									    <li class="nav-item"><a class="nav-link {{ request()->is('register') ? 'open' : '' }}" href="/register">Register</a></li>
                                     @endauth
-
+                                    <li class="nav-item dropdown">
+                                    <select class="form-control" name="currency" onchange="window.location.href='/currency/'+this.value">
+                                        <option value="ZAR" @if(session()->get('currency') == 'ZAR') selected @endif>ZAR</option>
+                                        <option value="USD" @if(session()->get('currency') == 'USD') selected @endif>USD</option>
+                                    </select>
+									</li>
 								</ul>
                                 <button class="header-main__btn btn btn-secondary">Sell Your Boat</button>
 								{{-- <span class="header-main__link btn_header_search"><i class="ic icon-magnifier"></i></span> --}}
@@ -176,7 +181,7 @@
 							<ul class="footer-soc list-unstyled">
 								{{-- <li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-twitter"></i></a></li> --}}
 								<li class="footer-soc__item"><a class="footer-soc__link" href="https://www.facebook.com/www.bassboats.co.za" target="_blank"><i class="ic fab fa-facebook-f"></i></a></li>
-								{{-- <li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li> --}}
+								<li class="footer-soc__item"><a class="footer-soc__link" href="#" target="_blank"><i class="ic fab fa-instagram"></i></a></li>
 								<li class="footer-soc__item"><a class="footer-soc__link" href="https://www.youtube.com/user/bassboatscentre" target="_blank"><i class="ic fab fa-youtube"></i></a></li>
 							</ul>
                             {{-- <a class="btn btn-white" href="#">confirm booking</a> </section> --}}
